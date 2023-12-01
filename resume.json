@@ -3,7 +3,7 @@
   "basics": {
     "name": "Ido Samuelson",
     "label": "Programmer",
-    "image": "https://media.licdn.com/dms/image/D5603AQGsfY6g7IvyxA/profile-displayphoto-shrink_800_800/0/1674699502915?e=1706745600&v=beta&t=iOJYOaPvh7g-4E5xzlMBxhqgz_I8u-HZ9IXdf2RA1tI",
+    "image": "https://gravatar.com/userimage/69310917/d2ecd272a3be58d58eed9212bbe44f40.jpeg?size=256",
     "email": "ido.samuelson@gmail.com",
     "phone": "7204537927",
     "summary": "",
@@ -299,7 +299,7 @@
   ],
   "projects": [],
   "meta": {
-    "theme": "elegent",
+    "theme": "elegant",
     "version": "v1.0.0",
     "canonical": "https://github.com/jsonresume/resume-schema/blob/v1.0.0/schema.json"
   }
