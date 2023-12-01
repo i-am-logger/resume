@@ -1,0 +1,23 @@
+theme "one-half-dark"
+layout name="Resumed" {
+    default_tab_template {
+        pane size=1 borderless=true {
+            plugin location="zellij:tab-bar"
+        }
+        children
+    }
+
+    tab name="Resumed" focus=true hide_floating_panes=true {
+        pane split_direction="vertical" {
+            pane name="editor" borderless=true {
+                edit "./resume.json"
+            }
+        }
+        pane split_direction="vertical" size=8 {
+            pane name="build/run" borderless=true {
+                // command "nix" 
+                // args "run .#live"
+            } 
+        }
+    }
+}

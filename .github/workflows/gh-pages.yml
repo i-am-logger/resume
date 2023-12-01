@@ -1,0 +1,27 @@
+---
+name: Update Github Pages
+
+'on':
+  push:
+    branches:
+      - main
+
+jobs:
+  update-resume-pages:
+    runs-on: ubuntu-22.04
+    permissions:
+      # This makes sure that this action has permissions to push to
+      # the gh-pages branch.
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DeterminateSystems/nix-installer-action@v6
+      - uses: DeterminateSystems/magic-nix-cache-action@v2
+
+      - run: |
+          nix build . -L
+
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./result

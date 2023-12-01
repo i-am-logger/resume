@@ -1,0 +1,30 @@
+---
+name: Update Resume Gist
+
+'on':
+  push:
+    branches:
+      - main
+
+jobs:
+  update-resume-gist:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DeterminateSystems/nix-installer-action@v6
+      - uses: DeterminateSystems/magic-nix-cache-action@v2
+
+      - run: |
+          nix build .#fmt-as-json && ./result
+
+      - name: Update Resume Gist
+        uses: exuanbo/actions-deploy-gist@v1
+        with:
+          #
+          # Manual configuration required for this to work.
+          #
+          # See the docs here: https://github.com/exuanbo/actions-deploy-gist
+          #
+          gist_id: 4b8f89610964e45e3b53f2f4463c69ec
+          token: ${{ secrets.TOKEN }}
+          file_path: resume.json

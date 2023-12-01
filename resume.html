@@ -1,0 +1,1654 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+	<title>Ido Samuelson</title>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css"
+				integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+
+	<style>
+		/********************************************
+* 	reset from
+* 	http://meyerweb.com/eric/tools/css/reset/
+*******************************************/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+description,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/****************
+*	COMMONS
+****************/
+
+body,
+html {
+  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-size: 13px;
+  color: #40484f;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.46153846;
+  text-align: left;
+  -webkit-text-size-adjust: 100%;
+}
+
+p {
+  display: block;
+}
+
+a {
+  color: #0095ff;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #0c65a5;
+  text-decoration: underline;
+}
+
+li {
+  list-style-type: square;
+  list-style-position: outside;
+  margin-left: 1.3em;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h1 a {
+  display: inline;
+  margin-left: 10px;
+  font-size: 14px;
+  font-family: "freight-sans-pro", lato, sans-serif;
+  vertical-align: middle;
+}
+
+h1 a:hover {
+  cursor: pointer;
+}
+
+h2 {
+  font-size: 1.67rem;
+}
+
+h3 {
+  font-size: 1.27rem;
+}
+
+em {
+  color: #757575;
+}
+
+blockquote {
+  margin-bottom: 1em;
+}
+
+strong {
+  font-weight: 700;
+}
+
+/* main container */
+
+#resume {
+  padding: 1.5rem;
+}
+
+/* every section wrapper */
+
+.section {
+  margin-bottom: 1rem;
+}
+
+section .location {
+  margin-right: 0.5em;
+  color: #606d76;
+  font-weight: 700;
+}
+
+#contact {
+  margin-top: 0.5rem;
+}
+
+#profiles .item {
+  padding: 0;
+}
+
+#header>#profiles,
+#header>#contact,
+#skills,
+#languages,
+#interests {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+#header>div {
+  line-height: 1.5;
+}
+
+#header>div>div {
+  margin-right: 1.2em;
+}
+
+#header h1.name {
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: 100%;
+}
+
+#header h2.label {
+  color: #202931;
+  font-size: 1.47rem;
+  font-weight: 300;
+}
+
+#header .image {
+  width: 11em;
+  float: right;
+  border-radius: 4px;
+}
+
+.main-summary {
+  background: #f1f8ff;
+  padding: 1.2em 1em;
+  /* margin-top: 1rem; */
+}
+
+.main-summary p {
+  margin: 0;
+}
+
+.section-title {
+  display: inline-block;
+  background: #fff;
+  padding: 0 1em 0.3em 0;
+  color: #ff6d1f;
+  text-transform: uppercase;
+  font-weight: 600;
+  border: none;
+  font-size: 0.9rem;
+}
+
+.section>header {
+  position: relative;
+}
+
+.fa {
+  margin-right: 0.25em;
+}
+
+.section>header::after {
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  height: 1px;
+  background: #ccc;
+  content: "";
+  width: 100%;
+  z-index: -100;
+  display: block;
+}
+
+.section.main-summary>section {
+  margin: 0;
+}
+
+.section>section>header {
+  font-size: 1.38rem;
+  position: relative;
+  margin-top: 0.7em;
+}
+
+.section>section>header:first-of-type {
+  margin: 0;
+}
+
+.section>section>header .space-left {
+  position: absolute;
+  left: -1.56rem;
+  top: 5px;
+  color: #aaa;
+  line-height: 1;
+  opacity: 0;
+}
+
+.project,
+.position,
+.company,
+.roles,
+.organization,
+.institution,
+.date,
+.area,
+.studyType,
+.title,
+.awarder {
+  display: inline;
+}
+
+.project,
+.position,
+.studyType,
+.area,
+.title,
+.language,
+.name {
+  font-weight: 600;
+}
+
+.company::before,
+.institution::before,
+.organization::before,
+.awarder::before {
+  content: "at ";
+}
+
+.roles::before {
+  content: "as "
+}
+
+.area::before {
+  content: "in "
+}
+
+.company,
+.roles,
+.institution,
+.organization,
+.awarder {
+  color: #606d76;
+  font-weight: 400;
+}
+
+.section header .date {
+  display: block;
+  font-size: 1rem;
+  padding: 0.1em 0;
+  color: #606d76;
+  font-weight: 400;
+}
+
+.keywords,
+.courses {
+  margin: 0.5em 0;
+}
+
+.keywords li,
+.courses li {
+  display: inline-block;
+  margin: 2px 2px 2px 0;
+  padding: 4px 5px 5px;
+  font-size: 0.9rem;
+  line-height: 1;
+  color: #3e6d8e;
+  background-color: #dfeaf1;
+  border: 0 solid #dfeaf1;
+  white-space: nowrap;
+}
+
+.keywords li:hover,
+.courses li:hover {
+  background: #dfeaf0;
+}
+
+.highlights {
+  margin: 1em 0 0 0;
+}
+
+.highlights>li>p {
+  margin-bottom: 0.5em;
+}
+
+.item {
+  overflow: hidden;
+}
+
+.score {
+  clear: both;
+  padding-bottom: 0.5em;
+}
+
+.fa.social {
+  font-size: 1.1em;
+}
+
+/* Social Media Brand Colors */
+
+.google-plus {
+  color: #dd4b39;
+}
+
+.tumblr {
+  color: #32506d;
+}
+
+.foursquare {
+  color: #0072b1;
+}
+
+.facebook {
+  color: #3b5998;
+}
+
+.linkedin {
+  color: #007bb6;
+}
+
+.pinterest {
+  color: #cb2027;
+}
+
+.dribbble {
+  color: #ea4c89;
+}
+
+.instagram {
+  color: #517fa4;
+}
+
+.twitter {
+  color: #00aced;
+}
+
+.soundcloud {
+  color: #ff3a00;
+}
+
+.wordpress {
+  color: #21759b;
+}
+
+.youtube {
+  color: #bb0000;
+}
+
+.github {
+  color: #171515;
+}
+
+.stack-overflow {
+  color: #828386;
+  position: relative;
+}
+
+.flickr {
+  color: #ff0084;
+}
+
+.reddit {
+  color: #ff4500;
+}
+
+.hacker-news {
+  color: #ff6600;
+}
+
+.stack-overflow::after {
+  position: absolute;
+  left: 0;
+  content: "\f16c";
+  color: #f68a1f;
+  overflow: hidden;
+  height: 100%;
+}
+
+.telegram {
+  color: #2291c3;
+}
+
+#languages .item,
+#skills .item,
+#interests .item {
+  width: 15em;
+  padding: 0 0.5em 0.5em 0;
+  border-bottom: none;
+}
+
+#skills .item {
+  width: 16em;
+}
+
+#skills .item .keywords {
+  width: 15em;
+}
+
+/* Skill chart */
+
+.level {
+  margin-bottom: 0.5em;
+}
+
+.level em {
+  padding-left: 0.2em;
+}
+
+.level .bar {
+  border: 1px solid #ddd;
+  display: block;
+  width: 10em;
+  height: 5px;
+  position: relative;
+}
+
+.level .bar::after {
+  position: absolute;
+  content: " ";
+  top: 0;
+  left: 0;
+  background: black;
+  height: 5px;
+}
+
+.level.beginner .bar::after {
+  background: #eb5f51;
+  width: 2.5em;
+}
+
+.level.intermediate .bar::after {
+  background: #ffdf1f;
+  width: 5em;
+}
+
+.level.advanced .bar::after,
+.level.fluent .bar::after {
+  background: #5cb85c;
+  width: 7.5em;
+}
+
+.level.master .bar::after,
+.level.native.speaker .bar::after {
+  background: #59c596;
+  width: 10em;
+}
+
+#references .item {
+  padding-left: 0.5em;
+  border-left: 5px solid #ff6d1f;
+}
+
+.toggle-item {
+  display: none;
+}
+
+.section>section>section {
+  margin-bottom: 0.5rem;
+}
+
+/******************
+*	HELPER CLASSES
+******************/
+
+.clear::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.display {
+  display: block;
+  opacity: 1 !important;
+}
+
+/****************
+*		TABLET
+****************/
+
+@media screen and (min-width: 602px) {
+  #resume {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .section header .date {
+    float: right;
+    font-weight: 600;
+    color: #000;
+  }
+}
+
+/****************
+*		LAPTOP
+****************/
+
+@media screen and (min-width: 1025px) {
+  li {
+    margin-left: 1.5em;
+  }
+
+  #resume {
+    width: 820px;
+    margin: 2rem auto;
+  }
+
+  .section>section>header .space-left {
+    opacity: 1;
+    cursor: pointer;
+  }
+
+  .section>section:not(.main-summary) {
+    margin-left: 1.67rem;
+  }
+
+  .toggle-item {
+    transform: translate(-9999px);
+  }
+
+  .toggle-item+label {
+    display: block;
+  }
+
+  .toggle-item:checked+label:after {
+    content: "\f0d7";
+  }
+
+  .toggle-item+label:after {
+    float: left;
+    cursor: pointer;
+    margin-left: -20px;
+    color: #aaa;
+    font-size: 16px;
+    font-weight: 900;
+    font-family: "Font Awesome 5 Free";
+    content: "\f0da";
+  }
+
+  .toggle-item~.item {
+    height: 0;
+    opacity: 0;
+  }
+
+  .toggle-item:checked~.item {
+    height: auto;
+    opacity: 1;
+    transition: all 0.5s linear;
+  }
+
+  .company::before,
+  .roles::before,
+  .area::before,
+  .institution::before,
+  .organization::before,
+  .awarder::before {
+    content: "| ";
+  }
+
+  .header-left {
+    float: left;
+    width: 70%;
+    word-break: normal;
+  }
+
+  .section header .date {
+    padding: 0.2em;
+  }
+
+  .display {
+    display: none;
+  }
+
+  .display:not(.none) {
+    display: block;
+  }
+}
+
+@media print {
+  a:not(.hide-href-print)::after {
+    content: " (" attr(href) ") ";
+  }
+
+  #resume {
+    margin: 0.1em;
+    padding: 0.1em;
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+    line-height: 1.25;
+  }
+
+  @page {
+    margin: 1cm 1.4cm;
+  }
+
+  .item-count {
+    display: none;
+  }
+
+  .company::before,
+  .institution::before,
+  .organization::before,
+  .awarder::before {
+    content: "at ";
+  }
+
+  .roles::before {
+    content: "as "
+  }
+
+  .main-summary {
+    padding: 0;
+    background: transparent;
+  }
+
+  .section {
+    margin: 0.8rem 0;
+    padding: 0;
+  }
+
+  .section header {
+    padding-bottom: 0.15rem;
+  }
+
+  .section .location {
+    padding-bottom: 0.15rem;
+  }
+
+  .section>section>section {
+    margin: 0 0 1em 0;
+  }
+
+  .section>section>section:last-of-type {
+    margin: 0;
+  }
+
+  .stack-overflow::after {
+    content: "";
+  }
+
+  .fa.social {
+    color: #828386;
+  }
+
+  ul {
+    margin-top: 0.4em;
+  }
+
+  ul,
+  li {
+    padding: 0;
+  }
+
+  ul.keywords li,
+  ul.courses li {
+    margin: 0;
+    padding: 0;
+    font-size: 0.8rem;
+    background: transparent;
+  }
+
+  ul.keywords li::after,
+  ul.courses li::after {
+    padding: 0 0 0 0.1rem;
+    content: " |";
+  }
+
+  ul.keywords::before,
+  ul.courses::before {
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+
+  #skills .item {
+    width: calc(100% / 3);
+    padding: 0;
+  }
+
+  .highlights {
+    margin: 0.5em 0 0 0;
+  }
+
+  ul.keywords::before {
+    content: "Skills acquired: ";
+  }
+
+  #skills .keywords::before {
+    content: none;
+  }
+
+  .section p {
+    margin: 0;
+    padding: 0;
+  }
+
+  ul.courses::before {
+    content: "Major courses: ";
+  }
+
+  ul.keywords li:last-of-type::after,
+  ul.courses li:last-of-type::after {
+    content: "";
+  }
+
+  .level em {
+    font-style: normal;
+    padding: 0.1em 0;
+  }
+
+  .level .bar {
+    display: none;
+  }
+
+  #profiles .item {
+    padding: 0;
+  }
+
+  .item.display {
+    display: block;
+    opacity: 1 !important;
+  }
+
+  .fa-map-marker-alt:before {
+    padding-left: 0.1em;
+  }
+}
+	</style>
+
+</head>
+<body>
+
+<div id="resume">
+	  <header id="header" class="clear">
+	
+	      <img class="image" src="https://media.licdn.com/dms/image/D5603AQGsfY6g7IvyxA/profile-displayphoto-shrink_800_800/0/1674699502915?e&#x3D;1706745600&amp;v&#x3D;beta&amp;t&#x3D;iOJYOaPvh7g-4E5xzlMBxhqgz_I8u-HZ9IXdf2RA1tI" alt="Ido Samuelson" />
+	      <div class="middle">
+	        <h1 class="name">Ido Samuelson<a href="https://github.com/IsFilimonov/jsonresume-theme-fullmoon" target="_blank">🌑🌕</a></h1>
+	        <h2 class="label">Programmer</h2>
+	      </div>
+	
+	      <span class="location fas fa-map-marker-alt">
+	
+	          <span class="address">United States,</span>
+	
+	
+	
+	
+	          <span class="countryCode">US</span>
+	      </span>
+	
+	
+	    
+	
+	    <div id="contact">
+	        <div class="email">
+	          <span class="far fa-envelope"></span>
+	          <a class="hide-href-print" href="mailto:ido.samuelson@gmail.com">ido.samuelson@gmail.com</a>
+	        </div>
+	        <div class="phone">
+	          <span class="fas fa-mobile-alt"></span>
+	          <a class="hide-href-print" href="tel:7204537927">7204537927</a>
+	        </div>
+	    </div>
+	
+	      <div id="profiles">
+	
+	            <div class="item">
+	
+	                <div class="username">
+	                  <span
+	                    class="fab fa-linkedin
+	                      linkedin
+	                      social"
+	                  ></span>
+	                    <span class="url">
+	                      <a target="_blank" href="https://www.linkedin.com/in/isamuelson/">isamuelson</a>
+	                    </span>
+	                </div>
+	
+	
+	
+	            </div>
+	            <div class="item">
+	
+	                <div class="username">
+	                  <span
+	                    class="fab fa-twitter
+	                      twitter
+	                      social"
+	                  ></span>
+	                    <span class="url">
+	                      <a target="_blank" href="https://twitter.com/IBootstrap">IBootstrap</a>
+	                    </span>
+	                </div>
+	
+	
+	
+	            </div>
+	      </div>
+	  </header>
+	
+	
+		<section class="section">
+			<header>
+				<h2 class='section-title'>Skills</h2>
+			</header>
+	
+			<section id="skills">
+					<div class="item">
+							<h3 class="name">
+								Rust
+							</h3>
+	
+	
+					</div>
+					<div class="item">
+							<h3 class="name">
+								nix
+							</h3>
+	
+	
+					</div>
+					<div class="item">
+							<h3 class="name">
+								nixOS
+							</h3>
+	
+	
+					</div>
+					<div class="item">
+							<h3 class="name">
+								ROS2
+							</h3>
+	
+	
+					</div>
+					<div class="item">
+							<h3 class="name">
+								Open Source
+							</h3>
+	
+	
+					</div>
+					<div class="item">
+							<h3 class="name">
+								mspaint
+							</h3>
+	
+	
+					</div>
+			</section>
+		</section>
+		<section class="section">
+			<header>
+				<h2 class='section-title'>Work Experience <span class="item-count">(13)</span></h2>
+			</header>
+	
+			<section id="work">
+				<section class="work-item">
+	
+								<input id="work-item-0" type="checkbox" class="toggle-item" checked="checked"/>
+							<label for="work-item-0"></label>
+	
+						<header class="clear">
+								<div class="position">Volunteer | Management Team | Software Development Lead</div>
+	
+							<div class="company">
+									<a target="_blank" href="https://sky360.org">Sky360</a>
+							</div>
+	
+							<div class="date">
+									<span class="startDate">May 2022</span>
+									<span class="endDate">- Current</span>
+							</div>
+						</header>
+	
+	
+	
+					<div class="item" id="work-item">
+							<div class="summary"><p>Realtime open-source robotic system to record UAP data</p></div>
+	
+							<ul class="highlights">
+									<li><p>Rust</p></li>
+									<li><p>nixOS</p></li>
+									<li><p>ROS2</p></li>
+									<li><p>OpenMCT</p></li>
+									<li><p>Open Source</p></li>
+							</ul>
+					</div>
+				</section>
+				<section class="work-item">
+	
+								<input id="work-item-1" type="checkbox" class="toggle-item"/>
+							<label for="work-item-1"></label>
+	
+						<header class="clear">
+								<div class="position">Director Technology Solutions</div>
+	
+							<div class="company">
+									<a target="_blank" href="https://epam.com">EPAM Systems</a>
+							</div>
+	
+							<div class="date">
+									<span class="startDate">Feb 2020</span>
+									<span class="endDate">- Feb 2022</span>
+							</div>
+						</header>
+	
+	
+	
+					<div class="item" id="work-item">
+							<div class="summary"><p>SRE internal tooling monitoring & playbook exeuction, Dependency Graph and Agent. Supported Health & Wellness Architecture</p></div>
+	
+					</div>
+				</section>
+				<section class="work-item">
+	
+								<input id="work-item-2" type="checkbox" class="toggle-item"/>
+							<label for="work-item-2"></label>
+	
+						<header class="clear">
+								<div class="position">Head Of Engineering</div>
+	
+							<div class="company">
+									The Reserve Trust Company
+							</div>
+	
+							<div class="date">
+									<span class="startDate">Aug 2019</span>
+									<span class="endDate">- Mar 2020</span>
+							</div>
+						</header>
+	
+	
+	
+					<div class="item" id="work-item">
+							<div class="summary"><p>Technology strategy in a Trust</p></div>
+	
+							<ul class="highlights">
+									<li><p>Regulatory Technology Review</p></li>
+							</ul>
+					</div>
+				</section>
+				<section class="work-item">
+	
+								<input id="work-item-3" type="checkbox" class="toggle-item"/>
+							<label for="work-item-3"></label>
+	
+						<header class="clear">
+								<div class="position">Advisor / Consultant</div>
+	
+							<div class="company">
+									Self Employed
+							</div>
+	
+							<div class="date">
+									<span class="startDate">Mar 2017</span>
+									<span class="endDate">- Jul 2019</span>
+							</div>
+						</header>
+	
+	
+	
+					<div class="item" id="work-item">
+							<div class="summary"><p>Insight to companies needing technology, strategy, architecture and growth guidance</p></div>
+	
+					</div>
+				</section>
+				<section class="work-item">
+	
+								<input id="work-item-4" type="checkbox" class="toggle-item"/>
+							<label for="work-item-4"></label>
+	
+						<header class="clear">
+								<div class="position">First Employee, Programmer</div>
+	
+							<div class="company">
+									<a target="_blank" href="https://www.linkedin.com/company/jet-com/">Jet.com</a>
+							</div>
+	
+							<div class="date">
+									<span class="startDate">Aug 2013</span>
+									<span class="endDate">- Sep 2016</span>
+							</div>
+						</header>
+	
+	
+	
+					<div class="item" id="work-item">
+							<div class="summary"><p>microservice platform (v1 and v2) that provided the runtime and CI/CD; geo redundancy in the platform</p></div>
+	
+					</div>
+				</section>
+				<section class="work-item">
+	
+								<input id="work-item-5" type="checkbox" class="toggle-item"/>
+							<label for="work-item-5"></label>
+	
+						<header class="clear">
+								<div class="position">Programmer</div>
+	
+							<div class="company">
+									<a target="_blank" href="https://www.icix.com">icix</a>
+							</div>
+	
+							<div class="date">
+									<span class="startDate">Dec 2012</span>
+									<span class="endDate">- Dec 2013</span>
+							</div>
+						</header>
+	
+	
+	
+					<div class="item" id="work-item">
+							<div class="summary"><p>platform architecture of highly-customizable web-based eForm based on event driven and schema driven design</p></div>
+	
+							<ul class="highlights">
+									<li><p>node.js</p></li>
+									<li><p>architecture</p></li>
+									<li><p>programming</p></li>
+							</ul>
+					</div>
+				</section>
+				<section class="work-item">
+	
+								<input id="work-item-6" type="checkbox" class="toggle-item"/>
+							<label for="work-item-6"></label>
+	
+						<header class="clear">
+								<div class="position">Programmer</div>
+	
+							<div class="company">
+									<a target="_blank" href="https://www.linkedin.com/company/hi5/">Hi5</a>
+							</div>
+	
+							<div class="date">
+									<span class="startDate">Dec 2011</span>
+									<span class="endDate">- Dec 2012</span>
+							</div>
+						</header>
+	
+	
+	
+					<div class="item" id="work-item">
+							<div class="summary"><p>Payment system and API platform for game integration for developers</p></div>
+	
+							<ul class="highlights">
+									<li><p>.net</p></li>
+							</ul>
+					</div>
+				</section>
+				<section class="work-item">
+	
+								<input id="work-item-7" type="checkbox" class="toggle-item"/>
+							<label for="work-item-7"></label>
+	
+						<header class="clear">
+								<div class="position">Programmer</div>
+	
+							<div class="company">
+									<a target="_blank" href="https://www.linkedin.com/company/viventium/">BDB Payroll Service</a>
+							</div>
+	
+							<div class="date">
+									<span class="startDate">Dec 2010</span>
+									<span class="endDate">- Dec 2011</span>
+							</div>
+						</header>
+	
+	
+	
+					<div class="item" id="work-item">
+							<div class="summary"><p>Custom reporting engine module (via expression tree & visual editor) for customers. Internal product to accurately import data</p></div>
+	
+							<ul class="highlights">
+									<li><p>.net</p></li>
+							</ul>
+					</div>
+				</section>
+				<section class="work-item">
+	
+								<input id="work-item-8" type="checkbox" class="toggle-item"/>
+							<label for="work-item-8"></label>
+	
+						<header class="clear">
+								<div class="position">Architect/Programmer</div>
+	
+							<div class="company">
+									4D Security Solutions, Inc.
+							</div>
+	
+							<div class="date">
+									<span class="startDate">Dec 2007</span>
+									<span class="endDate">- Dec 2009</span>
+							</div>
+						</header>
+	
+	
+	
+					<div class="item" id="work-item">
+							<div class="summary"><p>architecture, design and develop of many sensors to a border protection and perimeter intrusion detection system Productionized the system. System in use by many countries</p></div>
+	
+							<ul class="highlights">
+									<li><p>C++/.net</p></li>
+							</ul>
+					</div>
+				</section>
+				<section class="work-item">
+	
+								<input id="work-item-9" type="checkbox" class="toggle-item"/>
+							<label for="work-item-9"></label>
+	
+						<header class="clear">
+								<div class="position">Architect/Programmer</div>
+	
+							<div class="company">
+									<a target="_blank" href="https://www.mprest.com">mPrest</a>
+							</div>
+	
+							<div class="date">
+									<span class="startDate">Dec 2006</span>
+									<span class="endDate">- Dec 2007</span>
+							</div>
+						</header>
+	
+	
+	
+					<div class="item" id="work-item">
+							<div class="summary"><p>architecture, design and develop of many sensors to a border protection and perimeter intrusion detection system Productionized the system. System in use by many countries</p></div>
+	
+							<ul class="highlights">
+									<li><p>C++/.net</p></li>
+							</ul>
+					</div>
+				</section>
+				<section class="work-item">
+	
+								<input id="work-item-10" type="checkbox" class="toggle-item"/>
+							<label for="work-item-10"></label>
+	
+						<header class="clear">
+								<div class="position">.NET Architect/Programmer</div>
+	
+							<div class="company">
+									Magen, Microsoft Technology Center (MTC)
+							</div>
+	
+							<div class="date">
+									<span class="startDate">Dec 2004</span>
+									<span class="endDate">- Dec 2006</span>
+							</div>
+						</header>
+	
+	
+	
+					<div class="item" id="work-item">
+							<div class="summary"><p>battlefield simulation, web pension system, oil refinary fuel pipeline</p></div>
+	
+							<ul class="highlights">
+									<li><p>C++/.net</p></li>
+							</ul>
+					</div>
+				</section>
+				<section class="work-item">
+	
+								<input id="work-item-11" type="checkbox" class="toggle-item"/>
+							<label for="work-item-11"></label>
+	
+						<header class="clear">
+								<div class="position">Architect/Programmer</div>
+	
+							<div class="company">
+									<a target="_blank" href="https://www.ibm.com">IBM Global Services</a>
+							</div>
+	
+							<div class="date">
+									<span class="startDate">Dec 2003</span>
+									<span class="endDate">- Dec 2004</span>
+							</div>
+						</header>
+	
+	
+	
+					<div class="item" id="work-item">
+							<div class="summary"><p>SMS alerting on police cameras</p></div>
+	
+							<ul class="highlights">
+									<li><p>.net</p></li>
+							</ul>
+					</div>
+				</section>
+				<section class="work-item">
+	
+								<input id="work-item-12" type="checkbox" class="toggle-item"/>
+							<label for="work-item-12"></label>
+	
+						<header class="clear">
+								<div class="position">Programmer</div>
+	
+							<div class="company">
+									Galdor Systems
+							</div>
+	
+							<div class="date">
+									<span class="startDate">Dec 2002</span>
+									<span class="endDate">- Dec 2003</span>
+							</div>
+						</header>
+	
+	
+	
+					<div class="item" id="work-item">
+							<div class="summary"><p>Command and Control System with many sensors such as Electronic Fences, Cameras, Detectors, Access Control, etc. System worked for the Athens Olympics Security</p></div>
+	
+							<ul class="highlights">
+									<li><p>C++/.net</p></li>
+							</ul>
+					</div>
+				</section>
+			</section>
+		</section>
+		<section class="section">
+			<header>
+				<h2 class='section-title'>Education <span class="item-count">(1)</span></h2>
+			</header>
+	
+			<section id="education">
+					<section class="education-item">
+								<input id="education-item-0" type="checkbox" class="toggle-item"/>
+							<label for="education-item-0"></label>
+						
+							<header class="clear">
+	
+										<div class="studyType">B.Sc.</div>
+										<div class="area">Business/Computers</div>
+										<div class="institution">Champlain College</div>
+	
+	
+									<div class="date">
+										<span class="startDate">Dec 1998</span>
+											<span class="endDate">- Dec 2001</span>
+									</div>
+							</header>
+	
+						<div class="item">
+	
+								<div class='score'>
+									<strong> Grade:</strong> <span>Magna cum laude</span>
+								</div>
+	
+						</div>
+	
+					</section>
+			</section>
+		</section>
+		<section class="section">
+			<header>
+				<h2 class='section-title'>Volunteer</h2>
+			</header>
+			<section id="volunteer">
+					<section class="volunteer-item">
+	
+	
+							<header class="clear">
+	
+										<div class="position">
+											Dean - Denver
+										</div>
+									<div class="organization">
+										School of AI
+									</div>
+	
+								<div class="date">
+										<span class="startDate">
+											Dec 2018
+										</span>
+										<span class="endDate">
+	          - Dec 2019
+	          </span>
+								</div>
+							</header>
+						<div class="item">
+						</div>
+					</section>
+					<section class="volunteer-item">
+	
+	
+							<header class="clear">
+	
+										<div class="position">
+											Open Source Software Team Lead
+										</div>
+									<div class="organization">
+										Sky360 non profit
+									</div>
+	
+								<div class="date">
+										<span class="startDate">
+											May 2022
+										</span>
+										<span class="endDate">
+	          - Current
+	          </span>
+								</div>
+							</header>
+						<div class="item">
+								<ul class="highlights">
+										<li><p>Rust</p></li>
+										<li><p>nixOS</p></li>
+										<li><p>ROS2</p></li>
+										<li><p>openMCT</p></li>
+										<li><p>Open Source</p></li>
+								</ul>
+						</div>
+					</section>
+					<section class="volunteer-item">
+	
+	
+							<header class="clear">
+	
+										<div class="position">
+											Contributor
+										</div>
+									<div class="organization">
+										NixOS
+									</div>
+	
+								<div class="date">
+										<span class="startDate">
+											Jan 2023
+										</span>
+										<span class="endDate">
+	          - Current
+	          </span>
+								</div>
+							</header>
+						<div class="item">
+								<ul class="highlights">
+										<li><p>libusb1</p></li>
+										<li><p>qhyccd-sdk (PR Review)</p></li>
+								</ul>
+						</div>
+					</section>
+			</section>
+		</section>
+		<section class="section">
+			<header>
+				<h2 class='section-title'>Awards</h2>
+			</header>
+	
+			<section id="awards">
+					<section class="award-item">
+	
+						<header class="clear">
+	
+									<div class="title">
+										O-1 Visa: Individuals with Extraordinary Ability or Achievement
+									</div>
+									<div class="awarder">
+										USCIS
+									</div>
+	
+								<div class="date">
+									2007
+								</div>
+						</header>
+	
+						<div class="item">
+						</div>
+					</section>
+					<section class="award-item">
+	
+						<header class="clear">
+	
+									<div class="title">
+										Israeli National Cycling Team competitive cyclist
+									</div>
+									<div class="awarder">
+										Israeli National Cycling Association
+									</div>
+	
+								<div class="date">
+									1991
+								</div>
+						</header>
+	
+						<div class="item">
+						</div>
+					</section>
+			</section>
+		</section>
+		<section class="section">
+			<header>
+				<h2 class='section-title'>Languages</h2>
+			</header>
+	
+			<section id="languages">
+					<div class="display">
+							<h3 class="language">
+								English
+							</h3>
+	
+						<div class="item">
+								<div class="level fluency native speaker">
+										<em>Native Speaker</em>
+									<div class="bar"></div>
+								</div>
+						</div>
+					</div>
+					<div class="display">
+							<h3 class="language">
+								Hebrew
+							</h3>
+	
+						<div class="item">
+								<div class="level fluency native speaker">
+										<em>Native Speaker</em>
+									<div class="bar"></div>
+								</div>
+						</div>
+					</div>
+			</section>
+		</section>
+		<section class="section">
+			<header>
+				<h2 class='section-title'>References</h2>
+			</header>
+			<section id="references">
+					<div class="item">
+							<blockquote class="reference">
+								&#8220;&#32;I worked with Ido for close to three years at jet.com, he was in fact one of the earliest employees of Jet. In that time Ido worked across many areas of the jet.com tech stack and wore many hats. He built and, in many ways, introduced Micro Services in F# to Jet, he built parts of the core eCommerce platform, he worked on developer productivity tooling among many other areas. At the time, when Jet started, many things did not exist to support a large-scale cloud deployment and Ido was not afraid to jump in and build large scale systems such as our Micro Service orchestration tool, Torch, from the ground up. These early tools and libraries would prove incredibly valuable as Jet continued to grow and scale. It is not a stretch for me to say that I have not worked with anyone like Ido in the past that possess this level of expertise with such a wide breadth of technologies. Ido also made some incredibly valuable contributions to my career early on by sitting down with me and teaching me F# and helping me get acquainted with the state-of-the-art platform Jet was building for eCommerce. This all speaks volumes to Ido’s leadership abilities to mentor and help others grow.&#32;&#8221;
+							</blockquote>
+							<div class="name">
+								Louie Bacaj
+							</div>
+					</div>
+					<div class="item">
+							<blockquote class="reference">
+								&#8220;&#32;Ido is someone who has an incredible mind for engineering.   He drove the architecture of the very successful ecommerce platform that we built at Jet.com, especially in the event driven nature of how it was architected.  Ido&#x27;s deep technical understanding of distributed systems, CAP theorem and related topics meant that he was ideal in thinking through how we implemented comprehensive geo redundancy in the platform.   Additionally, Ido always brought a unique perspective to problem solving and was seen as a thought leader within the group.  He manages to combine theory with practical execution to quickly bring technically sound solutions to life.&#32;&#8221;
+							</blockquote>
+							<div class="name">
+								Mike Hanrahan
+							</div>
+					</div>
+					<div class="item">
+							<blockquote class="reference">
+								&#8220;&#32;I worked with Ido in two capacities at hi5: First, I was responsible for testing the commerce system which Ido developed with a few other engineers. It was clear that Ido took the lead on that project and the team produced a high quality product. Later I worked side-by-side with Ido on the development team. In that time he was a mentor: I learned more about software architecture in my two months working with Ido than at any other time in my schooling or career. We constantly challenged each other to write better software. As a team member, Ido makes everyone around him a better developer.&#32;&#8221;
+							</blockquote>
+							<div class="name">
+								Steven Cipolla
+							</div>
+					</div>
+					<div class="item">
+							<blockquote class="reference">
+								&#8220;&#32;Ido is easily one of the best software engineers I have had the chance to work with. His broad knowledge and experience are impressive and his passion for software development catching. Ido is a great team player, an inspiring leader and without doubt he will be a perfect addition to any team.&#32;&#8221;
+							</blockquote>
+							<div class="name">
+								Svetlozar Petrov
+							</div>
+					</div>
+					<div class="item">
+							<blockquote class="reference">
+								&#8220;&#32;It was a total pleasure working with Ido, he is one of the smartest engineer I have ever worked with and on top of that he is very dedicated to what he does and he really enjoys it. I would not think twice to work with him again. If I had to start a company some day, he will be one of the first people Ill ask to join, he knows how to get stuff done and find solutions to the most complicated problems. He is a brilliant engineer and a .net expert.&#32;&#8221;
+							</blockquote>
+							<div class="name">
+								Ismail Kacimi
+							</div>
+					</div>
+					<div class="item">
+							<blockquote class="reference">
+								&#8220;&#32;Ido is definitely one of the smartest person I have met so far. He is a great software engineer with tremendous experience which is demonstrated through his ideas regarding everything ranging from high level architecture and design to writing and debugging code. He also is a great team player, willing to help out with any task necessary to achieve and maintain team velocity. There must have been a number of occasions where he has been pivotal in achieving sprint goals and hitting product deadlines. His thinking style and his passion for technology has been very influential on me and he would be a great asset to any organization.&#32;&#8221;
+							</blockquote>
+							<div class="name">
+								Saurabh Shah
+							</div>
+					</div>
+					<div class="item">
+							<blockquote class="reference">
+								&#8220;&#32;Ido is one of the brightest people I have had the pleasure to work with. He is an extraordinary software person – spanning all levels from high level architectures and concepts, to debugging the lowest level code – and also someone who grasps concepts and ideas that are far outside his field of expertise. As such, I found him to be someone who I could discuss many technical issues with and the dialog would produce great results. Ido also keeps up with all the latest technical developments and can therefore bring the freshest and latest developments in the software world – he continuously learns and evolves. I had a great time working with him.&#32;&#8221;
+							</blockquote>
+							<div class="name">
+								Gadi Lenz
+							</div>
+					</div>
+					<div class="item">
+							<blockquote class="reference">
+								&#8220;&#32;I&#x27;ve known Ido for a long time and since our professional ways parted - I have noticed I miss his insights and technical contribution. Ido is a master programmer, and he leverages all of those skills to be a great system architect. If you work on a large scale project, and can get in touch with Ido for feedback - do so now. :)&#32;&#8221;
+							</blockquote>
+							<div class="name">
+								Ariel Raunstien
+							</div>
+					</div>
+					<div class="item">
+							<blockquote class="reference">
+								&#8220;&#32;Ido is a hard working and technically curious person. He can take a complex subject and master it fast. He&#x27;d be an asset as a technical specialist if you can satisfy his need for interesting things to do. Lastly, he *loves* technology. It&#x27;s hard to find someone who really loves doing this and is *good* at it at the same time. Ido is one of those people.&#32;&#8221;
+							</blockquote>
+							<div class="name">
+								Roy Osherove
+							</div>
+					</div>
+			</section>
+		</section>
+</div>
+</body>
+</html>

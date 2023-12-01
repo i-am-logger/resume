@@ -1,0 +1,306 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
+  "basics": {
+    "name": "Ido Samuelson",
+    "label": "Programmer",
+    "image": "https://media.licdn.com/dms/image/D5603AQGsfY6g7IvyxA/profile-displayphoto-shrink_800_800/0/1674699502915?e=1706745600&v=beta&t=iOJYOaPvh7g-4E5xzlMBxhqgz_I8u-HZ9IXdf2RA1tI",
+    "email": "ido.samuelson@gmail.com",
+    "phone": "7204537927",
+    "summary": "",
+    "location": {
+      "countryCode": "US",
+      "address": "United States"
+    },
+    "profiles": [
+      {
+        "network": "LinkedIn",
+        "username": "isamuelson",
+        "url": "https://www.linkedin.com/in/isamuelson/"
+      },
+      {
+        "network": "Twitter",
+        "username": "IBootstrap",
+        "url": "https://twitter.com/IBootstrap"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "Sky360",
+      "position": "Volunteer | Management Team | Software Development Lead",
+      "startDate": "2022-05",
+      "highlights": [
+        "Rust",
+        "nixOS",
+        "ROS2",
+        "OpenMCT",
+        "Open Source"
+      ],
+      "summary": "Realtime open-source robotic system to record UAP data",
+      "url": "https://sky360.org"
+    },
+    {
+      "name": "EPAM Systems",
+      "position": "Director Technology Solutions",
+      "startDate": "2020-02",
+      "endDate": "2022-02",
+      "summary": "SRE internal tooling monitoring & playbook exeuction, Dependency Graph and Agent. Supported Health & Wellness Architecture",
+      "url": "https://epam.com"
+    },
+    {
+      "name": "The Reserve Trust Company",
+      "position": "Head Of Engineering",
+      "startDate": "2019-08",
+      "endDate": "2020-03-31",
+      "summary": "Technology strategy in a Trust",
+      "highlights": [
+        "Regulatory Technology Review"
+      ]
+    },
+    {
+      "name": "Self Employed",
+      "position": "Advisor / Consultant",
+      "startDate": "2017-03-01",
+      "endDate": "2019-07-31",
+      "highlights": [],
+      "summary": "Insight to companies needing technology, strategy, architecture and growth guidance"
+    },
+    {
+      "name": "Jet.com",
+      "position": "First Employee, Programmer",
+      "startDate": "2013-08-01",
+      "endDate": "2016-09-30",
+      "highlights": [],
+      "summary": "microservice platform (v1 and v2) that provided the runtime and CI/CD; geo redundancy in the platform",
+      "url": "https://www.linkedin.com/company/jet-com/"
+    },
+    {
+      "name": "icix",
+      "position": "Programmer",
+      "startDate": "2012-12-31",
+      "endDate": "2013-12-31",
+      "highlights": [
+        "node.js",
+        "architecture",
+        "programming"
+      ],
+      "summary": "platform architecture of highly-customizable web-based eForm based on event driven and schema driven design",
+      "url": "https://www.icix.com"
+    },
+    {
+      "name": "Hi5",
+      "position": "Programmer",
+      "startDate": "2011-12",
+      "endDate": "2012-12",
+      "highlights": [
+        ".net"
+      ],
+      "summary": "Payment system and API platform for game integration for developers",
+      "url": "https://www.linkedin.com/company/hi5/"
+    },
+    {
+      "name": "BDB Payroll Service",
+      "position": "Programmer",
+      "startDate": "2010-12",
+      "endDate": "2011-12",
+      "highlights": [
+        ".net"
+      ],
+      "summary": "Custom reporting engine module (via expression tree & visual editor) for customers. Internal product to accurately import data",
+      "url": "https://www.linkedin.com/company/viventium/"
+    },
+    {
+      "name": "4D Security Solutions, Inc.",
+      "position": "Architect/Programmer",
+      "startDate": "2007-12",
+      "endDate": "2009-12",
+      "highlights": [
+        "C++/.net"
+      ],
+      "summary": "architecture, design and develop of many sensors to a border protection and perimeter intrusion detection system Productionized the system. System in use by many countries"
+    },
+    {
+      "name": "mPrest",
+      "position": "Architect/Programmer",
+      "startDate": "2006-12",
+      "endDate": "2007-12",
+      "highlights": [
+        "C++/.net"
+      ],
+      "summary": "architecture, design and develop of many sensors to a border protection and perimeter intrusion detection system Productionized the system. System in use by many countries",
+      "url": "https://www.mprest.com"
+    },
+    {
+      "name": "Magen, Microsoft Technology Center (MTC)",
+      "position": ".NET Architect/Programmer",
+      "startDate": "2004-12",
+      "endDate": "2006-12",
+      "highlights": [
+        "C++/.net"
+      ],
+      "summary": "battlefield simulation, web pension system, oil refinary fuel pipeline"
+    },
+    {
+      "name": "IBM Global Services",
+      "position": "Architect/Programmer",
+      "startDate": "2003-12",
+      "endDate": "2004-12",
+      "highlights": [
+        ".net"
+      ],
+      "summary": "SMS alerting on police cameras",
+      "url": "https://www.ibm.com"
+    },
+    {
+      "name": "Galdor Systems",
+      "position": "Programmer",
+      "startDate": "2002-12",
+      "endDate": "2003-12",
+      "highlights": [
+        "C++/.net"
+      ],
+      "summary": "Command and Control System with many sensors such as Electronic Fences, Cameras, Detectors, Access Control, etc. System worked for the Athens Olympics Security"
+    }
+  ],
+  "volunteer": [
+    {
+      "organization": "School of AI",
+      "position": "Dean - Denver",
+      "startDate": "2018-12",
+      "endDate": "2019-12",
+      "highlights": []
+    },
+    {
+      "organization": "Sky360 non profit",
+      "position": "Open Source Software Team Lead",
+      "startDate": "2022-05",
+      "highlights": [
+        "Rust",
+        "nixOS",
+        "ROS2",
+        "openMCT",
+        "Open Source"
+      ]
+    },
+    {
+      "organization": "NixOS",
+      "position": "Contributor",
+      "startDate": "2023-01",
+      "highlights": [
+        "libusb1",
+        "qhyccd-sdk (PR Review)"
+      ],
+      "url": "https://www.linkedin.com/company/14062563"
+    }
+  ],
+  "education": [
+    {
+      "institution": "Champlain College",
+      "area": "Business/Computers",
+      "studyType": "B.Sc.",
+      "startDate": "1998-12",
+      "endDate": "2001-12",
+      "score": "Magna cum laude",
+      "courses": []
+    }
+  ],
+  "awards": [
+    {
+      "title": "O-1 Visa: Individuals with Extraordinary Ability or Achievement",
+      "date": "2007-12",
+      "awarder": "USCIS",
+      "summary": ""
+    },
+    {
+      "title": "Israeli National Cycling Team competitive cyclist",
+      "date": "1991-12",
+      "awarder": "Israeli National Cycling Association",
+      "summary": ""
+    }
+  ],
+  "certificates": [
+    {
+      "name": "Ameteur Radio Operator",
+      "issuer": "Federal Communications Commission",
+      "date": "2022-12-01"
+    }
+  ],
+  "publications": [],
+  "skills": [
+    {
+      "name": "Rust"
+    },
+    {
+      "name": "nix"
+    },
+    {
+      "name": "nixOS"
+    },
+    {
+      "name": "ROS2"
+    },
+    {
+      "name": "Open Source"
+    },
+    {
+      "name": "mspaint",
+      "level": "",
+      "keywords": []
+    }
+  ],
+  "languages": [
+    {
+      "fluency": "Native Speaker",
+      "language": "English"
+    },
+    {
+      "fluency": "Native Speaker",
+      "language": "Hebrew"
+    }
+  ],
+  "interests": [],
+  "references": [
+    {
+      "name": "Louie Bacaj",
+      "reference": "I worked with Ido for close to three years at jet.com, he was in fact one of the earliest employees of Jet. In that time Ido worked across many areas of the jet.com tech stack and wore many hats. He built and, in many ways, introduced Micro Services in F# to Jet, he built parts of the core eCommerce platform, he worked on developer productivity tooling among many other areas. At the time, when Jet started, many things did not exist to support a large-scale cloud deployment and Ido was not afraid to jump in and build large scale systems such as our Micro Service orchestration tool, Torch, from the ground up. These early tools and libraries would prove incredibly valuable as Jet continued to grow and scale. It is not a stretch for me to say that I have not worked with anyone like Ido in the past that possess this level of expertise with such a wide breadth of technologies. Ido also made some incredibly valuable contributions to my career early on by sitting down with me and teaching me F# and helping me get acquainted with the state-of-the-art platform Jet was building for eCommerce. This all speaks volumes to Ido’s leadership abilities to mentor and help others grow."
+    },
+    {
+      "name": "Mike Hanrahan",
+      "reference": "Ido is someone who has an incredible mind for engineering.   He drove the architecture of the very successful ecommerce platform that we built at Jet.com, especially in the event driven nature of how it was architected.  Ido's deep technical understanding of distributed systems, CAP theorem and related topics meant that he was ideal in thinking through how we implemented comprehensive geo redundancy in the platform.   Additionally, Ido always brought a unique perspective to problem solving and was seen as a thought leader within the group.  He manages to combine theory with practical execution to quickly bring technically sound solutions to life."
+    },
+    {
+      "name": "Steven Cipolla",
+      "reference": "I worked with Ido in two capacities at hi5: First, I was responsible for testing the commerce system which Ido developed with a few other engineers. It was clear that Ido took the lead on that project and the team produced a high quality product. Later I worked side-by-side with Ido on the development team. In that time he was a mentor: I learned more about software architecture in my two months working with Ido than at any other time in my schooling or career. We constantly challenged each other to write better software. As a team member, Ido makes everyone around him a better developer."
+    },
+    {
+      "name": "Svetlozar Petrov",
+      "reference": "Ido is easily one of the best software engineers I have had the chance to work with. His broad knowledge and experience are impressive and his passion for software development catching. Ido is a great team player, an inspiring leader and without doubt he will be a perfect addition to any team."
+    },
+    {
+      "name": "Ismail Kacimi",
+      "reference": "It was a total pleasure working with Ido, he is one of the smartest engineer I have ever worked with and on top of that he is very dedicated to what he does and he really enjoys it. I would not think twice to work with him again. If I had to start a company some day, he will be one of the first people Ill ask to join, he knows how to get stuff done and find solutions to the most complicated problems. He is a brilliant engineer and a .net expert."
+    },
+    {
+      "name": "Saurabh Shah",
+      "reference": "Ido is definitely one of the smartest person I have met so far. He is a great software engineer with tremendous experience which is demonstrated through his ideas regarding everything ranging from high level architecture and design to writing and debugging code. He also is a great team player, willing to help out with any task necessary to achieve and maintain team velocity. There must have been a number of occasions where he has been pivotal in achieving sprint goals and hitting product deadlines. His thinking style and his passion for technology has been very influential on me and he would be a great asset to any organization."
+    },
+    {
+      "name": "Gadi Lenz",
+      "reference": "Ido is one of the brightest people I have had the pleasure to work with. He is an extraordinary software person – spanning all levels from high level architectures and concepts, to debugging the lowest level code – and also someone who grasps concepts and ideas that are far outside his field of expertise. As such, I found him to be someone who I could discuss many technical issues with and the dialog would produce great results. Ido also keeps up with all the latest technical developments and can therefore bring the freshest and latest developments in the software world – he continuously learns and evolves. I had a great time working with him."
+    },
+    {
+      "name": "Ariel Raunstien",
+      "reference": "I've known Ido for a long time and since our professional ways parted - I have noticed I miss his insights and technical contribution. Ido is a master programmer, and he leverages all of those skills to be a great system architect. If you work on a large scale project, and can get in touch with Ido for feedback - do so now. :)"
+    },
+    {
+      "name": "Roy Osherove",
+      "reference": "Ido is a hard working and technically curious person. He can take a complex subject and master it fast. He'd be an asset as a technical specialist if you can satisfy his need for interesting things to do. Lastly, he *loves* technology. It's hard to find someone who really loves doing this and is *good* at it at the same time. Ido is one of those people."
+    }
+  ],
+  "projects": [],
+  "meta": {
+    "theme": "elegent",
+    "version": "v1.0.0",
+    "canonical": "https://github.com/jsonresume/resume-schema/blob/v1.0.0/schema.json"
+  }
+}
