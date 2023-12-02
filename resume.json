@@ -187,10 +187,20 @@
       "position": "Contributor",
       "startDate": "2023-01",
       "highlights": [
+        "Support for 16IRX8H Lenovo Legion 7i Pro (2023)"
+      ],
+      "url": "https://nixos.org/"
+    },
+    {
+      "organization": "NixPkgs",
+      "position": "Contributor",
+      "startDate": "2023-01",
+      "highlights": [
         "libusb1",
+        "fxload3",
         "qhyccd-sdk (PR Review)"
       ],
-      "url": "https://www.linkedin.com/company/14062563"
+      "url": "https://github.com/NixOS/nixpkgs"
     }
   ],
   "education": [
