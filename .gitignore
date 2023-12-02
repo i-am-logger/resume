@@ -1,3 +1,4 @@
 # Ignore build symlinks
 result*
 .tmp
+resume.html
