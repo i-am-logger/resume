@@ -38,7 +38,7 @@
           # This may need customizations, such as using the correct file
           # format and copying other resources (such as images).
           default = pkgs.runCommand "resume" { } ''
-            ln -s ${./resume.nix} resume.nix
+            ln -s ${./resume.json} resume.json
             HOME=$(mktemp -d) ${self.packages.${system}.builder}
             mkdir $out
             cp -v resume.html $out/index.html
