@@ -44,7 +44,7 @@
       "position": "Director Technology Solutions",
       "startDate": "2020-02",
       "endDate": "2022-02",
-      "summary": "SRE internal tooling monitoring & playbook exeuction, Dependency Graph and Agent. Supported Health & Wellness Architecture",
+      "summary": "SRE internal tooling such as dependency graph, agent monitoring and automatic playbook. Supported Health & Wellness Architecture",
       "url": "https://epam.com"
     },
     {
@@ -71,7 +71,7 @@
       "startDate": "2013-08-01",
       "endDate": "2016-09-30",
       "highlights": [],
-      "summary": "microservice platform (v1 and v2) that provided the runtime and CI/CD; geo redundancy in the platform",
+      "summary": "microservice platform (v1 and v2) that provided the runtime and ci/cd; geo redundancy in the platform",
       "url": "https://www.linkedin.com/company/jet-com/"
     },
     {
@@ -84,7 +84,7 @@
         "architecture",
         "programming"
       ],
-      "summary": "platform architecture of highly-customizable web-based eForm based on event driven and schema driven design",
+      "summary": "platform architecture for web-based e-form generator and template workflow engine",
       "url": "https://www.icix.com"
     },
     {
@@ -95,7 +95,7 @@
       "highlights": [
         ".net"
       ],
-      "summary": "Payment system and API platform for game integration for developers",
+      "summary": "Payment system and api platform for game integration for developers",
       "url": "https://www.linkedin.com/company/hi5/"
     },
     {
@@ -131,7 +131,7 @@
       "url": "https://www.mprest.com"
     },
     {
-      "name": "Magen, Microsoft Technology Center (MTC)",
+      "name": "Magen MTC",
       "position": ".NET Architect/Programmer",
       "startDate": "2004-12",
       "endDate": "2006-12",
@@ -148,7 +148,7 @@
       "highlights": [
         ".net"
       ],
-      "summary": "SMS alerting on police cameras",
+      "summary": "sms alerting on police cameras",
       "url": "https://www.ibm.com"
     },
     {
@@ -159,7 +159,7 @@
       "highlights": [
         "C++/.net"
       ],
-      "summary": "Command and Control System with many sensors such as Electronic Fences, Cameras, Detectors, Access Control, etc. System worked for the Athens Olympics Security"
+      "summary": "command and control system with many sensors such as electronic fences, cameras, detectors, access control, etc. system worked for the athens olympics security"
     }
   ],
   "volunteer": [
