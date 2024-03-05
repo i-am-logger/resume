@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
   "basics": {
     "name": "Ido Samuelson",
-    "label": "Executive: Software Engineering/Rusty Programmer",
+    "label": "Executive | Engineering Leadership | Architecture | Rusty Programmer",
     "image": "https://gravatar.com/userimage/69310917/d2ecd272a3be58d58eed9212bbe44f40.jpeg?size=256",
     "email": "ido.samuelson@gmail.com",
     "phone": "7204537927",
@@ -23,174 +23,214 @@
   "work": [
     {
       "name": "Sky360",
-      "position": "Open Source: Volunteer | Management Team | Head Software Engineering",
+      "position": "Head Software Engineering | Management Team | Volunteer | Open Source",
       "startDate": "2022-05",
       "summary": "Realtime open-source robotic system to record UAP data",
       "highlights": [
-        "Open Source",
-        "Rust/nixOS/ROS2/OpenMCT"
+        "leadership for over 20 engineers",
+        "architecture",
+        "open source project",
+        "rust/nixOS/ros2/openMCT",
+        "world-wide community with over 2500 members"
       ],
       "url": "https://sky360.org"
     },
     {
-      "name": "Aptiv",
-      "position": "Automotive: Executive/Principal Cloud Architect",
+      "name": "Aptiv PLC ($APTV)",
+      "position": "Principal Cloud Architect | Executive | Automotive",
       "startDate": "2022-03",
       "endDate": "2023-03",
       "summary": "CTO Office - Advanced Engineering & Innovation Executive",
       "url": "https://aptiv.com",
       "highlights": [
-        "realtime cloud - from edge to cloud and back"
+        "executive",
+        "architecture",
+        "realtime cloud - from edge to cloud and back",
+        "public company with over 200,000 employees and 120+ factories world-wide"
       ]
     },
     {
-      "name": "EPAM Systems",
-      "position": "Consulting Firm: Director Technology Solutions",
+      "name": "EPAM Systems ($EPAM)",
+      "position": "Director Technology Solutions | Consulting Firm",
       "startDate": "2020-02",
       "endDate": "2022-02",
-      "summary": "SRE internal tooling such as dependency graph, agent monitoring and automatic playbook. Supported Health & Wellness Architecture",
+      "summary": "SRE leadership for Walmart. Supported Walmart's Health & Wellness Architecture",
       "highlights": [
-        "SRE Strategy",
-        "Architecture"
+        "leadership for over 100 engineeers",
+        "technology strategy",
+        "coaching/mentoring",
+        "innovation & prototyping, modernization, transformantion",
+        "architecture",
+        "SRE",
+        "public company with over 60,000 employees world-wide"
       ],
       "url": "https://epam.com"
     },
     {
       "name": "The Reserve Trust Company",
-      "position": "FinTech: Head Of Engineering",
+      "position": "Head Of Engineering | FinTech",
       "startDate": "2019-08",
       "endDate": "2020-03-31",
       "summary": "Technology strategy in a Trust Financial Institute",
       "highlights": [
-        "Regulatory Technology Review",
-        "IT Security",
-        "Hiring"
+        "executive",
+        "leadership",
+        "technology strategy",
+        "regulatory technology review",
+        "IT security",
+        "engineering",
+        "hiring",
+        "startup"
       ]
     },
     {
       "name": "Self Employed",
-      "position": "Startup Consulting: Advisor / Consultant",
+      "position": "Advisor / Consultant | Coaching | Startup Consulting",
       "startDate": "2017-03-01",
       "endDate": "2019-07-31",
       "summary": "Insight to companies needing technology, strategy, architecture and growth guidance",
       "highlights": [
+        "coaching",
+        "strategy",
         "ideation"
       ]
     },
     {
       "name": "Jet.com",
-      "position": "eCommerce: First Employee, VP Engineering, Architect/Programmer",
+      "position": "VP Engineering | Architect/Programmer | First Employee | eCommerce",
       "startDate": "2013-08-01",
       "endDate": "2016-09-30",
-      "summary": "microservice platform (v1 and v2) that provided the runtime and ci/cd; geo redundancy in the platform",
+      "summary": "Core Architecture Team; Initiated many early projects; Worked on Hiring OKR; Lead Internal Tooling and Productivy Team. For the geeks... Jet Insider Game, Core Retailer Website, eCommerce Crawler. microservice platform (v1 and v2) that provided the runtime for all jet microservices and the entire ci/cd; geo redundancy in the platform",
       "highlights": [
-        "v1 crawler",
-        "microservice platform - Torch (v1,v2) - CI/CD from compling F# Scripts to binaries to runtime",
-        "architecting and productionzing geo redundency",
-        ".net/F#"
+        "leadership",
+        "lead internal tooling team and productivity team",
+        "coaching/mentoring",
+        "architecture",
+        ".net/F#",
+        "startup sold to walmart for $3.3B"
       ],
       "url": "https://www.linkedin.com/company/jet-com/"
     },
     {
       "name": "icix",
-      "position": "Supply Chain: Architect/Programmer",
+      "position": "Principal Software Engineer | Lead | Architect/Programmer | Supply Chain",
       "startDate": "2012-12-31",
       "endDate": "2013-12-31",
       "summary": "platform architecture for web-based e-form generator and template workflow engine",
       "highlights": [
-        "node.js",
+        "leadership",
         "architecture",
-        "programming"
+        "programming",
+        "node.js",
+        "startup"
       ],
       "url": "https://www.icix.com"
     },
     {
       "name": "Hi5",
-      "position": "Gaming Social Network: Programmer,Lead",
+      "position": "Princiapl Software Engineer | Lead | Gaming Social Network",
       "startDate": "2011-12",
       "endDate": "2012-12",
       "summary": "Payment system and api platform for game integration for developers",
       "highlights": [
+        "leadership",
+        "architecture",
+        "programming",
         "Web based Gaming Platform for Game Developers",
         "Virtual Goods Payment System",
-        ".net/C#/js"
+        ".net/C#/js",
+        "startup"
       ],
       "url": "https://www.linkedin.com/company/hi5/"
     },
     {
       "name": "BDB Payroll Service",
-      "position": "Payroll: Programmer",
+      "position": "Principal Software Engineer | Architect/Programmer | Payroll/HR",
       "startDate": "2010-12",
       "endDate": "2011-12",
       "highlights": [
+        "architecture",
+        "programming",
         "Custom reporting enginge for customers",
         "data import engine",
-        ".net/C#/WPF"
+        ".net/C#/WPF",
+        "private company"
       ],
       "summary": "Custom reporting engine module (via expression tree & visual editor) for customers. Internal product to accurately import data",
       "url": "https://www.linkedin.com/company/viventium/"
     },
     {
       "name": "4D Security Solutions, Inc.",
-      "position": "Defense: Architect/Programmer",
+      "position": "Chief Software Architect | Lead | Architect/Programmer | Defnese",
       "startDate": "2007-12",
       "endDate": "2009-12",
       "highlights": [
-        "Productionzing",
-        "Architecture",
+        "leadership for over 20 engineers",
+        "coaching/mentoring",
+        "architecture",
+        "productionzing",
         "C++/.net/C#",
-        "Classified"
+        "classified - projects estimated over $8B"
       ],
       "summary": "architecture, design and develop of many sensors to a border protection and perimeter intrusion detection system. Productionized the system. System in use by many countries"
     },
     {
       "name": "mPrest",
-      "position": "Defense: TeamLead & Architect/Programmer",
+      "position": "Project Manager | Manager/Lead | Architect/Programmer | Defense",
       "startDate": "2006-12",
       "endDate": "2007-12",
       "highlights": [
-        "Architecture",
+        "leadership",
+        "architecture",
+        "coaching/mentoring",
         "C++/.net",
-        "Team Lead"
+        "classified - projects estimated over $8B"
       ],
       "summary": "architecture, design and develop of many sensors to a border protection and perimeter intrusion detection system. Productionized the system. System in use by many countries",
       "url": "https://www.mprest.com"
     },
     {
       "name": "Magen MTC/Advantech",
-      "position": "Consulting Services: .NET Architect/Programmer",
+      "position": "Senior Consultant | Architect/Programmer | Consulting Firm",
       "startDate": "2004-12",
       "endDate": "2006-12",
       "highlights": [
-        "net/C++",
-        "Battlefield Simulation - classified",
-        "Oil Refinary fuel pipeline",
-        "Web Pension",
-        "Israeli Goverment Court System"
+        "leadership",
+        "coaching/mentoring",
+        "architecture",
+        "prototyping, modernization and transformantion",
+        ".net/C++",
+        "private company"
       ],
-      "summary": "battlefield simulation, web pension system, oil refinary fuel pipeline"
+      "summary": "Among many projects: Battlefield Simulation - classified, Web Pension System - modernization, oil refinary fuel pipeline - modernization, Israeli Goverment Court System - transformation"
     },
     {
-      "name": "IBM Global Services",
-      "position": "Consulting Firm: Architect/Programmer",
+      "name": "IBM Global Services ($IBM)",
+      "position": "Senior Principal Engineer | Architect/Programmer | Consulting Firm",
       "startDate": "2003-12",
       "endDate": "2004-12",
       "highlights": [
+        "leadership",
+        "coaching/mentoring",
+        "architecture",
+        "prototyping, modernization and transformantion",
+        "SMS Integration",
         ".net",
-        "SMS Integration"
+        "public company"
       ],
-      "summary": "sms alerting on police cameras",
+      "summary": "sms alerting on police speed cameras",
       "url": "https://www.ibm.com"
     },
     {
       "name": "Galdor Systems",
-      "position": "Defense: Programmer",
+      "position": "Software Engineer | Architect/Programmer | Defense",
       "startDate": "2002-12",
       "endDate": "2003-12",
       "highlights": [
         "Perimeter Intrusion Detection System",
         "Sensor Integration & Protocol",
-        ".net/C++"
+        ".net/C++",
+        "startup"
       ],
       "summary": "command and control system with many sensors such as electronic fences, cameras, detectors, access control, etc. system worked for the athens olympics security"
     }
@@ -205,7 +245,7 @@
     },
     {
       "organization": "Sky360 non profit",
-      "position": "Open Source:  Head Software Engineering",
+      "position": "Head Software Engineering | Open Source",
       "startDate": "2022-05",
       "highlights": [
         "Open Source",
@@ -215,7 +255,7 @@
     },
     {
       "organization": "NixOS",
-      "position": "Open Source: Contributor",
+      "position": "Contributor | Open Source",
       "startDate": "2023-01",
       "highlights": [
         "Support for 16IRX8H Lenovo Legion 7i Pro (2023)"
@@ -224,7 +264,7 @@
     },
     {
       "organization": "NixPkgs",
-      "position": "Contributor",
+      "position": "Contributor | Open Source",
       "startDate": "2023-01",
       "highlights": [
         "libusb1",
