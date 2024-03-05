@@ -45,6 +45,7 @@
       "highlights": [
         "executive",
         "architecture",
+        "Azure/AWS/GCP",
         "realtime cloud - from edge to cloud and back",
         "public company with over 200,000 employees and 120+ factories world-wide"
       ]
@@ -61,6 +62,7 @@
         "coaching/mentoring",
         "innovation & prototyping, modernization, transformantion",
         "architecture",
+        "Azure/On-Premise",
         "SRE",
         "public company with over 60,000 employees world-wide"
       ],
@@ -77,6 +79,7 @@
         "leadership",
         "technology strategy",
         "regulatory technology review",
+        "AWS/On-Premise",
         "IT security",
         "engineering",
         "hiring",
@@ -92,7 +95,8 @@
       "highlights": [
         "coaching",
         "strategy",
-        "ideation"
+        "ideation",
+        "Azure/AWS/On-Premise"
       ]
     },
     {
@@ -106,6 +110,7 @@
         "lead internal tooling team and productivity team",
         "coaching/mentoring",
         "architecture",
+        "Azure",
         ".net/F#",
         "startup sold to walmart for $3.3B"
       ],
@@ -120,6 +125,7 @@
       "highlights": [
         "leadership",
         "architecture",
+        "AWS",
         "programming",
         "node.js",
         "startup"
@@ -135,6 +141,7 @@
       "highlights": [
         "leadership",
         "architecture",
+        "On-Premise",
         "programming",
         "Web based Gaming Platform for Game Developers",
         "Virtual Goods Payment System",
