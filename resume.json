@@ -6,7 +6,7 @@
     "image": "https://gravatar.com/userimage/69310917/d2ecd272a3be58d58eed9212bbe44f40.jpeg?size=256",
     "email": "ido.samuelson@gmail.com",
     "phone": "7204537927",
-    "summary": "Software Engineering Executive with a diverse background in various industries, including consulting, border protection, eCommerce, fintech, and open-source projects. A versatile and experienced technical leader with a strong background in problem-solving and architecture. Demonstrated a track record of leading and scaling teams from very few engineers to over 100",
+    "summary": "Seasoned Software Engineering Executive with diverse experience in eCommerce, fintech, defense and open-source projects. Proven leader in scaling teams from a few to over 100 engineers and driving technological innovation. Throughout my career in leadership positions in both startups and corporates, I had the opportunity to drive significant technological advancements, mentor and scale engineering teams, and implement strategic solutions that have transformed business operations. As VP of Engineering, I lead internal tooling and productivity team in a succesful startup. as Head of engineering at a Trust Financial Institution, I directed the technology strategy and implemented regulatory solutions. As a Technology Director at a consulting firm I directed over 100 engineers providing architecture leadership for Walmart’s SRE team and Health & Wellness (Clinics and Pharamacies), helping Walmart to save over $40M in operational costs within 3 months. In my most recent position as a Principal Cloud Architect, I worked on cloud strategy and innovation as an executive under the CTO Office. I also volunteered to lead software in an open-source engineering project in developing a robotic system for UAP study.",
     "location": {
       "countryCode": "US",
       "address": "United States",
@@ -25,12 +25,10 @@
       "name": "Sky360",
       "position": "Head Software Engineering | Management Team | Volunteer | Open Source",
       "startDate": "2022-05",
-      "summary": "Realtime open-source robotic system to record UAP data",
+      "summary": "Led open source engineering team of over 20 contributers building an open-source robotic system to study UAPs. Responsible for overall software architecture and leadership.",
       "highlights": [
-        "leadership for over 20 engineers",
-        "architecture",
-        "open source project",
-        "rust/nixOS/ros2/openMCT",
+        "rust | C++ | Python | nixOS | ros2 | openMCT",
+        "software architecture",
         "world-wide community with over 2500 members"
       ],
       "url": "https://sky360.org"
@@ -40,14 +38,11 @@
       "position": "Principal Cloud Architect | Executive | Automotive",
       "startDate": "2022-03",
       "endDate": "2023-03",
-      "summary": "CTO Office - Advanced Engineering & Innovation Executive",
+      "summary": "Worked on cloud architecture and innovation initiatives as an Executive at Aptiv, a global automotive technology company. Responsible for modernizing infrastructure and powering IoT systems across over 120 factories worldwide.",
       "url": "https://aptiv.com",
       "highlights": [
-        "executive",
-        "architecture",
-        "Azure/AWS/GCP/On-Premise",
-        "realtime cloud - from edge to cloud and back",
-        "public company with over 200,000 employees and 120+ factories world-wide"
+        "cloud architecture",
+        "Azure | AWS | GCP | On-Premise"
       ]
     },
     {
@@ -55,16 +50,11 @@
       "position": "Director Technology Solutions | Consulting Firm",
       "startDate": "2020-02",
       "endDate": "2022-02",
-      "summary": "SRE leadership for Walmart. Supported Walmart's Health & Wellness Architecture",
+      "summary": "Provided SRE leadership for Walmart (saving over $40M in operational costs), supporting Walmart's Health & Wellness Architecture of their clinics and pharamcies. Directed a team of over 100 engineers, driving technology strategy, innovation, and modernization. Key responsibilities included architecture design, coaching and mentoring. EPAM Systems is a global public company with over 60,000 employees.",
       "highlights": [
-        "leadership for over 100 engineeers",
-        "technology strategy",
-        "coaching/mentoring",
-        "innovation & prototyping, modernization, transformantion",
-        "architecture",
-        "Azure/On-Premise",
-        "SRE",
-        "public company with over 60,000 employees world-wide"
+        "software architecture",
+        "Azure | On-Premise",
+        "Java | Kotlin | Go | F# | NodeJS"
       ],
       "url": "https://epam.com"
     },
@@ -73,17 +63,11 @@
       "position": "Head Of Engineering | FinTech",
       "startDate": "2019-08",
       "endDate": "2020-03-31",
-      "summary": "Technology strategy in a Trust Financial Institute",
+      "summary": "Led the technology strategy for a Trust Financial Institution, overseeing all engineering and IT efforts. Provided executive leadership, driving the development and implementation of regulatory technology solutions. Ensured robust IT security and managed both AWS and on-premise environments. Key responsibilities included strategic hiring and guiding the company through its startup phase.",
       "highlights": [
-        "executive",
-        "leadership",
-        "technology strategy",
-        "regulatory technology review",
-        "AWS/On-Premise",
-        "IT security",
-        "engineering",
-        "hiring",
-        "startup"
+        "AWS | On-Premise",
+        "Go, Rust, NodeJS",
+        "IT security"
       ]
     },
     {
@@ -92,12 +76,7 @@
       "startDate": "2017-03-01",
       "endDate": "2019-07-31",
       "summary": "Insight to companies needing technology, strategy, architecture and growth guidance",
-      "highlights": [
-        "coaching",
-        "strategy",
-        "ideation",
-        "Azure/AWS/On-Premise"
-      ]
+      "highlights": []
     },
     {
       "name": "Jet.com",
@@ -106,13 +85,10 @@
       "endDate": "2016-09-30",
       "summary": "Core Architecture Team; Initiated many early projects; Worked on Hiring OKR; Lead Internal Tooling and Productivy Team. For the geeks... Jet Insider Game, Core Retailer Website, eCommerce Crawler. microservice platform (v1 and v2) that provided the runtime for all jet microservices and the entire ci/cd; geo redundancy in the platform",
       "highlights": [
-        "leadership",
-        "lead internal tooling team and productivity team",
-        "coaching/mentoring",
-        "architecture",
+        "cloud architecture",
         "Azure",
-        ".net/F#",
-        "startup sold to walmart for $3.3B"
+        "F# | .net | NodeJS",
+        "Jet.com sold to walmart for $3.3B"
       ],
       "url": "https://www.linkedin.com/company/jet-com/"
     },
@@ -121,15 +97,8 @@
       "position": "Principal Software Engineer | Lead | Architect/Programmer | Supply Chain",
       "startDate": "2012-12-31",
       "endDate": "2013-12-31",
-      "summary": "platform architecture for web-based e-form generator and template workflow engine",
-      "highlights": [
-        "leadership",
-        "architecture",
-        "AWS",
-        "programming",
-        "node.js",
-        "startup"
-      ],
+      "summary": "",
+      "highlights": [],
       "url": "https://www.icix.com"
     },
     {
@@ -137,17 +106,8 @@
       "position": "Princiapl Software Engineer | Lead | Gaming Social Network",
       "startDate": "2011-12",
       "endDate": "2012-12",
-      "summary": "Payment system and api platform for game integration for developers",
-      "highlights": [
-        "leadership",
-        "architecture",
-        "On-Premise",
-        "programming",
-        "Web based Gaming Platform for Game Developers",
-        "Virtual Goods Payment System",
-        ".net/C#/js",
-        "startup"
-      ],
+      "summary": "",
+      "highlights": [],
       "url": "https://www.linkedin.com/company/hi5/"
     },
     {
@@ -155,15 +115,8 @@
       "position": "Principal Software Engineer | Architect/Programmer | Payroll/HR",
       "startDate": "2010-12",
       "endDate": "2011-12",
-      "highlights": [
-        "architecture",
-        "programming",
-        "Custom reporting enginge for customers",
-        "data import engine",
-        ".net/C#/WPF",
-        "private company"
-      ],
-      "summary": "Custom reporting engine module (via expression tree & visual editor) for customers. Internal product to accurately import data",
+      "highlights": [],
+      "summary": "",
       "url": "https://www.linkedin.com/company/viventium/"
     },
     {
@@ -171,29 +124,16 @@
       "position": "Chief Software Architect | Lead | Architect/Programmer | Defnese",
       "startDate": "2007-12",
       "endDate": "2009-12",
-      "highlights": [
-        "leadership for over 20 engineers",
-        "coaching/mentoring",
-        "architecture",
-        "productionzing",
-        "C++/.net/C#",
-        "classified - projects estimated over $8B"
-      ],
-      "summary": "architecture, design and develop of many sensors to a border protection and perimeter intrusion detection system. Productionized the system. System in use by many countries"
+      "highlights": [],
+      "summary": ""
     },
     {
       "name": "mPrest",
       "position": "Project Manager | Manager/Lead | Architect/Programmer | Defense",
       "startDate": "2006-12",
       "endDate": "2007-12",
-      "highlights": [
-        "leadership",
-        "architecture",
-        "coaching/mentoring",
-        "C++/.net",
-        "classified - projects estimated over $8B"
-      ],
-      "summary": "architecture, design and develop of many sensors to a border protection and perimeter intrusion detection system. Productionized the system. System in use by many countries",
+      "highlights": [],
+      "summary": "",
       "url": "https://www.mprest.com"
     },
     {
@@ -201,31 +141,16 @@
       "position": "Senior Consultant | Architect/Programmer | Consulting Firm",
       "startDate": "2004-12",
       "endDate": "2006-12",
-      "highlights": [
-        "leadership",
-        "coaching/mentoring",
-        "architecture",
-        "prototyping, modernization and transformantion",
-        ".net/C++",
-        "private company"
-      ],
-      "summary": "Among many projects: Battlefield Simulation - classified, Web Pension System - modernization, oil refinary fuel pipeline - modernization, Israeli Goverment Court System - transformation"
+      "highlights": [],
+      "summary": ""
     },
     {
       "name": "IBM Global Services ($IBM)",
       "position": "Senior Principal Engineer | Architect/Programmer | Consulting Firm",
       "startDate": "2003-12",
       "endDate": "2004-12",
-      "highlights": [
-        "leadership",
-        "coaching/mentoring",
-        "architecture",
-        "prototyping, modernization and transformantion",
-        "SMS Integration",
-        ".net",
-        "public company"
-      ],
-      "summary": "sms alerting on police speed cameras",
+      "highlights": [],
+      "summary": "",
       "url": "https://www.ibm.com"
     },
     {
@@ -233,13 +158,8 @@
       "position": "Software Engineer | Architect/Programmer | Defense",
       "startDate": "2002-12",
       "endDate": "2003-12",
-      "highlights": [
-        "Perimeter Intrusion Detection System",
-        "Sensor Integration & Protocol",
-        ".net/C++",
-        "startup"
-      ],
-      "summary": "command and control system with many sensors such as electronic fences, cameras, detectors, access control, etc. system worked for the athens olympics security"
+      "highlights": [],
+      "summary": ""
     }
   ],
   "volunteer": [
@@ -254,30 +174,20 @@
       "organization": "Sky360 non profit",
       "position": "Head Software Engineering | Open Source",
       "startDate": "2022-05",
-      "highlights": [
-        "Open Source",
-        "Rust,nixOS",
-        "ROS2/openMCT"
-      ]
+      "highlights": []
     },
     {
       "organization": "NixOS",
       "position": "Contributor | Open Source",
       "startDate": "2023-01",
-      "highlights": [
-        "Support for 16IRX8H Lenovo Legion 7i Pro (2023)"
-      ],
+      "highlights": [],
       "url": "https://nixos.org/"
     },
     {
       "organization": "NixPkgs",
       "position": "Contributor | Open Source",
       "startDate": "2023-01",
-      "highlights": [
-        "libusb1",
-        "fxload3",
-        "qhyccd-sdk (PR Review)"
-      ],
+      "highlights": [],
       "url": "https://github.com/NixOS/nixpkgs"
     }
   ],
@@ -292,20 +202,7 @@
       "courses": []
     }
   ],
-  "awards": [
-    {
-      "title": "O-1 Visa: Individuals with Extraordinary Ability or Achievement",
-      "date": "2007-12",
-      "awarder": "USCIS",
-      "summary": ""
-    },
-    {
-      "title": "Israeli National Cycling Team competitive cyclist",
-      "date": "1991-12",
-      "awarder": "Israeli National Cycling Association",
-      "summary": ""
-    }
-  ],
+  "awards": [],
   "certificates": [
     {
       "name": "Ameteur Radio Operator",
@@ -314,22 +211,7 @@
     }
   ],
   "publications": [],
-  "skills": [
-    {
-      "name": "Personal projects are in Rust/Nix/NixOS/OpenMCT"
-    },
-    {
-      "name": "Ideation/Architecture/Productinization"
-    },
-    {
-      "name": "Open Source"
-    },
-    {
-      "name": "mspaint",
-      "level": "",
-      "keywords": []
-    }
-  ],
+  "skills": [],
   "languages": [
     {
       "fluency": "Native Speaker",
@@ -341,44 +223,7 @@
     }
   ],
   "interests": [],
-  "references": [
-    {
-      "name": "Louie Bacaj",
-      "reference": "I worked with Ido for close to three years at jet.com, he was in fact one of the earliest employees of Jet. In that time Ido worked across many areas of the jet.com tech stack and wore many hats. He built and, in many ways, introduced Micro Services in F# to Jet, he built parts of the core eCommerce platform, he worked on developer productivity tooling among many other areas. At the time, when Jet started, many things did not exist to support a large-scale cloud deployment and Ido was not afraid to jump in and build large scale systems such as our Micro Service orchestration tool, Torch, from the ground up. These early tools and libraries would prove incredibly valuable as Jet continued to grow and scale. It is not a stretch for me to say that I have not worked with anyone like Ido in the past that possess this level of expertise with such a wide breadth of technologies. Ido also made some incredibly valuable contributions to my career early on by sitting down with me and teaching me F# and helping me get acquainted with the state-of-the-art platform Jet was building for eCommerce. This all speaks volumes to Ido’s leadership abilities to mentor and help others grow."
-    },
-    {
-      "name": "Mike Hanrahan",
-      "reference": "Ido is someone who has an incredible mind for engineering.   He drove the architecture of the very successful ecommerce platform that we built at Jet.com, especially in the event driven nature of how it was architected.  Ido's deep technical understanding of distributed systems, CAP theorem and related topics meant that he was ideal in thinking through how we implemented comprehensive geo redundancy in the platform.   Additionally, Ido always brought a unique perspective to problem solving and was seen as a thought leader within the group.  He manages to combine theory with practical execution to quickly bring technically sound solutions to life."
-    },
-    {
-      "name": "Steven Cipolla",
-      "reference": "I worked with Ido in two capacities at hi5: First, I was responsible for testing the commerce system which Ido developed with a few other engineers. It was clear that Ido took the lead on that project and the team produced a high quality product. Later I worked side-by-side with Ido on the development team. In that time he was a mentor: I learned more about software architecture in my two months working with Ido than at any other time in my schooling or career. We constantly challenged each other to write better software. As a team member, Ido makes everyone around him a better developer."
-    },
-    {
-      "name": "Svetlozar Petrov",
-      "reference": "Ido is easily one of the best software engineers I have had the chance to work with. His broad knowledge and experience are impressive and his passion for software development catching. Ido is a great team player, an inspiring leader and without doubt he will be a perfect addition to any team."
-    },
-    {
-      "name": "Ismail Kacimi",
-      "reference": "It was a total pleasure working with Ido, he is one of the smartest engineer I have ever worked with and on top of that he is very dedicated to what he does and he really enjoys it. I would not think twice to work with him again. If I had to start a company some day, he will be one of the first people Ill ask to join, he knows how to get stuff done and find solutions to the most complicated problems. He is a brilliant engineer and a .net expert."
-    },
-    {
-      "name": "Saurabh Shah",
-      "reference": "Ido is definitely one of the smartest person I have met so far. He is a great software engineer with tremendous experience which is demonstrated through his ideas regarding everything ranging from high level architecture and design to writing and debugging code. He also is a great team player, willing to help out with any task necessary to achieve and maintain team velocity. There must have been a number of occasions where he has been pivotal in achieving sprint goals and hitting product deadlines. His thinking style and his passion for technology has been very influential on me and he would be a great asset to any organization."
-    },
-    {
-      "name": "Gadi Lenz",
-      "reference": "Ido is one of the brightest people I have had the pleasure to work with. He is an extraordinary software person – spanning all levels from high level architectures and concepts, to debugging the lowest level code – and also someone who grasps concepts and ideas that are far outside his field of expertise. As such, I found him to be someone who I could discuss many technical issues with and the dialog would produce great results. Ido also keeps up with all the latest technical developments and can therefore bring the freshest and latest developments in the software world – he continuously learns and evolves. I had a great time working with him."
-    },
-    {
-      "name": "Ariel Raunstien",
-      "reference": "I've known Ido for a long time and since our professional ways parted - I have noticed I miss his insights and technical contribution. Ido is a master programmer, and he leverages all of those skills to be a great system architect. If you work on a large scale project, and can get in touch with Ido for feedback - do so now. :)"
-    },
-    {
-      "name": "Roy Osherove",
-      "reference": "Ido is a hard working and technically curious person. He can take a complex subject and master it fast. He'd be an asset as a technical specialist if you can satisfy his need for interesting things to do. Lastly, he *loves* technology. It's hard to find someone who really loves doing this and is *good* at it at the same time. Ido is one of those people."
-    }
-  ],
+  "references": [],
   "projects": [],
   "meta": {
     "theme": "papirus",

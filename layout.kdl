@@ -14,9 +14,8 @@ layout name="Resumed" {
             }
         }
         pane split_direction="vertical" size=8 {
-            pane name="build/run" borderless=true {
-                // command "nix" 
-                // args "run .#live"
+            pane command="nix" name="build/run" borderless=true {
+                args "run" ".#live"
             } 
         }
     }
