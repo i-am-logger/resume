@@ -39,7 +39,7 @@
       "position": "Principal Cloud Architect | Executive | Automotive",
       "startDate": "2022-03",
       "endDate": "2023-03",
-      "summary": "Worked on cloud architecture and innovation initiatives as an Executive at Aptiv, a global automotive technology company. Responsible for modernizing infrastructure and powering IoT systems across over 120 factories worldwide.",
+      "summary": "Spearheaded strategic cloud architecture and drove innovation initiatives as technical executive, focusing on 5-10 year future projections for compute, real-time cloud (sub-ms latency), network (including 6G and satellites), storage, and AI technologies.",
       "url": "https://aptiv.com",
       "highlights": [
         "cloud architecture",
@@ -84,7 +84,7 @@
       "position": "VP Engineering | Architect/Programmer | First Employee | eCommerce",
       "startDate": "2013-08-01",
       "endDate": "2016-09-30",
-      "summary": "Core Architecture Team; Initiated many early projects; Worked on Hiring OKR; Lead Internal Tooling and Productivy Team. For the geeks... Jet Insider Game, Core Retailer Website, eCommerce Crawler. microservice platform (v1 and v2) that provided the runtime for all jet microservices and the entire ci/cd; geo redundancy in the platform",
+      "summary": "Core Architecture Team; Initiated many early projects; Worked on Hiring OKR; Lead Internal Tooling and Productivy Team. Led to production: Jet Insider Game; eCommerce Crawler v1; microservice dev/CI/CD platform (v1 and v2); cloud multi-region replication and geo redundancy",
       "highlights": [
         "cloud architecture",
         "Azure",
