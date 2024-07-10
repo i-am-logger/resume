@@ -17,6 +17,9 @@ layout name="Resumed" {
             pane command="nix" name="build/run" borderless=true {
                 args "run" ".#live"
             } 
+            pane name="music" size="30%" borderless=true {
+                command "cava"
+            }
         }
     }
 }

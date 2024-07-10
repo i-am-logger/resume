@@ -76,7 +76,7 @@
       "position": "Advisor / Consultant | Coaching | Startup Consulting",
       "startDate": "2017-03-01",
       "endDate": "2019-07-31",
-      "summary": "Insight to companies needing technology, strategy, architecture and growth guidance",
+      "summary": "Consulting to companies needing strategy, technology, architecture and growth guidance",
       "highlights": []
     },
     {
@@ -84,11 +84,11 @@
       "position": "VP Engineering | Architect/Programmer | First Employee | eCommerce",
       "startDate": "2013-08-01",
       "endDate": "2016-09-30",
-      "summary": "Core Architecture Team; Initiated many early projects; Worked on Hiring OKR; Lead Internal Tooling and Productivy Team. Led to production: Jet Insider Game; eCommerce Crawler v1; microservice dev/CI/CD platform (v1 and v2); cloud multi-region replication and geo redundancy",
+      "summary": "Core Architecture Team; Initiated many early projects; Worked on Hiring OKR; Lead Internal Tooling and Productivy Team. Led to production: Jet Insider Game; eCommerce Crawler v1; microservices Dev/CI/CD platform (v1 and v2); cloud multi-region replication and geo redundancy",
       "highlights": [
         "cloud architecture",
         "Azure",
-        "F# | .net | NodeJS",
+        "F# | .NET | NodeJS",
         "Jet.com sold to walmart for $3.3B"
       ],
       "url": "https://www.linkedin.com/company/jet-com/"
