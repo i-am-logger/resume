@@ -39,7 +39,7 @@
           # format and copying other resources (such as images).
           default = pkgs.runCommand "resume" { } ''
             ln -s ${./resume.json} resume.json
-            HOME=$(mktemp -d) ${self.packages.${system}.builder}
+            HOME=$(mktemp -d) ${lib.getExe' self.packages.${system}.builder "resumed-render"}
             mkdir $out
             cp -v resume.html $out/index.html
             # Copy other resources such as images here...
@@ -50,14 +50,14 @@
         apps = {
           live.type = "app";
           live.program = builtins.toString (pkgs.writeShellScript "entr-reload" ''
-            ${self.packages.${system}.builder}
+            ${lib.getExe' self.packages.${system}.builder "resumed-render"}
 
             ${lib.getExe pkgs.nodePackages.live-server} \
               --watch=resume.html --open=resume.html --wait=300 &
 
             printf "\n%s" resume.{toml,nix,json} |
               ${lib.getExe pkgs.xe} -s 'test -f "$1" && echo "$1"' |
-              ${lib.getExe pkgs.entr} -p ${self.packages.${system}.builder}
+              ${lib.getExe pkgs.entr} -p ${lib.getExe' self.packages.${system}.builder "resumed-render"}
           '');
         };
       })
