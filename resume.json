@@ -6,21 +6,25 @@
     "image": "https://gravatar.com/userimage/69310917/d2ecd272a3be58d58eed9212bbe44f40.jpeg?size=256",
     "email": "ido.samuelson@gmail.com",
     "phone": "7204537927",
-    "summary": "Seasoned Software Engineering Executive with diverse experience in eCommerce, fintech, defense and open-source projects. Proven leader in scaling teams from a few to over 100 engineers and driving technological innovation. Throughout my career in leadership positions in both startups and corporates, I had the opportunity to drive significant technological advancements, mentor and scale engineering teams, and implement strategic solutions that have transformed business operations. As VP of Engineering, I lead internal tooling and productivity team in a successful startup. As Head of engineering at a Trust Financial Institution, I directed the technology strategy and implemented regulatory solutions. As a Technology Director at a consulting firm I directed over 100 engineers providing architecture leadership for Walmart’s SRE team and Health & Wellness (Clinics and Pharmacies), helping Walmart to save over $40M in operational costs within 3 months. In my most recent position as a Principal Cloud Architect, I worked on cloud strategy and innovation as an executive under the CTO Office. I also volunteered to lead software and joined the management team in an open-source engineering project in developing a real-time robotic system for UAP study.",
+    "summary": "Mentored junior engineers while leveraging custom agentic AI workflows to build immutable cloud infrastructure and CI/CD using Pulumi and TypeScript for safe multi-environment deployments, and deliver Rust-based product features for rapid iteration.",
     "location": {
       "countryCode": "US",
       "address": "United States",
       "city": "Denver"
-    },
-    "profiles": [
-      {
-        "network": "LinkedIn",
-        "username": "isamuelson",
-        "url": "https://www.linkedin.com/in/isamuelson/"
-      }
-    ]
+    }
   },
   "work": [
+    {
+      "name": "Ukon",
+      "position": "Senior Software Engineer",
+      "startDate": "2024-12",
+      "endDate": "2025-08",
+      "summary": "Mentored junior engineers while leveraging custom agentic AI workflows to build immutable cloud infrastructure and CI/CD using Pulumi and TypeScript for safe multi-environment deployments, and deliver Rust-based product features for rapid iteration.",
+      "highlights": [
+        "Google Cloud | Pulumi | Github Issues/Actions | Rust | Nix"
+      ],
+      "url": "https://ukon.com"
+    },
     {
       "name": "Sky360",
       "position": "Head Software Engineering | Management Team | Volunteer | Open Source",
@@ -51,7 +55,7 @@
       "position": "Director Technology Solutions | Consulting Firm",
       "startDate": "2020-02",
       "endDate": "2022-02",
-      "summary": "Provided SRE leadership for Walmart (saving over $40M in operational costs), supporting Walmart's Health & Wellness Architecture of their clinics and pharamcies. Directed a team of over 100 engineers, driving technology strategy, innovation, and modernization. Key responsibilities included architecture design, coaching and mentoring. EPAM Systems is a global public company with over 60,000 employees.",
+      "summary": "Directed a team of 100+ engineers, driving technology strategy, innovation, and modernization for Walmart's SRE and Health & Wellness (Clinics and Pharmacies). Provided SRE leadership that delivered over $40M in operational cost savings within 3 months. Key responsibilities included architecture design, coaching, and mentoring.",
       "highlights": [
         "software architecture",
         "Azure | On-Premise",
