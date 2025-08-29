@@ -2,11 +2,11 @@
   "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
   "basics": {
     "name": "Ido Samuelson",
-    "label": "Executive | Engineering Leadership | Architecture | Rusty Programmer",
+    "label": "Executive | Engineering Leadership | Architecture | Hands-on Programmer",
     "image": "https://gravatar.com/userimage/69310917/d2ecd272a3be58d58eed9212bbe44f40.jpeg?size=256",
     "email": "ido.samuelson@gmail.com",
     "phone": "7204537927",
-    "summary": "Seasoned Software Engineering Executive in eCommerce, fintech, defense. Scaled teams from startup to 100+ engineers. VP of Engineering/Technology Director at Walmart, saved $40M+. Led cloud transformation as Principal Cloud Architect.",
+    "summary": "Engineering Executive who helped grow organizations from startup to 100+ engineers. VP at Jet (first employee, $3.3B exit) and Director at Walmart ($40M+ savings). Combines strategic leadership with hands-on development, leveraging agentic AI while enjoying Rust development and cloud infrastructure automation.",
     "location": {
       "countryCode": "US",
       "address": "United States",
@@ -19,9 +19,9 @@
       "position": "Senior Software Engineer",
       "startDate": "2024-12",
       "endDate": "2025-08",
-      "summary": "Mentored junior engineers while leveraging custom agentic AI workflows to build immutable cloud infrastructure and CI/CD using Pulumi and TypeScript for safe multi-environment deployments, and deliver Rust-based product features for rapid iteration.",
+      "summary": "Mentored junior engineers. Leveraged agentic AI to build Rust-based product features , immutable cloud infrastructure, CI/CD using Pulumi and TypeScript for safe multi-environment deployments.",
       "highlights": [
-        "Google Cloud | Pulumi | Github Issues/Actions | Rust | Nix"
+        "Agentic AI | Rust | Nix | Google Cloud | Pulumi | Github Issues/Actions"
       ],
       "url": "https://ukon.com"
     },
