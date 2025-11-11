@@ -9,7 +9,7 @@ TEL;type=CELL;type=VOICE;type=pref:+1 (720) 453-7927
 X-SOCIALPROFILE;type=GitHub;x-user=i-am-logger:x-apple:i-am-logger
 X-SOCIALPROFILE;type=linkedin:http://www.linkedin.com/in/isamuelson
 X-SOCIALPROFILE;type=twitter:http://twitter.com/i_am_logger
-item1.IMPP;X-SERVICE-TYPE=Signal;type=pref:x-apple:i_am_logger
+item1.IMPP;X-SERVICE-TYPE=Signal;type=pref:x-apple:i_am_logger.01
 item1.X-ABLabel:Signal
 PHOTO;ENCODING=b;TYPE=JPEG:/9j/4AAQSkZJRgABAQAASABIAAD/4QBMRXhpZgAATU0AKgAA
  AAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAABQKADAAQAAAABAA
@@ -460,3 +460,4 @@ PHOTO;ENCODING=b;TYPE=JPEG:/9j/4AAQSkZJRgABAQAASABIAAD/4QBMRXhpZgAATU0AKgAA
  dYTiFpG2bFOUfIznaflI7dqx5L5kBjnjC9c7B8vPX5D0+ooAryOAQpwQMHv2GD2quZWQhmP+yf
  cdvyqU+XKVMbAA8Z+tUm4yG6nrQB/9k=
 END:VCARD
+
