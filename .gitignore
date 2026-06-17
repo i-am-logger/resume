@@ -1,4 +1,7 @@
-# Ignore build symlinks
+# Ignore build symlinks / generated artifacts
 result*
 .tmp
 resume.html
+index.html
+resume.pdf
+resume_preview.pdf

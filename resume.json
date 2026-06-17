@@ -2,11 +2,11 @@
   "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
   "basics": {
     "name": "Ido Samuelson",
-    "label": "Executive | Engineering Leadership | Architecture | Hands-on Programmer",
+    "label": "Engineering Executive & Software Architect · Agentic-AI Engineering · Rust / Nix",
     "image": "https://gravatar.com/userimage/69310917/d2ecd272a3be58d58eed9212bbe44f40.jpeg?size=256",
     "email": "ido.samuelson@gmail.com",
     "phone": "7204537927",
-    "summary": "Engineering Executive who helped grow organizations from startup to 100+ engineers. VP at Jet (first employee, $3.3B exit) and Director at Walmart ($40M+ savings). Combines strategic leadership with hands-on development, leveraging agentic AI while enjoying Rust development and cloud infrastructure automation.",
+    "summary": "Engineering executive and software architect, 20+ years — first employee and VP Engineering at Jet ($3.3B Walmart acquisition) and Technology Director at EPAM/Walmart (100+ engineers, $40M+ in SRE operational savings). I make the durable engineering calls — system design, interface boundaries, data models, failure modes, and what 'correct' means — and prove them with executable specifications, property tests, and CI gates rather than asserting them. Today I design and ship released, CI-gated Rust and Nix systems (pr4xis, vogix, nix-license, mynixos), directing agentic AI for throughput under a verification-first discipline: I own the design, judgment, and correctness criteria; the tests and CI own the proof. Earlier career across defense-sector, fintech, and eCommerce companies. U.S.-based; eligible for U.S. Secret clearance.",
     "location": {
       "countryCode": "US",
       "address": "United States",
@@ -126,7 +126,7 @@
     },
     {
       "name": "4D Security Solutions, Inc.",
-      "position": "Chief Software Architect | Lead | Architect/Programmer | Defnese",
+      "position": "Chief Software Architect | Lead | Architect/Programmer | Defense",
       "startDate": "2007-12",
       "endDate": "2009-12",
       "highlights": [],
@@ -165,6 +165,14 @@
       "endDate": "2003-12",
       "highlights": [],
       "summary": ""
+    },
+    {
+      "name": "Israeli Air Force",
+      "position": "Sergeant — Light Helicopter Technician",
+      "startDate": "1994-01",
+      "endDate": "1997-01",
+      "summary": "",
+      "highlights": []
     }
   ],
   "volunteer": [
@@ -211,13 +219,22 @@
   "awards": [],
   "certificates": [
     {
-      "name": "Ameteur Radio Operator",
+      "name": "Amateur Radio Operator",
       "issuer": "Federal Communications Commission",
       "date": "2022-12-01"
     }
   ],
   "publications": [],
-  "skills": [],
+  "skills": [
+    { "name": "Rust" },
+    { "name": "Nix / NixOS" },
+    { "name": "CI/CD & Release Engineering" },
+    { "name": "Architecture & System Design" },
+    { "name": "Test-Driven Verification" },
+    { "name": "Agentic-AI Engineering" },
+    { "name": "Engineering Leadership" },
+    { "name": "Cloud (AWS / Azure / GCP)" }
+  ],
   "languages": [
     {
       "fluency": "Native Speaker",
@@ -230,7 +247,50 @@
   ],
   "interests": [],
   "references": [],
-  "projects": [],
+  "projects": [
+    {
+      "name": "pr4xis",
+      "description": "Rust engine that represents knowledge as typed ontologies and checks its rules as executable axioms rather than asserting them. 11-crate workspace, ~295K LOC, 7,600+ tests; 4 crates published to crates.io.",
+      "keywords": [
+        "Rust",
+        "no_std",
+        "ontologies",
+        "crates.io"
+      ],
+      "url": "https://github.com/i-am-logger/pr4xis"
+    },
+    {
+      "name": "vogix",
+      "description": "NixOS/Hyprland desktop UX subsystem with an evdev→uinput keyboard input engine and runtime theme switching. ~15.5K LOC Rust, unit + NixOS VM tests; most-starred repo (50★), alpha.",
+      "keywords": [
+        "Rust",
+        "NixOS",
+        "Hyprland",
+        "evdev/uinput"
+      ],
+      "url": "https://github.com/i-am-logger/vogix"
+    },
+    {
+      "name": "mynixos",
+      "description": "Released NixOS distribution and module framework with a typed my.* option API (430+ options). ~16K Nix LOC, a Nix test suite plus a VM boot test, automated releases.",
+      "keywords": [
+        "NixOS",
+        "Nix flakes",
+        "nixos-modules"
+      ],
+      "url": "https://github.com/i-am-logger/mynixos"
+    },
+    {
+      "name": "nix-license & SALT",
+      "description": "NixOS module that enforces per-package license compliance at build time — an allowUnfree replacement with exhaustive property tests. SALT, its backing dataset, classifies 2,649 licenses with SHA-256 verification.",
+      "keywords": [
+        "Nix",
+        "license compliance",
+        "property-based testing"
+      ],
+      "url": "https://github.com/i-am-logger/nix-license"
+    }
+  ],
   "meta": {
     "theme": "papirus",
     "version": "v1.0.0",

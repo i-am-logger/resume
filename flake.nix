@@ -1,155 +1,93 @@
 {
-  description = "Your personal jsonresume built with Nix";
+  description = "Ido Samuelson résumé — custom Typst dark-sidebar theme (reads resume.json)";
 
-  inputs.jsonresume-nix.url = "github:TaserudConsulting/jsonresume-nix";
-  inputs.jsonresume-nix.inputs.flake-utils.follows = "flake-utils";
-  inputs.flake-utils.url = "flake-utils";
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    flake-utils.url = "github:numtide/flake-utils";
+  };
 
   outputs =
-    { jsonresume-nix
-    , self
-    , flake-utils
+    { self
     , nixpkgs
-    , ...
-    } @ inputs:
-    flake-utils.lib.eachDefaultSystem
-      (system:
-      let
-        pkgs = nixpkgs.legacyPackages.${system};
-        lib = pkgs.lib;
-      in
-      {
-        # Specify formatter package for "nix fmt ." and "nix fmt . -- --check"
-        formatter = pkgs.alejandra;
+    , flake-utils
+    }:
+    flake-utils.lib.eachDefaultSystem (system:
+    let
+      pkgs = nixpkgs.legacyPackages.${system};
+      lib = pkgs.lib;
 
-        # Specify the builder package to use to build your resume, this
-        # will decide which theme to use.
-        #
-        # To show available packaged themes:
-        # nix flake show github:TaserudConsulting/jsonresume-nix
-        #
-        # If you miss a theme, consider opening a pull request :)
-        packages = {
-          builder = jsonresume-nix.packages.${system}.resumed-elegant;
-          inherit (jsonresume-nix.packages.${system}) fmt-as-json;
+      # Typst with the Font Awesome package available offline (contact icons).
+      typst-with = pkgs.typst.withPackages (ps: [ ps.fontawesome ]);
 
-          # Build production build (HTML)
-          #
-          # This may need customizations, such as using the correct file
-          # format and copying other resources (such as images).
-          default = pkgs.runCommand "resume" { } ''
-            # Preprocess resume.json to ensure basics.profiles exists as an array
-            cp ${./resume.json} resume.original.json
-            ${lib.getExe pkgs.jq} '(.basics.profiles //= []) | (.basics.profiles |= (if type=="array" then . else [] end))' \
-              resume.original.json > resume.json
+      # Helvetica-like sans (Liberation) + symbol fallback (DejaVu) + Font Awesome 7 (icons).
+      fonts = pkgs.symlinkJoin {
+        name = "resume-fonts";
+        paths = [ pkgs.liberation_ttf pkgs.dejavu_fonts pkgs.font-awesome ];
+      };
 
-            HOME=$(mktemp -d) ${lib.getExe' self.packages.${system}.builder "resumed-render"}
-            # Inject print-only CSS to hide social links, LinkedIn icons/links anywhere, and its surrounding hr in the profile card
-            ${lib.getExe pkgs.gnused} -i \
-              -e 's|</head>|<style><!-- __print_hide_social_links__ -->@media print { body .social-links, body .social-links * { display: none !important; visibility: hidden !important; } body a[href*="linkedin.com"], body a[href*="linkedin.com"] * { display: none !important; visibility: hidden !important; } body .link-linkedin, body .icon-linkedin { display: none !important; visibility: hidden !important; } body .icon-linkedin:before { content: "" !important; } .profile-card hr { display: none !important; } }</style></head>|' \
-              resume.html
-            # Inject Military Service section and move IAF entry from Work Experience
-            ${lib.getExe pkgs.gnused} -i \
-              -e 's|</body>|<script>(function(){var $=window.jQuery;if(!$)return;var $bg=$(".background-details");var $li=$("#work-experience .info ul.list-unstyled > li").filter(function(){return $(this).text().indexOf("Israeli Air Force")!==-1;}).first();if(!$li.length)return;if(!$("#military-service").length){var html="<div class=\"detail\" id=\"military-service\"><div class=\"icon\"><i class=\"fs-lg icon-trophy\"></i><span class=\"mobile-title\">Military Service</span></div><div class=\"info\"><h4 class=\"title text-uppercase\">Military Service</h4><ul class=\"list-unstyled clear-margin\"></ul></div></div>";var $edu=$("#education").closest(".detail");if($edu.length){$(html).insertBefore($edu);}else{$bg.append(html);}$(".floating-nav ul.list-unstyled").append("<li><a href=\"#military-service\"><i class=\"mr-10 icon-trophy\"></i>Military Service</a></li>");}$li.appendTo($("#military-service .info ul"));})();</script></body>|' \
-              resume.html
-            mkdir $out
-            cp -v resume.html $out/index.html
-            # Copy other resources such as images here...
-          '';
+      # Only the files the render needs — keeps the build input small/deterministic.
+      src = lib.fileset.toSource {
+        root = ./.;
+        fileset = lib.fileset.unions [
+          ./resume.typ
+          ./resume.json
+          ./assets
+        ];
+      };
 
-          # Build a PDF from the rendered HTML using wkhtmltopdf
-          pdf = pkgs.runCommand "resume-pdf" { } ''
-            # Preprocess resume.json to ensure basics.profiles exists as an array
-            cp ${./resume.json} resume.original.json
-            ${lib.getExe pkgs.jq} '(.basics.profiles //= []) | (.basics.profiles |= (if type=="array" then . else [] end))' \
-              resume.original.json > resume.json
+      resume-pdf = pkgs.stdenvNoCC.mkDerivation {
+        pname = "resume";
+        version = "1.0";
+        inherit src;
+        nativeBuildInputs = [ typst-with ];
+        buildPhase = ''
+          runHook preBuild
+          typst compile --font-path ${fonts}/share/fonts resume.typ resume.pdf
+          runHook postBuild
+        '';
+        installPhase = ''
+          runHook preInstall
+          mkdir -p $out
+          cp resume.pdf $out/resume.pdf
+          # Minimal web view: embed the PDF so a static host (gh-pages) shows the résumé at /.
+          cat > $out/index.html <<'EOF'
+          <!doctype html>
+          <html lang="en">
+          <head>
+            <meta charset="utf-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <title>Ido Samuelson — Résumé</title>
+            <style>html, body { margin: 0; height: 100%; } embed { width: 100%; height: 100vh; border: 0; }</style>
+          </head>
+          <body><embed src="resume.pdf" type="application/pdf" /></body>
+          </html>
+          EOF
+          runHook postInstall
+        '';
+      };
+    in
+    {
+      # `nix build` / `nix build .#pdf` -> result/resume.pdf (+ result/index.html)
+      packages.default = resume-pdf;
+      packages.pdf = resume-pdf;
 
-            HOME=$(mktemp -d) ${lib.getExe' self.packages.${system}.builder "resumed-render"}
-            mkdir -p $out
-            ${lib.getExe' pkgs.wkhtmltopdf "wkhtmltopdf"} \
-              --quiet \
-              --enable-local-file-access \
-              resume.html $out/resume.pdf
-          '';
-        };
+      # `nix run .#live` -> recompile resume.pdf on every save of resume.typ/json.
+      # Open resume.pdf in a viewer that hot-reloads (e.g. zathura) alongside it.
+      apps.live = {
+        type = "app";
+        program = toString (pkgs.writeShellScript "resume-live" ''
+          echo "Watching resume.typ/resume.json -> resume.pdf (open resume.pdf in a viewer)"
+          exec ${typst-with}/bin/typst watch --font-path ${fonts}/share/fonts resume.typ resume.pdf
+        '');
+      };
+      apps.default = self.apps.${system}.live;
 
-        # Allows to run live preview servers using "nix run .#live-<theme>"
-        # We provide one app per theme so you can quickly compare.
-        apps = let
-          mkLive = builderDrv: builtins.toString (pkgs.writeShellScript "entr-reload" ''
-            set -euo pipefail
+      # `nix develop` -> typst (+ fontawesome) and fonts for ad-hoc `typst compile`.
+      devShells.default = pkgs.mkShell {
+        packages = [ typst-with fonts ];
+        env.TYPST_FONT_PATHS = "${fonts}/share/fonts";
+      };
 
-            # Build and then inject a Download PDF entry into the floating menu
-            RENDER_SCRIPT=$(mktemp -t render-resume.XXXXXX)
-cat > "$RENDER_SCRIPT" <<'EOS'
-#!/usr/bin/env bash
-set -euo pipefail
-
-# Work in a temporary dir to avoid touching the source resume.json
-WORKDIR=$(mktemp -d)
-ORIG_JSON="$PWD/resume.json"
-PATCHED_JSON="$WORKDIR/resume.json"
-
-# Ensure basics.profiles exists and is an array to satisfy theme expectations
-${lib.getExe pkgs.jq} '(.basics.profiles //= []) | (.basics.profiles |= (if type=="array" then . else [] end))' \
-  "$ORIG_JSON" > "$PATCHED_JSON"
-
-pushd "$WORKDIR" >/dev/null
-HOME=$(mktemp -d) ${lib.getExe' builderDrv "resumed-render"}
-popd >/dev/null
-
-# Bring the generated resume.html back to project root
-cp -f "$WORKDIR/resume.html" "$PWD/resume.html"
-
-${lib.getExe pkgs.gnused} -i \
-  -e 's|<nav class=\"floating-nav js-floating-nav\"><ul class=\"list-unstyled\">|<nav class=\"floating-nav js-floating-nav\"><ul class=\"list-unstyled\"><li><a href=\"#\" onclick=\"window.print(); return false;\"><i class=\"mr-10 icon-newspaper\"></i>Download PDF</a></li>|' \
-  "$PWD/resume.html"
-# Inject print-only CSS to hide social links (idempotent), LinkedIn icons/links anywhere, and surrounding hr in profile card
-if ! ${lib.getExe pkgs.gnugrep} -q "__print_hide_social_links__" "$PWD/resume.html"; then
-  ${lib.getExe pkgs.gnused} -i \
-    -e 's|</head>|<style><!-- __print_hide_social_links__ -->@media print { body .social-links, body .social-links * { display: none !important; visibility: hidden !important; } body a[href*="linkedin.com"], body a[href*="linkedin.com"] * { display: none !important; visibility: hidden !important; } body .link-linkedin, body .icon-linkedin { display: none !important; visibility: hidden !important; } body .icon-linkedin:before { content: "" !important; } .profile-card hr { display: none !important; } }</style></head>|' \
-    "$PWD/resume.html"
-fi
-
-# Inject Military Service section and move IAF entry from Work Experience (idempotent-ish)
-${lib.getExe pkgs.gnused} -i \
-  -e 's|</body>|<script>(function(){var $=window.jQuery;if(!$)return;var $bg=$(".background-details");var $li=$("#work-experience .info ul.list-unstyled > li").filter(function(){return $(this).text().indexOf("Israeli Air Force")!==-1;}).first();if(!$li.length)return;if(!$("#military-service").length){var html="<div class=\"detail\" id=\"military-service\"><div class=\"icon\"><i class=\"fs-lg icon-trophy\"></i><span class=\"mobile-title\">Military Service</span></div><div class=\"info\"><h4 class=\"title text-uppercase\">Military Service</h4><ul class=\"list-unstyled clear-margin\"></ul></div></div>";var $edu=$("#education").closest(".detail");if($edu.length){$(html).insertBefore($edu);}else{$bg.append(html);}$(".floating-nav ul.list-unstyled").append("<li><a href=\"#military-service\"><i class=\"mr-10 icon-trophy\"></i>Military Service</a></li>");}$li.appendTo($("#military-service .info ul"));})();</script></body>|' \
-  "$PWD/resume.html"
-EOS
-            chmod +x "$RENDER_SCRIPT"
-
-            "$RENDER_SCRIPT"
-
-            ${lib.getExe' pkgs.nodePackages.live-server "live-server"} \
-              --watch=resume.html --open=resume.html --wait=300 &
-
-            printf "\n%s" resume.{toml,nix,json} |
-              ${lib.getExe pkgs.xe} -s 'test -f "$1" && echo "$1"' |
-              ${lib.getExe pkgs.entr} -p "$RENDER_SCRIPT"
-          '');
-        in {
-          # Keep the original 'live' as elegant for convenience
-          live.type = "app";
-          live.program = mkLive jsonresume-nix.packages.${system}.resumed-elegant;
-
-          live-elegant.type = "app";
-          live-elegant.program = mkLive jsonresume-nix.packages.${system}.resumed-elegant;
-
-          live-full.type = "app";
-          live-full.program = mkLive jsonresume-nix.packages.${system}.resumed-full;
-
-          live-fullmoon.type = "app";
-          live-fullmoon.program = mkLive jsonresume-nix.packages.${system}.resumed-fullmoon;
-
-          live-kendall.type = "app";
-          live-kendall.program = mkLive jsonresume-nix.packages.${system}.resumed-kendall;
-
-          live-macchiato.type = "app";
-          live-macchiato.program = mkLive jsonresume-nix.packages.${system}.resumed-macchiato;
-
-          live-stackoverflow.type = "app";
-          live-stackoverflow.program = mkLive jsonresume-nix.packages.${system}.resumed-stackoverflow;
-        };
-      })
-    // { inherit inputs; };
+      formatter = pkgs.nixpkgs-fmt;
+    });
 }
