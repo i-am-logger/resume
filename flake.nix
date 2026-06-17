@@ -1,5 +1,5 @@
 {
-  description = "Ido Samuelson résumé — custom Typst dark-sidebar theme (reads resume.json)";
+  description = "Ido Samuelson résumé — custom Typst dark-sidebar theme + matching HTML site (one source: resume.json)";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -25,6 +25,10 @@
         paths = [ pkgs.liberation_ttf pkgs.dejavu_fonts pkgs.font-awesome ];
       };
 
+      # Same data drives both renderers.
+      data = builtins.fromJSON (builtins.readFile ./resume.json);
+      siteHtml = pkgs.writeText "index.html" (import ./site.nix { inherit lib data; });
+
       # Only the files the render needs — keeps the build input small/deterministic.
       src = lib.fileset.toSource {
         root = ./.;
@@ -35,7 +39,7 @@
         ];
       };
 
-      resume-pdf = pkgs.stdenvNoCC.mkDerivation {
+      resume = pkgs.stdenvNoCC.mkDerivation {
         pname = "resume";
         version = "1.0";
         inherit src;
@@ -47,37 +51,35 @@
         '';
         installPhase = ''
           runHook preInstall
-          mkdir -p $out
+          mkdir -p $out/assets
           cp resume.pdf $out/resume.pdf
-          # Minimal web view: embed the PDF so a static host (gh-pages) shows the résumé at /.
-          cat > $out/index.html <<'EOF'
-          <!doctype html>
-          <html lang="en">
-          <head>
-            <meta charset="utf-8" />
-            <meta name="viewport" content="width=device-width, initial-scale=1" />
-            <title>Ido Samuelson — Résumé</title>
-            <style>html, body { margin: 0; height: 100%; } embed { width: 100%; height: 100vh; border: 0; }</style>
-          </head>
-          <body><embed src="resume.pdf" type="application/pdf" /></body>
-          </html>
-          EOF
+          cp ${siteHtml} $out/index.html
+          cp assets/photo.png $out/assets/photo.png
           runHook postInstall
         '';
       };
     in
     {
-      # `nix build` / `nix build .#pdf` -> result/resume.pdf (+ result/index.html)
-      packages.default = resume-pdf;
-      packages.pdf = resume-pdf;
+      # `nix build` -> result/{index.html (dark-sidebar site), resume.pdf, assets/photo.png}
+      packages.default = resume;
+      packages.pdf = resume;
 
-      # `nix run .#live` -> recompile resume.pdf on every save of resume.typ/json.
-      # Open resume.pdf in a viewer that hot-reloads (e.g. zathura) alongside it.
+      # `nix run .#live` -> recompile resume.pdf on every save (open it in a hot-reloading viewer).
       apps.live = {
         type = "app";
         program = toString (pkgs.writeShellScript "resume-live" ''
           echo "Watching resume.typ/resume.json -> resume.pdf (open resume.pdf in a viewer)"
           exec ${typst-with}/bin/typst watch --font-path ${fonts}/share/fonts resume.typ resume.pdf
+        '');
+      };
+
+      # `nix run .#site` -> build the HTML site + PDF and serve it locally (open the printed URL).
+      apps.site = {
+        type = "app";
+        program = toString (pkgs.writeShellScript "resume-site" ''
+          out=$(${pkgs.nix}/bin/nix build --no-link --print-out-paths .#default)
+          echo "Serving $out  (Ctrl-C to stop)"
+          exec ${pkgs.python3}/bin/python3 -m http.server --directory "$out" 8000
         '');
       };
       apps.default = self.apps.${system}.live;
