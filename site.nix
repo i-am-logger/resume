@@ -164,8 +164,7 @@ a { color: var(--link); text-decoration: none; }
 .toolbar { position: fixed; bottom: 18px; right: 18px; display: flex; align-items: center; gap: 8px; z-index: 10; }
 .tbtn { display: inline-flex; align-items: center; gap: 7px; color: var(--text); padding: 8px 14px; border-radius: 12px; text-decoration: none; font: inherit; font-size: 13px; cursor: pointer;
   background: color-mix(in srgb, var(--surface) 7%, transparent);
-  -webkit-backdrop-filter: blur(16px) saturate(140%); backdrop-filter: blur(16px) saturate(140%);
-  will-change: backdrop-filter; transform: translateZ(0);
+  isolation: isolate; will-change: transform; transform: translateZ(0);
   border: 1px solid rgba(255,255,255,.15);
   box-shadow: 0 8px 22px rgba(0,0,0,.15), inset 0 1px 0.5px rgba(255,255,255,.4), inset 0 -1.5px 2px rgba(255,255,255,.12); }
 .tbtn:hover { filter: brightness(1.06); }
@@ -174,13 +173,21 @@ a { color: var(--link); text-decoration: none; }
 .tbtn select option { color: #222; background: #fff; text-transform: capitalize; }
 .poweredby { position: fixed; bottom: 18px; left: 18px; display: inline-flex; align-items: center; gap: 6px; font-size: 11px; color: var(--text); border-radius: 12px; padding: 6px 11px; text-decoration: none; z-index: 10;
   background: color-mix(in srgb, var(--surface) 7%, transparent);
-  -webkit-backdrop-filter: blur(16px) saturate(140%); backdrop-filter: blur(16px) saturate(140%);
-  will-change: backdrop-filter; transform: translateZ(0);
+  isolation: isolate; will-change: transform; transform: translateZ(0);
   border: 1px solid rgba(255,255,255,.15);
   box-shadow: 0 8px 22px rgba(0,0,0,.15), inset 0 1px 0.5px rgba(255,255,255,.4), inset 0 -1.5px 2px rgba(255,255,255,.12); }
 .poweredby:hover { filter: brightness(1.06); }
 .poweredby .ic { width: 12px; height: 12px; color: var(--text); opacity: .7; }
 .poweredby b { color: var(--text); font-weight: 700; }
+/* Glass backdrop: plain blur where supported; SVG edge-refraction (liquid glass) where Chromium
+   accepts a url() backdrop-filter. The base rule has no backdrop-filter, so non-supporting engines
+   just get the tint + rim. */
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .tbtn, .poweredby { -webkit-backdrop-filter: blur(14px) saturate(150%); backdrop-filter: blur(14px) saturate(150%); }
+}
+@supports ((backdrop-filter: url(#tbtn-glass)) or (-webkit-backdrop-filter: url(#tbtn-glass))) {
+  .tbtn, .poweredby { -webkit-backdrop-filter: url(#tbtn-glass) blur(9px) saturate(150%); backdrop-filter: url(#tbtn-glass) blur(9px) saturate(150%); }
+}
 @page { margin: 0.42in; }       /* white margin around the resume on every side (all pages) */
 @media print {
   .toolbar, .poweredby { display: none !important; }
@@ -200,6 +207,18 @@ a { color: var(--link); text-decoration: none; }
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<filter id="tbtn-glass" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+<feTurbulence type="fractalNoise" baseFrequency="0.012 0.012" numOctaves="2" seed="7" result="noise"/>
+<feGaussianBlur in="noise" stdDeviation="1.4" result="softnoise"/>
+<feComponentTransfer in="SourceAlpha" result="solid"><feFuncA type="discrete" tableValues="0 1"/></feComponentTransfer>
+<feMorphology in="solid" operator="erode" radius="4" result="inner"/>
+<feGaussianBlur in="inner" stdDeviation="3" result="innerblur"/>
+<feComposite in="solid" in2="innerblur" operator="out" result="ring"/>
+<feGaussianBlur in="ring" stdDeviation="2" result="edgemask"/>
+<feComposite in="softnoise" in2="edgemask" operator="in" result="edgenoise"/>
+<feDisplacementMap in="SourceGraphic" in2="edgenoise" scale="16" xChannelSelector="R" yChannelSelector="G"/>
+</filter></defs></svg>
 <div class="toolbar">
   <label class="tbtn" title="Theme">${icPalette}<select id="themeSel">${themeOpts}</select></label>
   <button class="tbtn" id="variantBtn" title="System / light / dark">${icMonitor}<span>System</span></button>
