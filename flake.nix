@@ -122,8 +122,12 @@
           trap 'kill %1 2>/dev/null || true' EXIT
           echo "Serving http://localhost:$PORT  — edit resume.json / site.nix / resume.typ to auto-reload"
           # --postpone: don't also rebuild on launch (the script already built above).
+          # Watch the directory (not individual file paths) + filter by extension: editors save
+          # atomically (write temp, rename over), which replaces the file's inode and breaks a
+          # per-file watch after the first save — that's why hot reload stopped. A dir watch
+          # survives it. watchexec ignores .git / gitignored paths (result) by default.
           exec ${pkgs.watchexec}/bin/watchexec --postpone --debounce 300ms \
-            -w "$FLAKE_DIR/resume.json" -w "$FLAKE_DIR/site.nix" -w "$FLAKE_DIR/resume.typ" -w "$FLAKE_DIR/flake.nix" \
+            -w "$FLAKE_DIR" --exts json,nix,typ \
             -- ${rebuildScript}
         '');
       };

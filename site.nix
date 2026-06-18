@@ -31,6 +31,9 @@ let
   icDl = svg ''<path d="M12 3v12"/><path d="M7 11l5 5 5-5"/><path d="M4 20h16"/>'';
   icPrint = svg ''<path d="M6 9V3h12v6"/><rect x="4" y="9" width="16" height="8" rx="2"/><path d="M6 14h12v6H6z"/>'';
   icPalette = svg ''<path d="M12 3a9 9 0 000 18 1.8 1.8 0 001.4-3 1.8 1.8 0 011.4-3H17a4 4 0 004-4c0-3.3-4-5-9-5z"/><circle cx="7.5" cy="11.5" r=".6"/><circle cx="10" cy="7.5" r=".6"/><circle cx="14.5" cy="7.5" r=".6"/>'';
+  icSun = svg ''<circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M4.93 4.93l1.41 1.41"/><path d="M17.66 17.66l1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.93 19.07l1.41-1.41"/><path d="M17.66 6.34l1.41-1.41"/>'';
+  icMoon = svg ''<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>'';
+  icMonitor = svg ''<rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8"/><path d="M12 16v4"/>'';
   icExt = svg ''<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>'';
   icRust = svg ''<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/>'';
   icNix = svg ''<path d="M12 2.5v19M4 7l16 9.5M4 17l16-9.5"/>'';
@@ -160,8 +163,7 @@ a { color: var(--link); text-decoration: none; }
 .cdemo .ic { width: 11px; height: 11px; color: var(--comment); }
 .toolbar { position: fixed; bottom: 18px; right: 18px; display: flex; align-items: center; gap: 8px; z-index: 10; }
 .tbtn { display: inline-flex; align-items: center; gap: 7px; color: var(--text); padding: 8px 14px; border-radius: 12px; text-decoration: none; font: inherit; font-size: 13px; cursor: pointer;
-  background: var(--surface);
-  background: color-mix(in srgb, var(--surface) 12%, transparent);
+  background: color-mix(in srgb, var(--surface) 7%, transparent);
   -webkit-backdrop-filter: blur(16px) saturate(140%); backdrop-filter: blur(16px) saturate(140%);
   border: 1px solid rgba(255,255,255,.15);
   box-shadow: 0 8px 22px rgba(0,0,0,.15), inset 0 1px 0.5px rgba(255,255,255,.4), inset 0 -1.5px 2px rgba(255,255,255,.12); }
@@ -170,8 +172,7 @@ a { color: var(--link); text-decoration: none; }
 .tbtn select { background: transparent; color: inherit; border: none; font: inherit; cursor: pointer; outline: none; text-transform: capitalize; }
 .tbtn select option { color: #222; background: #fff; text-transform: capitalize; }
 .poweredby { position: fixed; bottom: 18px; left: 18px; display: inline-flex; align-items: center; gap: 6px; font-size: 11px; color: var(--text); border-radius: 12px; padding: 6px 11px; text-decoration: none; z-index: 10;
-  background: var(--surface);
-  background: color-mix(in srgb, var(--surface) 12%, transparent);
+  background: color-mix(in srgb, var(--surface) 7%, transparent);
   -webkit-backdrop-filter: blur(16px) saturate(140%); backdrop-filter: blur(16px) saturate(140%);
   border: 1px solid rgba(255,255,255,.15);
   box-shadow: 0 8px 22px rgba(0,0,0,.15), inset 0 1px 0.5px rgba(255,255,255,.4), inset 0 -1.5px 2px rgba(255,255,255,.12); }
@@ -199,7 +200,7 @@ a { color: var(--link); text-decoration: none; }
 <body>
 <div class="toolbar">
   <label class="tbtn" title="Theme">${icPalette}<select id="themeSel">${themeOpts}</select></label>
-  <button class="tbtn" id="variantBtn" title="System / light / dark">🖥 System</button>
+  <button class="tbtn" id="variantBtn" title="System / light / dark">${icMonitor}<span>System</span></button>
   <a class="tbtn" href="#" onclick="window.print();return false;">${icPrint} Print</a>
 </div>
 <a class="poweredby" href="https://github.com/i-am-logger/vogix16-themes" target="_blank" rel="noopener">${icPalette} Powered by <b>Vogix16</b></a>
@@ -242,6 +243,7 @@ a { color: var(--link); text-decoration: none; }
 const THEMES = ${builtins.toJSON themes};
 const KEYS = ["base00","base01","base02","base03","base04","base05","base06","base0D"];
 const VARS = ["--bg","--surface","--sel","--comment","--border","--text","--heading","--link"];
+const IC_SYS = '${icMonitor}', IC_LIGHT = '${icSun}', IC_DARK = '${icMoon}';
 const DEFAULT = { name: "${defName}", variant: "${defVariant}" };
 const SV = 3; // bump to invalidate stale saved settings (variant is now system|day|night)
 const ORDER = ["system", "day", "night"];
@@ -255,7 +257,7 @@ function applyTheme(name, variant) {
   const c = THEMES[name][resolved(variant)];
   for (let i = 0; i < KEYS.length; i++) document.documentElement.style.setProperty(VARS[i], c[KEYS[i]]);
   const sel = document.getElementById("themeSel"); if (sel) sel.value = name;
-  const btn = document.getElementById("variantBtn"); if (btn) btn.textContent = variant === "system" ? "🖥 System" : (variant === "night" ? "☾ Dark" : "☀ Light");
+  const btn = document.getElementById("variantBtn"); if (btn) btn.innerHTML = (variant === "system" ? IC_SYS + "<span>System</span>" : variant === "night" ? IC_DARK + "<span>Dark</span>" : IC_LIGHT + "<span>Light</span>");
   try { localStorage.setItem("resumeTheme", JSON.stringify({ v: SV, name: name, variant: variant })); } catch (e) {}
 }
 // Script sits at end of <body>, so the controls already exist — bind directly.
