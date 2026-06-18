@@ -11,7 +11,10 @@
       "countryCode": "US",
       "address": "United States",
       "city": "Denver"
-    }
+    },
+    "profiles": [
+      { "network": "GitHub", "username": "i-am-logger", "url": "https://github.com/i-am-logger" }
+    ]
   },
   "work": [
     {

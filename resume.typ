@@ -83,6 +83,7 @@
         [#box(width: 12pt)[#text(fill: c-comment)[#fa-icon("location-dot")]]#b.location.address],
         [#box(width: 12pt)[#text(fill: c-comment)[#fa-icon("phone")]]#phoneFmt(b.phone)],
         [#box(width: 12pt)[#text(fill: c-comment)[#fa-icon("envelope")]]#link("mailto:" + b.email)[#text(fill: c-surface)[#b.email]]],
+        ..b.at("profiles", default: ()).map(p => [#box(width: 12pt)[#text(fill: c-comment)[#fa-icon(lower(p.network))]]#link(p.url)[#text(fill: c-surface)[#stripScheme(p.url)]]]),
       )
     })
     // ---- light section area ----
