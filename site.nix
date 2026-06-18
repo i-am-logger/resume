@@ -153,8 +153,8 @@ a { color: var(--link); text-decoration: none; }
 .toolbar { position: fixed; bottom: 18px; right: 18px; display: flex; align-items: center; gap: 8px; z-index: 10; }
 .tbtn { display: inline-flex; align-items: center; gap: 7px; color: var(--text); padding: 8px 14px; border-radius: 12px; text-decoration: none; font: inherit; font-size: 13px; cursor: pointer;
   background: var(--surface);
-  background: linear-gradient(rgba(255,255,255,.20), rgba(255,255,255,.05)), color-mix(in srgb, var(--surface) 52%, transparent);
-  -webkit-backdrop-filter: blur(20px) saturate(180%); backdrop-filter: blur(20px) saturate(180%);
+  background: linear-gradient(rgba(255,255,255,.10), rgba(255,255,255,.02)), color-mix(in srgb, var(--surface) 26%, transparent);
+  -webkit-backdrop-filter: blur(24px) saturate(180%); backdrop-filter: blur(24px) saturate(180%);
   border: 1px solid rgba(150,150,150,.30);
   box-shadow: 0 8px 28px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.55); }
 .tbtn:hover { filter: brightness(1.06); }
@@ -163,8 +163,8 @@ a { color: var(--link); text-decoration: none; }
 .tbtn select option { color: #222; background: #fff; text-transform: capitalize; }
 .poweredby { position: fixed; bottom: 18px; left: 18px; display: inline-flex; align-items: center; gap: 6px; font-size: 11px; color: var(--text); border-radius: 12px; padding: 6px 11px; text-decoration: none; z-index: 10;
   background: var(--surface);
-  background: linear-gradient(rgba(255,255,255,.20), rgba(255,255,255,.05)), color-mix(in srgb, var(--surface) 52%, transparent);
-  -webkit-backdrop-filter: blur(20px) saturate(180%); backdrop-filter: blur(20px) saturate(180%);
+  background: linear-gradient(rgba(255,255,255,.10), rgba(255,255,255,.02)), color-mix(in srgb, var(--surface) 26%, transparent);
+  -webkit-backdrop-filter: blur(24px) saturate(180%); backdrop-filter: blur(24px) saturate(180%);
   border: 1px solid rgba(150,150,150,.30);
   box-shadow: 0 8px 28px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.55); }
 .poweredby:hover { filter: brightness(1.06); }
