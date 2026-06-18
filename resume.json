@@ -231,7 +231,6 @@
     { "name": "Agentic-AI Engineering" },
     { "name": "Cloud (AWS / Azure / GCP)" },
     { "name": "CI/CD & Release Engineering" },
-    { "name": "Test-Driven Verification" },
     { "name": "Rust" },
     { "name": "Nix / NixOS" }
   ],
