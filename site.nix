@@ -154,8 +154,12 @@ a { color: var(--link); text-decoration: none; }
 .tbtn .ic { color: var(--bg); }
 .tbtn select { background: transparent; color: inherit; border: none; font: inherit; cursor: pointer; outline: none; text-transform: capitalize; }
 .tbtn select option { color: #222; background: #fff; text-transform: capitalize; }
+.poweredby { position: fixed; bottom: 18px; left: 18px; display: inline-flex; align-items: center; gap: 6px; font-size: 11px; color: var(--comment); background: var(--surface); border: 1px solid var(--sel); border-radius: 6px; padding: 5px 10px; text-decoration: none; opacity: .82; z-index: 10; }
+.poweredby:hover { opacity: 1; }
+.poweredby .ic { width: 12px; height: 12px; color: var(--comment); }
+.poweredby b { color: var(--text); font-weight: 700; }
 @page { margin: 0; }
-@media print { .toolbar { display: none !important; } * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; } }
+@media print { .toolbar, .poweredby { display: none !important; } * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; } }
 @media (max-width: 720px) { .page { flex-direction: column; } .sidebar, .main { width: 100%; } }
 </style>
 </head>
@@ -165,6 +169,7 @@ a { color: var(--link); text-decoration: none; }
   <button class="tbtn" id="variantBtn" title="Light / dark">☾ Dark</button>
   <a class="tbtn" href="#" onclick="window.print();return false;">${icPrint} Print</a>
 </div>
+<a class="poweredby" href="https://github.com/i-am-logger/vogix16-themes" target="_blank" rel="noopener">${icPalette} Powered by <b>Vogix</b></a>
 <div class="page">
   <aside class="sidebar">
     <div class="head">
