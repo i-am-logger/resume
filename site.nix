@@ -25,7 +25,7 @@ let
   icLink = svg ''<path d="M10 13.5a4 4 0 005.7.3l3-3a4 4 0 10-5.7-5.7l-1.3 1.3"/><path d="M14 10.5a4 4 0 00-5.7-.3l-3 3a4 4 0 105.7 5.7l1.3-1.3"/>'';
   icDl = svg ''<path d="M12 3v12"/><path d="M7 11l5 5 5-5"/><path d="M4 20h16"/>'';
   icPrint = svg ''<path d="M6 9V3h12v6"/><rect x="4" y="9" width="16" height="8" rx="2"/><path d="M6 14h12v6H6z"/>'';
-  icExt = svg ''<path d="M14 4h6v6"/><path d="M20 4l-9 9"/><path d="M18 13v6a1 1 0 01-1 1H5a1 1 0 01-1-1V7a1 1 0 011-1h6"/>'';
+  icExt = svg ''<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>'';
   icRust = svg ''<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/>'';
   icNix = svg ''<path d="M12 2.5v19M4 7l16 9.5M4 17l16-9.5"/>'';
   icGithub = ''<svg class="ic" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.65 7.65 0 014 0c1.53-1.03 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>'';
@@ -62,17 +62,17 @@ let
 
   langIcon = l: ''<img class="langicon" src="assets/lang-${lib.toLower l}.svg" alt="${l}" />'';
   projHtml = ''<div class="cards">'' + lib.concatMapStringsSep "" (p:
-    ''<div class="card"><div class="cname">${esc p.name}</div>''
+    ''<div class="card"><div class="chead"><span class="cname">${esc p.name}</span>''
+    + ''<a class="crepo" href="${p.url}">${icGithub}${esc (stripScheme p.url)}</a></div>''
     + ''<div class="cdesc">${esc p.description}</div>''
     + ''<div class="cmeta">''
     + lib.concatMapStringsSep "" (l: ''<span class="m2">${langIcon l}${esc l}</span>'') p.languages
     + ''<span class="m2">★ ${toString p.stars}</span>''
     + ''<span class="m2">${esc p.loc}</span>''
     + lib.optionalString (p ? tests) ''<span class="m2">${esc p.tests}</span>''
-    + ''</div><div class="curls">''
-    + ''<a href="${p.url}">${icGithub}${esc (stripScheme p.url)}</a>''
-    + lib.optionalString (p ? demo) ''<a href="${p.demo}">${icExt}${esc (stripScheme p.demo)}</a>''
-    + ''</div></div>'')
+    + ''</div>''
+    + lib.optionalString (p ? demo) ''<a class="cdemo" href="${p.demo}">${icExt}${esc (stripScheme p.demo)}</a>''
+    + ''</div>'')
     data.projects
     + "</div>";
 in
@@ -126,17 +126,19 @@ a { color: var(--link); text-decoration: none; }
 .entry p { margin: 6px 0; font-size: 12.5px; text-align: justify; }
 .kw { color: var(--border); font-size: 9px; letter-spacing: .4px; text-transform: uppercase; margin-top: 5px; }
 .kw .sep { color: var(--comment); }
-.cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
-.card { border: 1px solid #dcd4c8; border-radius: 6px; padding: 11px 13px; background: var(--surface); }
-.cname { font-weight: 700; color: var(--heading); font-size: 14px; }
-.cdesc { font-size: 12px; margin: 7px 0 9px; color: var(--text); min-height: 38px; }
-.cmeta { display: flex; flex-wrap: wrap; gap: 10px; font-size: 9px; color: var(--comment); align-items: center; text-transform: uppercase; letter-spacing: .3px; }
-.m2 { display: inline-flex; align-items: center; gap: 5px; }
-.m2 .ic { width: 11px; height: 11px; }
-.langicon { width: 11px; height: 11px; }
-.curls { display: flex; flex-direction: column; gap: 3px; margin-top: 8px; font-size: 9.5px; }
-.curls a { display: inline-flex; align-items: center; gap: 5px; color: var(--link); width: fit-content; }
-.curls .ic { width: 12px; height: 12px; color: var(--comment); }
+.cards { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-top: 11px; }
+.card { border: 1px solid #dcd4c8; border-radius: 5px; padding: 8px 11px; background: var(--surface); }
+.chead { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+.cname { font-weight: 700; color: var(--heading); font-size: 12.5px; flex: 0 0 auto; }
+.crepo { color: var(--link); font-size: 8.5px; display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
+.crepo .ic { width: 10px; height: 10px; color: var(--comment); flex: 0 0 auto; }
+.cdesc { font-size: 11px; margin: 5px 0 7px; color: var(--text); min-height: 30px; }
+.cmeta { display: flex; flex-wrap: wrap; gap: 9px; font-size: 8.5px; color: var(--comment); align-items: center; text-transform: uppercase; letter-spacing: .3px; }
+.m2 { display: inline-flex; align-items: center; gap: 4px; }
+.m2 .ic { width: 10px; height: 10px; }
+.langicon { width: 10px; height: 10px; }
+.cdemo { display: inline-flex; align-items: center; gap: 5px; margin-top: 5px; color: var(--link); font-size: 8.5px; }
+.cdemo .ic { width: 11px; height: 11px; color: var(--comment); }
 .dl { position: fixed; bottom: 18px; right: 18px; display: inline-flex; align-items: center; gap: 7px; background: var(--heading); color: var(--bg); padding: 10px 16px; border-radius: 6px; text-decoration: none; font-size: 13px; box-shadow: 0 2px 10px rgba(0,0,0,.3); z-index: 10; }
 .dl:hover { background: #2a2521; }
 .dl .ic { color: var(--bg); }

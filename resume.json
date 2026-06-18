@@ -9,7 +9,7 @@
     "summary": "Seasoned Software Engineering Executive and architect with 20+ years across eCommerce, fintech, and defense, proven in scaling and leading engineering teams. VP of Engineering at Jet (first employee, $3.3B Walmart acquisition), Technology Director at EPAM (Directed a team of 100+ engineers), and Principal Cloud Architect driving cloud strategy. Now building Rust and Nix systems with agentic-AI workflows. Passionate about technological innovation, mentoring teams, and strategic solutions that transform business operations.",
     "location": {
       "countryCode": "US",
-      "address": "United States",
+      "address": "Denver, Colorado · Mountain Time",
       "city": "Denver"
     },
     "profiles": [
@@ -19,7 +19,7 @@
   "work": [
     {
       "name": "Ukon",
-      "position": "Senior Software Engineer",
+      "position": "Senior Software Engineer | Cyber Insurance",
       "startDate": "2024-12",
       "endDate": "2025-08",
       "summary": "Mentored junior engineers. Leveraged agentic AI to build Rust-based product features , immutable cloud infrastructure, CI/CD using Pulumi and TypeScript for safe multi-environment deployments.",
