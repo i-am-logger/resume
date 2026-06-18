@@ -30,7 +30,7 @@
       "position": "Head Software Engineering | Management Team | Volunteer | Open Source",
       "startDate": "2022-05",
       "endDate": "2024-05",
-      "summary": "Led open source engineering team of over 20 contributers building an open-source robotic system to study UAPs. Responsible for overall software architecture and leadership.",
+      "summary": "Led open source engineering team of over 20 contributers building an open-source, multi-sensor robotic system to observe and track UAPs. Responsible for overall software architecture.",
       "highlights": [
         "rust | C++ | Python | nixOS | ros2 | openMCT",
         "software architecture",

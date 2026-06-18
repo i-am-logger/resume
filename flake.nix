@@ -19,10 +19,10 @@
       # Typst with the Font Awesome package available offline (contact icons).
       typst-with = pkgs.typst.withPackages (ps: [ ps.fontawesome ]);
 
-      # Helvetica-like sans (Liberation) + symbol fallback (DejaVu) + Font Awesome 7 (icons).
+      # Inter (primary) + Liberation/DejaVu fallback + Font Awesome 7 (icons).
       fonts = pkgs.symlinkJoin {
         name = "resume-fonts";
-        paths = [ pkgs.liberation_ttf pkgs.dejavu_fonts pkgs.font-awesome ];
+        paths = [ pkgs.inter pkgs.liberation_ttf pkgs.dejavu_fonts pkgs.font-awesome ];
       };
 
       # Same data drives both renderers.
@@ -51,10 +51,11 @@
         '';
         installPhase = ''
           runHook preInstall
-          mkdir -p $out/assets
+          mkdir -p $out/assets/fonts
           cp resume.pdf $out/resume.pdf
           cp ${siteHtml} $out/index.html
           cp assets/photo.png $out/assets/photo.png
+          cp ${pkgs.inter}/share/fonts/truetype/InterVariable.ttf $out/assets/fonts/InterVariable.ttf
           runHook postInstall
         '';
       };

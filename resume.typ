@@ -1,21 +1,20 @@
-// Custom two-tone dark-header sidebar résumé theme — reads resume.json, renders a print-perfect PDF.
-// Grid layout so the sidebar can flow onto page 2 (the grey background persists across pages).
+// Custom two-tone résumé theme — reads resume.json, renders a print-perfect PDF.
+// Colours: vogix16 "yoga" palette (day), applied semantically — monochromatic base for
+// structure, the functional `link` colour (base0D) only for clickable links.
+// Grid layout so the sidebar can flow onto page 2 (the surface background persists).
 #import "@preview/fontawesome:0.6.0": *
 #let data = json("resume.json")
 #let b = data.basics
 
-// ---- palette ----
-#let slate    = rgb("#46535f")   // dark header band
-#let side-bg  = rgb("#eceef0")   // light sidebar section area
-#let side-fg  = rgb("#eef2f5")
-#let side-mut = rgb("#b9c3cd")
-#let con-fg   = rgb("#d7dde3")
-#let con-ic   = rgb("#aab4be")
-#let ink      = rgb("#2b2b2b")
-#let ink-mut  = rgb("#5a5f64")
-#let accent   = rgb("#3a4654")
-#let rule-c   = rgb("#c4c8cc")
-#let chip-bg  = rgb("#dde1e5")
+// ---- vogix16 "yoga" (day) ----
+#let c-bg      = rgb("#f7f4ee")  // base00 background
+#let c-surface = rgb("#ece5d8")  // base01 surface (sidebar sections)
+#let c-sel     = rgb("#d2c8bd")  // base02 selection (chips)
+#let c-comment = rgb("#a89c90")  // base03 comment (muted: dates, separators)
+#let c-border  = rgb("#6c5d52")  // base04 border (rules, secondary text)
+#let c-text    = rgb("#51463e")  // base05 text
+#let c-heading = rgb("#3b342f")  // base06 heading (+ dark header band)
+#let c-link    = rgb("#1f5fa6")  // base0D link  (the one functional accent)
 
 // ---- geometry ----
 #let side-w   = 2.55in
@@ -25,11 +24,12 @@
 #set document(title: b.name + " — Résumé", author: b.name)
 #set page(
   paper: "us-letter",
+  fill: c-bg,
   margin: (top: top-m, bottom: top-m, left: 0pt, right: 0pt),
-  background: place(left + top, rect(width: side-w, height: 100%, fill: side-bg)),
+  background: place(left + top, rect(width: side-w, height: 100%, fill: c-surface)),
 )
-#set text(font: ("Liberation Sans", "DejaVu Sans"), size: 9.5pt, fill: ink)
-#set par(justify: false, leading: 0.6em)
+#set text(font: ("Inter", "Liberation Sans", "DejaVu Sans"), size: 9.5pt, fill: c-text)
+#set par(justify: true, leading: 0.62em)
 
 // ---- helpers ----
 #let raw(d) = if d == none or d == "" { "Current" } else { d }
@@ -40,22 +40,24 @@
 #let stripScheme(u) = u.replace("https://", "").replace("http://", "")
 
 #let s-head(t) = {
-  v(7pt)
-  text(fill: ink, weight: "bold", size: 9.5pt)[#t]
+  v(8pt)
+  text(fill: c-heading, weight: "bold", size: 9.5pt)[#t]
   v(1.5pt)
-  line(length: 100%, stroke: 0.6pt + rule-c)
-  v(2.5pt)
+  line(length: 100%, stroke: 0.6pt + c-border)
+  v(3pt)
 }
 #let m-head(t) = {
-  v(6pt)
-  text(fill: ink, weight: "bold", size: 13pt)[#t]
+  v(9pt)
+  text(fill: c-heading, weight: "bold", size: 13pt)[#t]
   v(1pt)
-  line(length: 100%, stroke: 1pt + ink)
-  v(5pt)
+  line(length: 100%, stroke: 1pt + c-heading)
+  v(6pt)
 }
-#let chip(t) = box(fill: chip-bg, inset: (x: 5pt, y: 1.5pt), outset: (y: 1.5pt), radius: 3pt,
-  text(fill: accent, size: 7.8pt)[#t])
-#let urlIcon(u) = [#text(fill: con-ic, size: 7pt)[#fa-icon("link")] #text(size: 7.6pt)[#link(u)[#text(fill: accent)[#stripScheme(u)]]]]
+#let chip(t) = box(fill: c-sel, inset: (x: 5pt, y: 1.5pt), outset: (y: 1.5pt), radius: 3pt,
+  text(fill: c-heading, size: 7.8pt)[#t])
+// Uppercase keyword/highlight line, muted separators — shared by projects + experience.
+#let sepline(items) = items.map(x => text(fill: c-border, size: 7pt, tracking: 0.2pt)[#upper(x)]).join(text(fill: c-comment, size: 7pt)[ | ])
+#let urlIcon(u) = [#text(fill: c-link, size: 7pt)[#fa-icon("link")] #text(size: 7.6pt)[#link(u)[#text(fill: c-link)[#stripScheme(u)]]]]
 
 #let jobs = data.work.filter(w => w.name != "Israeli Air Force")
 
@@ -65,33 +67,34 @@
 
   // ============================ SIDEBAR ============================
   {
+    set par(justify: false)
     // ---- dark header band (bleeds to the page top via outset) ----
-    block(width: 100%, fill: slate, outset: (top: top-m), inset: (x: side-pad, top: 0.16in, bottom: 0.14in), {
-      set text(fill: side-fg)
+    block(width: 100%, fill: c-heading, outset: (top: top-m), inset: (x: side-pad, top: 0.16in, bottom: 0.14in), {
+      set text(fill: c-bg)
       set par(leading: 0.5em)
       box(clip: true, radius: 6pt, image("assets/photo.png", width: 0.82in, height: 0.82in, fit: "cover"))
       v(7pt)
-      text(size: 14pt, weight: "bold", fill: white)[#b.name]
+      text(size: 14pt, weight: "bold", fill: c-bg)[#b.name]
       v(2pt)
-      text(size: 8.8pt, fill: side-mut)[Technology Executive]
+      text(size: 8.8pt, fill: c-comment)[Technology Executive]
       v(7pt)
-      set text(size: 8.2pt, fill: con-fg)
+      set text(size: 8.2pt, fill: c-surface)
       stack(spacing: 3.5pt,
-        [#box(width: 12pt)[#text(fill: con-ic)[#fa-icon("location-dot")]]#b.location.address],
-        [#box(width: 12pt)[#text(fill: con-ic)[#fa-icon("phone")]]#phoneFmt(b.phone)],
-        [#box(width: 12pt)[#text(fill: con-ic)[#fa-icon("envelope")]]#link("mailto:" + b.email)[#text(fill: con-fg)[#b.email]]],
+        [#box(width: 12pt)[#text(fill: c-comment)[#fa-icon("location-dot")]]#b.location.address],
+        [#box(width: 12pt)[#text(fill: c-comment)[#fa-icon("phone")]]#phoneFmt(b.phone)],
+        [#box(width: 12pt)[#text(fill: c-comment)[#fa-icon("envelope")]]#link("mailto:" + b.email)[#text(fill: c-surface)[#b.email]]],
       )
     })
     // ---- light section area ----
     block(width: 100%, inset: (x: side-pad, top: 0.06in, bottom: 0.2in), {
-      set text(fill: ink, size: 8pt)
+      set text(fill: c-text, size: 8pt)
       set par(leading: 0.46em)
 
       s-head("Skills")
       box(for s in data.skills { chip(s.name); [ ] })
 
       s-head("Languages")
-      for l in data.languages { [*#l.language* \ #text(fill: ink-mut)[#l.fluency]]; v(2pt) }
+      for l in data.languages { [*#l.language* \ #text(fill: c-comment)[#l.fluency]]; v(2pt) }
 
       s-head("Education")
       for e in data.education {
@@ -114,8 +117,8 @@
       s-head("Certifications")
       for c in data.certificates {
         text(weight: "bold")[#c.name]; linebreak()
-        text(fill: ink-mut)[#c.issuer]; linebreak()
-        text(fill: ink-mut)[#ym(c.date)]
+        text(fill: c-comment)[#c.issuer]; linebreak()
+        text(fill: c-comment)[#ym(c.date)]
         v(2pt)
       }
 
@@ -123,7 +126,7 @@
       for vo in data.volunteer {
         text(weight: "bold")[#vo.organization]; linebreak()
         [#vo.position]; linebreak()
-        text(fill: ink-mut, weight: "bold")[#rspan(vo.startDate, vo.at("endDate", default: none))]
+        text(fill: c-comment, weight: "bold")[#rspan(vo.startDate, vo.at("endDate", default: none))]
         v(2pt)
       }
     })
@@ -136,25 +139,25 @@
     m-head("Open Source Projects")
     for p in data.projects {
       grid(columns: (1fr, auto), align: (left + bottom, right + bottom),
-        text(weight: "bold", size: 11pt)[#p.name],
+        text(weight: "bold", size: 11pt, fill: c-heading)[#p.name],
         urlIcon(p.url),
       )
       text(size: 8.8pt)[#p.description]
-      if "keywords" in p { linebreak(); text(fill: ink-mut, size: 7.8pt)[#p.keywords.join(" | ")] }
-      v(6pt)
+      if "keywords" in p { linebreak(); v(1pt); sepline(p.keywords) }
+      v(8pt)
     }
 
     m-head("Experience")
     for w in jobs {
       grid(columns: (1fr, auto), align: (left + bottom, right + bottom),
-        text(weight: "bold", size: 11pt)[#w.name],
-        text(fill: ink-mut, size: 8.3pt)[#rspan(w.startDate, w.at("endDate", default: none))],
+        text(weight: "bold", size: 11pt, fill: c-heading)[#w.name],
+        text(fill: c-comment, size: 8.3pt)[#rspan(w.startDate, w.at("endDate", default: none))],
       )
-      text(fill: accent, size: 8.8pt)[#w.position]
+      text(fill: c-border, size: 8.8pt)[#w.position]
       if "url" in w { linebreak(); urlIcon(w.url) }
       if w.summary != "" { linebreak(); text(size: 8.8pt)[#w.summary] }
-      if w.highlights.len() > 0 { linebreak(); text(fill: ink-mut, size: 7.8pt)[#w.highlights.join(" | ")] }
-      v(7pt)
+      if w.highlights.len() > 0 { linebreak(); v(1pt); sepline(w.highlights) }
+      v(9pt)
     }
   }),
 )
