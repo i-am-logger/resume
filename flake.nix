@@ -73,8 +73,9 @@
           set -euo pipefail
           PORT=4321
           SD=$(mktemp -d); export SD
-          # rsync (not cp -L) copies the store output cleanly past Nix's .links hardlinks.
-          REBUILD='o=$(${pkgs.nix}/bin/nix build --no-link --print-out-paths .#default 2>/dev/null) || { echo "[build failed]"; exit 0; }; ${pkgs.rsync}/bin/rsync -a --delete --chmod=u+rwX "$o"/ "$SD"/; echo "[rebuilt -> reload http://localhost:'"$PORT"']"'
+          # Copy ONLY the known output files (no recursion) so an empty $o can never
+          # turn into a copy of "/"; skip entirely unless the build produced index.html.
+          REBUILD='o=$(${pkgs.nix}/bin/nix build --no-link --print-out-paths .#default 2>/dev/null); if [ -z "$o" ] || [ ! -f "$o/index.html" ]; then echo "[build failed - keeping previous]"; exit 0; fi; i() { ${pkgs.coreutils}/bin/install -D -m644 "$o/$1" "$SD/$1"; }; i index.html; i resume.pdf; i assets/photo.png; i assets/fonts/InterVariable.ttf; echo "[rebuilt -> reload http://localhost:'"$PORT"']"'
           sh -c "$REBUILD"
           # free the fixed port from a previous run, then serve on it.
           ${pkgs.procps}/bin/pkill -x live-server 2>/dev/null || true
