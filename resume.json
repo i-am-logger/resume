@@ -207,7 +207,7 @@
     { "name": "Engineering Leadership" },
     { "name": "System Thinking, Design & Architecture" },
     { "name": "Agentic-AI Engineering" },
-    { "name": "Cloud (AWS / Azure / GCP)" },
+    { "name": "Cloud & On-Premise" },
     { "name": "CI/CD & Release Engineering" },
     { "name": "Rust" },
     { "name": "Nix / NixOS" }
