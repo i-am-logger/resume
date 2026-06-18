@@ -263,11 +263,21 @@
     {
       "name": "Vogix",
       "description": "Vogix is a declarative UX layer for NixOS and a Rust runtime that unifies desktop configurations (Appearance and Behavior).",
+      "keywords": [
+        "Rust",
+        "~15.5K LOC",
+        "320+ tests"
+      ],
       "url": "https://github.com/i-am-logger/vogix"
     },
     {
       "name": "mynixos",
       "description": "A NixOS-based distribution. Defaults that work, mkDefault so you always win.",
+      "keywords": [
+        "Nix",
+        "~16K LOC",
+        "430+ options"
+      ],
       "url": "https://github.com/i-am-logger/mynixos"
     }
   ],
