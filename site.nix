@@ -20,7 +20,7 @@ let
 
   jobs = lib.filter (w: w.name != "Israeli Air Force") data.work;
   profileRows = lib.concatMapStringsSep "" (p:
-    ''<div>${if p.network == "GitHub" then icGithub else icLink}<a href="${p.url}">${esc (stripScheme p.url)}</a></div>'')
+    ''<div>${if p.network == "GitHub" then icGithub else icLink}<a href="${p.url}" target="_blank" rel="noopener">${esc (stripScheme p.url)}</a></div>'')
     (b.profiles or [ ]);
 
   svg = body: ''<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${body}</svg>'';
@@ -60,7 +60,7 @@ let
     ''<div class="entry"><div class="erow"><span class="org">${esc w.name}</span>''
     + ''<span class="date">${yrRange w.startDate (w.endDate or null)}</span></div>''
     + ''<div class="pos">${esc w.position}</div>''
-    + lib.optionalString (w ? url) ''<div class="urlrow">${icLink}<a href="${w.url}">${esc (stripScheme w.url)}</a></div>''
+    + lib.optionalString (w ? url) ''<div class="urlrow">${icLink}<a href="${w.url}" target="_blank" rel="noopener">${esc (stripScheme w.url)}</a></div>''
     + lib.optionalString (w.summary != "") "<p>${esc w.summary}</p>"
     + lib.optionalString (w.highlights != []) (sepLine w.highlights)
     + "</div>")
@@ -69,7 +69,7 @@ let
   langIcon = l: ''<img class="langicon" src="assets/lang-${lib.toLower l}.svg" alt="${l}" />'';
   projHtml = ''<div class="cards">'' + lib.concatMapStringsSep "" (p:
     ''<div class="card"><div class="chead"><span class="cname">${esc p.name}</span>''
-    + ''<a class="crepo" href="${p.url}">${icGithub}${esc (stripScheme p.url)}</a></div>''
+    + ''<a class="crepo" href="${p.url}" target="_blank" rel="noopener">${icGithub}${esc (stripScheme p.url)}</a></div>''
     + ''<div class="cdesc">${esc p.description}</div>''
     + ''<div class="cmetarow"><div class="cmeta">''
     + lib.concatMapStringsSep "" (l: ''<span class="m2">${langIcon l}${esc l}</span>'') p.languages
@@ -77,7 +77,7 @@ let
     + ''<span class="m2">${esc p.loc}</span>''
     + lib.optionalString (p ? tests) ''<span class="m2">${esc p.tests}</span>''
     + ''</div>''
-    + lib.optionalString (p ? demo) ''<a class="cdemo" href="${p.demo}">${icExt}${esc (stripScheme p.demo)}</a>''
+    + lib.optionalString (p ? demo) ''<a class="cdemo" href="${p.demo}" target="_blank" rel="noopener">${icExt}${esc (stripScheme p.demo)}</a>''
     + ''</div></div>'')
     data.projects
     + "</div>";

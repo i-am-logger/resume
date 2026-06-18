@@ -99,7 +99,11 @@
           SD=$(mktemp -d); export SD
           # Copy ONLY the known output files (no recursion) so an empty $o can never
           # turn into a copy of "/"; skip entirely unless the build produced index.html.
-          REBUILD='o=$(${pkgs.nix}/bin/nix build --no-link --print-out-paths .#default 2>/dev/null); if [ -z "$o" ] || [ ! -f "$o/index.html" ]; then echo "[build failed - keeping previous]"; exit 0; fi; i() { ${pkgs.coreutils}/bin/install -D -m644 "$o/$1" "$SD/$1"; }; i index.html; i resume.pdf; i favicon.ico; i assets/photo.png; i assets/favicon.svg; i assets/lang-rust.svg; i assets/lang-nix.svg; i assets/fonts/InterVariable.ttf; echo "[rebuilt -> reload http://localhost:'"$PORT"']"'
+          # Guard first: only copy when the build produced a real output ($o non-empty AND has
+          # index.html) — that check is what prevents an empty $o from ever becoming a copy of "/".
+          # Then copy the WHOLE output (no hand-maintained file list); chmod so the next rebuild can
+          # overwrite the read-only store copies.
+          REBUILD='o=$(${pkgs.nix}/bin/nix build --no-link --print-out-paths .#default 2>/dev/null); if [ -z "$o" ] || [ ! -f "$o/index.html" ]; then echo "[build failed - keeping previous]"; exit 0; fi; ${pkgs.coreutils}/bin/cp -fRL "$o"/. "$SD"/ && ${pkgs.coreutils}/bin/chmod -R u+w "$SD"; echo "[rebuilt -> reload http://localhost:'"$PORT"']"'
           sh -c "$REBUILD"
           # free the fixed port from a previous run, then serve on it.
           ${pkgs.procps}/bin/pkill -x live-server 2>/dev/null || true
