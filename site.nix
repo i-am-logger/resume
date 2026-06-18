@@ -124,20 +124,20 @@ body { font-family: "Inter", Arial, "Liberation Sans", sans-serif; color: var(--
 a { color: var(--link); text-decoration: none; }
 .urlrow a { text-decoration: underline; }
 .entry p { margin: 6px 0; font-size: 12.5px; text-align: justify; }
-.kw { color: var(--border); font-size: 10px; letter-spacing: .4px; text-transform: uppercase; margin-top: 5px; }
+.kw { color: var(--border); font-size: 9px; letter-spacing: .4px; text-transform: uppercase; margin-top: 5px; }
 .kw .sep { color: var(--comment); }
 .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
-.card { border: 1px solid #dcd4c8; border-radius: 6px; padding: 11px 13px; background: var(--surface); }
+.card { border: 1px solid #dcd4c8; border-radius: 6px; padding: 11px 13px; background: var(--surface); display: flex; flex-direction: column; }
 .cname { font-weight: 700; color: var(--heading); font-size: 14px; }
-.cdesc { font-size: 12px; margin: 7px 0 10px; color: var(--text); }
-.cmeta { display: flex; flex-wrap: wrap; gap: 11px; font-size: 10px; color: var(--comment); align-items: center; text-transform: uppercase; letter-spacing: .3px; }
+.cdesc { font-size: 12px; margin: 7px 0 10px; color: var(--text); flex: 1; }
+.cmeta { display: flex; flex-wrap: wrap; gap: 10px; font-size: 9px; color: var(--comment); align-items: center; text-transform: uppercase; letter-spacing: .3px; }
 .m2 { display: inline-flex; align-items: center; gap: 5px; }
-.m2 .ic { width: 12px; height: 12px; }
-.langicon { width: 12px; height: 12px; }
-.curls { display: flex; flex-direction: column; gap: 3px; margin-top: 8px; font-size: 11px; }
+.m2 .ic { width: 11px; height: 11px; }
+.langicon { width: 11px; height: 11px; }
+.curls { display: flex; flex-direction: column; gap: 3px; margin-top: 8px; font-size: 9.5px; }
 .curls a { display: inline-flex; align-items: center; gap: 5px; color: var(--link); width: fit-content; }
 .curls .ic { width: 12px; height: 12px; color: var(--comment); }
-.dl { position: fixed; top: 16px; right: 16px; display: inline-flex; align-items: center; gap: 7px; background: var(--heading); color: var(--bg); padding: 10px 16px; border-radius: 6px; text-decoration: none; font-size: 13px; box-shadow: 0 2px 8px rgba(0,0,0,.25); z-index: 10; }
+.dl { position: fixed; bottom: 18px; right: 18px; display: inline-flex; align-items: center; gap: 7px; background: var(--heading); color: var(--bg); padding: 10px 16px; border-radius: 6px; text-decoration: none; font-size: 13px; box-shadow: 0 2px 10px rgba(0,0,0,.3); z-index: 10; }
 .dl:hover { background: #2a2521; }
 .dl .ic { color: var(--bg); }
 @page { margin: 0; }
