@@ -26,6 +26,8 @@ let
   icDl = svg ''<path d="M12 3v12"/><path d="M7 11l5 5 5-5"/><path d="M4 20h16"/>'';
   icPrint = svg ''<path d="M6 9V3h12v6"/><rect x="4" y="9" width="16" height="8" rx="2"/><path d="M6 14h12v6H6z"/>'';
   icExt = svg ''<path d="M14 4h6v6"/><path d="M20 4l-9 9"/><path d="M18 13v6a1 1 0 01-1 1H5a1 1 0 01-1-1V7a1 1 0 011-1h6"/>'';
+  icRust = svg ''<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/>'';
+  icNix = svg ''<path d="M12 2.5v19M4 7l16 9.5M4 17l16-9.5"/>'';
   icGithub = ''<svg class="ic" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.65 7.65 0 014 0c1.53-1.03 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>'';
 
   # uppercase keyword/highlight line with muted separators (shared by projects + experience)
@@ -58,13 +60,13 @@ let
     + "</div>")
     jobs;
 
-  langDot = l: ''<span class="dot" style="background:${if l == "Rust" then "#c97c4e" else if l == "Nix" then "#6f6fde" else "#a89c90"}"></span>'';
+  langIcon = l: if l == "Rust" then icRust else if l == "Nix" then icNix else "";
   projHtml = ''<div class="cards">'' + lib.concatMapStringsSep "" (p:
     ''<div class="card"><div class="chead"><span class="cname">${esc p.name}</span><span class="clinks">''
     + lib.optionalString (p ? demo) ''<a class="demo" href="${p.demo}" title="Demo">${icExt}</a>''
     + ''<a href="${p.url}" title="Repository">${icGithub}</a></span></div>''
     + ''<div class="cdesc">${esc p.description}</div>''
-    + ''<div class="cmeta"><span class="m2">${langDot p.language}${esc p.language}</span>''
+    + ''<div class="cmeta"><span class="m2">${langIcon p.language}${esc p.language}</span>''
     + ''<span class="m2">★ ${toString p.stars}</span>''
     + ''<span class="m2">${esc p.loc}</span>''
     + lib.optionalString (p ? tests) ''<span class="m2">${esc p.tests}</span>''
@@ -131,7 +133,7 @@ a { color: var(--link); text-decoration: none; }
 .cdesc { font-size: 12px; margin: 7px 0 10px; color: var(--text); }
 .cmeta { display: flex; flex-wrap: wrap; gap: 12px; font-size: 11px; color: var(--comment); align-items: center; }
 .m2 { display: inline-flex; align-items: center; gap: 5px; }
-.dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+.m2 .ic { width: 12px; height: 12px; }
 .dl { position: fixed; top: 16px; right: 16px; display: inline-flex; align-items: center; gap: 7px; background: var(--heading); color: var(--bg); padding: 10px 16px; border-radius: 6px; text-decoration: none; font-size: 13px; box-shadow: 0 2px 8px rgba(0,0,0,.25); z-index: 10; }
 .dl:hover { background: #2a2521; }
 .dl .ic { color: var(--bg); }

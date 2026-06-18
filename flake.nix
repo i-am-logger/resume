@@ -71,13 +71,17 @@
         type = "app";
         program = toString (pkgs.writeShellScript "resume-live" ''
           set -euo pipefail
+          PORT=4321
           SD=$(mktemp -d); export SD
-          REBUILD='o=$(${pkgs.nix}/bin/nix build --no-link --print-out-paths .#default 2>/dev/null) || { echo "[build failed]"; exit 0; }; rm -rf "$SD"/* 2>/dev/null || true; cp -rL "$o"/. "$SD"/; chmod -R u+w "$SD"; echo "[rebuilt -> browser reloads]"'
+          # rsync (not cp -L) copies the store output cleanly past Nix's .links hardlinks.
+          REBUILD='o=$(${pkgs.nix}/bin/nix build --no-link --print-out-paths .#default 2>/dev/null) || { echo "[build failed]"; exit 0; }; ${pkgs.rsync}/bin/rsync -a --delete --chmod=u+rwX "$o"/ "$SD"/; echo "[rebuilt -> reload http://localhost:'"$PORT"']"'
           sh -c "$REBUILD"
-          ${pkgs.live-server}/bin/live-server "$SD" &
+          # free the fixed port from a previous run, then serve on it.
+          ${pkgs.procps}/bin/pkill -x live-server 2>/dev/null || true
+          ${pkgs.live-server}/bin/live-server --port "$PORT" "$SD" &
           trap 'kill %1 2>/dev/null || true' EXIT
-          # watchexec keeps watching across atomic-save edits (entr exits after the first);
-          # rebuilds the site on any change to the sources, live-server reloads the browser.
+          echo "Serving http://localhost:$PORT  — edit resume.json / site.nix / resume.typ to auto-reload"
+          # watchexec survives atomic-save edits (entr exits after the first); rebuild on any change.
           exec ${pkgs.watchexec}/bin/watchexec --debounce 300ms \
             -w resume.json -w site.nix -w resume.typ -w flake.nix \
             -- sh -c "$REBUILD"
