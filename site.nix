@@ -112,8 +112,9 @@ body { font-family: "Inter", Arial, "Liberation Sans", sans-serif; color: var(--
 .sidebar { width: 33%; background: var(--surface); }
 .head { background: var(--heading); color: var(--bg); padding: 28px 24px 22px; }
 .headtop { display: flex; align-items: center; gap: 15px; margin-bottom: 16px; }
-.photo { width: 92px; height: 92px; flex: 0 0 auto; background: var(--bg);
-  -webkit-mask: url("assets/photo.png") center / contain no-repeat; mask: url("assets/photo.png") center / contain no-repeat; }
+.photo { width: 94px; height: 94px; flex: 0 0 auto; border-radius: 12px;
+  background: #f4efe6 url("assets/photo.png") center / contain no-repeat;
+  box-shadow: 0 2px 9px rgba(0,0,0,.22); }
 .headname { min-width: 0; }
 .head h1 { font-size: 22px; font-weight: 700; margin: 0; color: var(--bg); letter-spacing: .2px; }
 .subtitle { font-size: 12.5px; color: var(--comment); margin: 4px 0 0; }

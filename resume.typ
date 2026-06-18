@@ -87,7 +87,7 @@
       set text(fill: c-bg)
       set par(leading: 0.5em)
       grid(columns: (auto, 1fr), column-gutter: 10pt, align: (center + horizon, left + horizon),
-        image("assets/photo-light.png", width: 0.8in, height: 0.8in),
+        box(clip: true, radius: 7pt, fill: rgb("#f4efe6"), image("assets/photo.png", width: 0.8in, height: 0.8in)),
         {
           text(size: 14pt, weight: "bold", fill: c-bg)[#b.name]
           v(2pt)
