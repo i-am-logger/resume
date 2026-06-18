@@ -58,14 +58,14 @@
 // Uppercase keyword/highlight line, muted separators — shared by projects + experience.
 #let sepline(items) = items.map(x => text(fill: c-border, size: 7pt, tracking: 0.2pt)[#upper(x)]).join(text(fill: c-comment, size: 7pt)[ | ])
 #let urlIcon(u) = [#text(fill: c-link, size: 7pt)[#fa-icon("link")] #text(size: 7.6pt)[#link(u)[#text(fill: c-link)[#stripScheme(u)]]]]
-#let langIcon(l) = if l == "Rust" { fa-icon("rust") } else if l == "Nix" { fa-icon("snowflake") } else { [] }
+#let langIcon(l) = box(baseline: 1.5pt, image("assets/lang-" + lower(l) + ".svg", height: 6.5pt))
 #let projCard(p) = block(breakable: false, width: 100%, fill: c-surface, stroke: 0.7pt + rgb("#dcd4c8"), radius: 5pt, inset: (x: 10pt, y: 8pt), {
   set par(justify: false, leading: 0.5em)
   text(weight: "bold", size: 10.5pt, fill: c-heading)[#p.name]
   v(3pt)
   text(size: 8.3pt, fill: c-text)[#p.description]
   v(5pt)
-  text(size: 7.3pt, fill: c-comment)[#langIcon(p.language)#h(3pt)#p.language#h(9pt)★ #p.stars#h(9pt)#p.loc#if "tests" in p [#h(9pt)#p.tests]]
+  text(size: 7pt, fill: c-comment, tracking: 0.2pt)[#for l in p.languages [#langIcon(l) #upper(l)#h(8pt)]★ #p.stars#h(8pt)#upper(p.loc)#if "tests" in p [#h(8pt)#upper(p.tests)]]
   v(4pt)
   text(size: 7.2pt)[#link(p.url)[#text(fill: c-link)[#fa-icon("github") #stripScheme(p.url)]]#if "demo" in p [\ #link(p.demo)[#text(fill: c-link)[#fa-icon("arrow-up-right-from-square") #stripScheme(p.demo)]]]]
 })

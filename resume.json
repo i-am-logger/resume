@@ -229,7 +229,7 @@
     {
       "name": "pr4xis",
       "description": "Axiomatic intelligence. Doing the right thing, provably.",
-      "language": "Rust",
+      "languages": ["Rust"],
       "stars": 12,
       "loc": "~295K LOC",
       "tests": "7,600+ tests",
@@ -239,7 +239,7 @@
     {
       "name": "vogix",
       "description": "A NixOS UX subsystem for unified desktop appearance and behavior.",
-      "language": "Rust",
+      "languages": ["Rust", "Nix"],
       "stars": 50,
       "loc": "~15.5K LOC",
       "tests": "320+ tests",
@@ -248,7 +248,7 @@
     {
       "name": "nix-license",
       "description": "Define your usage. Ensure license compliance on every build.",
-      "language": "Nix",
+      "languages": ["Nix"],
       "stars": 1,
       "loc": "~4.7K LOC",
       "tests": "200K+ checks",
@@ -258,7 +258,7 @@
     {
       "name": "mynixos",
       "description": "A NixOS-based distribution. Defaults that work, mkDefault so you always win.",
-      "language": "Nix",
+      "languages": ["Nix"],
       "stars": 3,
       "loc": "~16K LOC",
       "tests": "430+ options",
@@ -267,7 +267,7 @@
     {
       "name": "claude-code-proxy",
       "description": "OpenAI-compatible API proxy for Claude Code CLI.",
-      "language": "Rust",
+      "languages": ["Rust"],
       "stars": 7,
       "loc": "~1.3K LOC",
       "tests": "54 tests",
@@ -276,7 +276,7 @@
     {
       "name": "resume",
       "description": "This résumé — generated from JSON with Typst and Nix.",
-      "language": "Nix",
+      "languages": ["Nix"],
       "stars": 2,
       "loc": "~690 LOC",
       "url": "https://github.com/i-am-logger/resume",

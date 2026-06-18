@@ -60,11 +60,12 @@ let
     + "</div>")
     jobs;
 
-  langIcon = l: if l == "Rust" then icRust else if l == "Nix" then icNix else "";
+  langIcon = l: ''<img class="langicon" src="assets/lang-${lib.toLower l}.svg" alt="${l}" />'';
   projHtml = ''<div class="cards">'' + lib.concatMapStringsSep "" (p:
     ''<div class="card"><div class="cname">${esc p.name}</div>''
     + ''<div class="cdesc">${esc p.description}</div>''
-    + ''<div class="cmeta"><span class="m2">${langIcon p.language}${esc p.language}</span>''
+    + ''<div class="cmeta">''
+    + lib.concatMapStringsSep "" (l: ''<span class="m2">${langIcon l}${esc l}</span>'') p.languages
     + ''<span class="m2">★ ${toString p.stars}</span>''
     + ''<span class="m2">${esc p.loc}</span>''
     + lib.optionalString (p ? tests) ''<span class="m2">${esc p.tests}</span>''
@@ -129,9 +130,10 @@ a { color: var(--link); text-decoration: none; }
 .card { border: 1px solid #dcd4c8; border-radius: 6px; padding: 11px 13px; background: var(--surface); }
 .cname { font-weight: 700; color: var(--heading); font-size: 14px; }
 .cdesc { font-size: 12px; margin: 7px 0 10px; color: var(--text); }
-.cmeta { display: flex; flex-wrap: wrap; gap: 12px; font-size: 11px; color: var(--comment); align-items: center; }
+.cmeta { display: flex; flex-wrap: wrap; gap: 11px; font-size: 10px; color: var(--comment); align-items: center; text-transform: uppercase; letter-spacing: .3px; }
 .m2 { display: inline-flex; align-items: center; gap: 5px; }
 .m2 .ic { width: 12px; height: 12px; }
+.langicon { width: 12px; height: 12px; }
 .curls { display: flex; flex-direction: column; gap: 3px; margin-top: 8px; font-size: 11px; }
 .curls a { display: inline-flex; align-items: center; gap: 5px; color: var(--link); width: fit-content; }
 .curls .ic { width: 12px; height: 12px; color: var(--comment); }
