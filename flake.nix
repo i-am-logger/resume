@@ -4,12 +4,18 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
+    # The résumé's own theming project — drives the live theme + light/dark picker.
+    vogix16-themes = {
+      url = "github:i-am-logger/vogix16-themes";
+      flake = false;
+    };
   };
 
   outputs =
     { self
     , nixpkgs
     , flake-utils
+    , vogix16-themes
     }:
     flake-utils.lib.eachDefaultSystem (system:
     let
@@ -27,7 +33,21 @@
 
       # Same data drives both renderers.
       data = builtins.fromJSON (builtins.readFile ./resume.json);
-      siteHtml = pkgs.writeText "index.html" (import ./site.nix { inherit lib data; });
+
+      # All vogix16 themes (day + night base16 maps) → the live theme / light-dark picker.
+      themeDirs = builtins.attrNames (lib.filterAttrs
+        (n: t: t == "directory" && builtins.pathExists (vogix16-themes + "/${n}/day.toml"))
+        (builtins.readDir vogix16-themes));
+      readColors = f: (builtins.fromTOML (builtins.readFile f)).colors;
+      themes = lib.listToAttrs (map
+        (n: lib.nameValuePair n {
+          day = readColors (vogix16-themes + "/${n}/day.toml");
+          night = readColors (vogix16-themes + "/${n}/"
+            + (if builtins.pathExists (vogix16-themes + "/${n}/night.toml") then "night.toml" else "day.toml"));
+        })
+        themeDirs);
+
+      siteHtml = pkgs.writeText "index.html" (import ./site.nix { inherit lib data themes; });
 
       # Only the files the render needs — keeps the build input small/deterministic.
       src = lib.fileset.toSource {

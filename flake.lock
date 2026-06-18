@@ -37,7 +37,8 @@
     "root": {
       "inputs": {
         "flake-utils": "flake-utils",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "vogix16-themes": "vogix16-themes"
       }
     },
     "systems": {
@@ -52,6 +53,22 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "vogix16-themes": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1781644806,
+        "narHash": "sha256-yRoklx45rknOyu3A9DhtqEex1ZL+pjg0ZbHytUb8k+4=",
+        "owner": "i-am-logger",
+        "repo": "vogix16-themes",
+        "rev": "ca0ad769211b2c5cac974b15fd52128c163f1b0a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "i-am-logger",
+        "repo": "vogix16-themes",
         "type": "github"
       }
     }

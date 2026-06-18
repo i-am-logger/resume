@@ -1,7 +1,9 @@
 # Generates the HTML site (two-tone dark-header sidebar) from resume.json.
 # Colours: vogix16 "yoga" palette (day), applied semantically — monochromatic base for
 # structure, base0D (link) only for clickable links. Self-contained (inline SVG + bundled font).
-{ lib, data }:
+# `themes` = every vogix16 theme (day+night base16 map); a client-side picker swaps the CSS
+# variables live and prints in whatever theme is selected.
+{ lib, data, themes }:
 let
   b = data.basics;
   esc = s: lib.replaceStrings [ "&" "<" ">" ] [ "&amp;" "&lt;" "&gt;" ] (toString s);
@@ -25,6 +27,7 @@ let
   icLink = svg ''<path d="M10 13.5a4 4 0 005.7.3l3-3a4 4 0 10-5.7-5.7l-1.3 1.3"/><path d="M14 10.5a4 4 0 00-5.7-.3l-3 3a4 4 0 105.7 5.7l1.3-1.3"/>'';
   icDl = svg ''<path d="M12 3v12"/><path d="M7 11l5 5 5-5"/><path d="M4 20h16"/>'';
   icPrint = svg ''<path d="M6 9V3h12v6"/><rect x="4" y="9" width="16" height="8" rx="2"/><path d="M6 14h12v6H6z"/>'';
+  icPalette = svg ''<path d="M12 3a9 9 0 000 18 1.8 1.8 0 001.4-3 1.8 1.8 0 011.4-3H17a4 4 0 004-4c0-3.3-4-5-9-5z"/><circle cx="7.5" cy="11.5" r=".6"/><circle cx="10" cy="7.5" r=".6"/><circle cx="14.5" cy="7.5" r=".6"/>'';
   icExt = svg ''<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>'';
   icRust = svg ''<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/>'';
   icNix = svg ''<path d="M12 2.5v19M4 7l16 9.5M4 17l16-9.5"/>'';
@@ -75,6 +78,8 @@ let
     + ''</div>'')
     data.projects
     + "</div>";
+
+  themeOpts = lib.concatMapStringsSep "" (n: ''<option value="${n}">${lib.replaceStrings [ "_" ] [ " " ] n}</option>'') (lib.attrNames themes);
 in
 ''
 <!doctype html>
@@ -127,7 +132,7 @@ a { color: var(--link); text-decoration: none; }
 .kw { color: var(--border); font-size: 9px; letter-spacing: .4px; text-transform: uppercase; margin-top: 5px; }
 .kw .sep { color: var(--comment); }
 .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-top: 11px; }
-.card { border: 1px solid #dcd4c8; border-radius: 5px; padding: 8px 11px; background: var(--surface); }
+.card { border: 1px solid var(--sel); border-radius: 5px; padding: 8px 11px; background: var(--bg); }
 .chead { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
 .cname { font-weight: 700; color: var(--heading); font-size: 12.5px; flex: 0 0 auto; }
 .crepo { color: var(--link); font-size: 8.5px; display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
@@ -139,16 +144,23 @@ a { color: var(--link); text-decoration: none; }
 .langicon { width: 10px; height: 10px; }
 .cdemo { display: inline-flex; align-items: center; gap: 5px; margin-top: 5px; color: var(--link); font-size: 8.5px; }
 .cdemo .ic { width: 11px; height: 11px; color: var(--comment); }
-.dl { position: fixed; bottom: 18px; right: 18px; display: inline-flex; align-items: center; gap: 7px; background: var(--heading); color: var(--bg); padding: 10px 16px; border-radius: 6px; text-decoration: none; font-size: 13px; box-shadow: 0 2px 10px rgba(0,0,0,.3); z-index: 10; }
-.dl:hover { background: #2a2521; }
-.dl .ic { color: var(--bg); }
+.toolbar { position: fixed; bottom: 18px; right: 18px; display: flex; align-items: center; gap: 8px; z-index: 10; }
+.tbtn { display: inline-flex; align-items: center; gap: 7px; background: var(--heading); color: var(--bg); padding: 9px 14px; border-radius: 6px; text-decoration: none; font: inherit; font-size: 13px; border: none; cursor: pointer; box-shadow: 0 2px 10px rgba(0,0,0,.3); }
+.tbtn:hover { filter: brightness(1.18); }
+.tbtn .ic { color: var(--bg); }
+.tbtn select { background: transparent; color: inherit; border: none; font: inherit; cursor: pointer; outline: none; text-transform: capitalize; }
+.tbtn select option { color: #222; background: #fff; text-transform: capitalize; }
 @page { margin: 0; }
-@media print { .dl { display: none !important; } html, body { background: #fff; -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
+@media print { .toolbar { display: none !important; } * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; } }
 @media (max-width: 720px) { .page { flex-direction: column; } .sidebar, .main { width: 100%; } }
 </style>
 </head>
 <body>
-<a class="dl" href="#" onclick="window.print();return false;">${icPrint} Print</a>
+<div class="toolbar">
+  <label class="tbtn" title="Theme">${icPalette}<select id="themeSel" onchange="pickTheme(this.value)">${themeOpts}</select></label>
+  <button class="tbtn" id="variantBtn" onclick="toggleVariant()" title="Light / dark">☀ Light</button>
+  <a class="tbtn" href="#" onclick="window.print();return false;">${icPrint} Print</a>
+</div>
 <div class="page">
   <aside class="sidebar">
     <div class="head">
@@ -180,6 +192,30 @@ a { color: var(--link); text-decoration: none; }
     ${jobsHtml}
   </main>
 </div>
+<script>
+const THEMES = ${builtins.toJSON themes};
+const KEYS = ["base00","base01","base02","base03","base04","base05","base06","base0D"];
+const VARS = ["--bg","--surface","--sel","--comment","--border","--text","--heading","--link"];
+let CUR = { name: "yoga", variant: "day" };
+function applyTheme(name, variant) {
+  if (!THEMES[name]) name = "yoga";
+  if (variant !== "night") variant = "day";
+  CUR = { name: name, variant: variant };
+  const c = THEMES[name][variant];
+  for (let i = 0; i < KEYS.length; i++) document.documentElement.style.setProperty(VARS[i], c[KEYS[i]]);
+  const sel = document.getElementById("themeSel"); if (sel) sel.value = name;
+  const btn = document.getElementById("variantBtn"); if (btn) btn.textContent = variant === "night" ? "☾ Dark" : "☀ Light";
+  try { localStorage.setItem("resumeTheme", JSON.stringify(CUR)); } catch (e) {}
+}
+function pickTheme(name) { applyTheme(name, CUR.variant); }
+function toggleVariant() { applyTheme(CUR.name, CUR.variant === "day" ? "night" : "day"); }
+(function () {
+  let s = null;
+  try { s = JSON.parse(localStorage.getItem("resumeTheme")); } catch (e) {}
+  if (!s || !THEMES[s.name]) s = { name: "yoga", variant: "day" };
+  applyTheme(s.name, s.variant);
+})();
+</script>
 </body>
 </html>
 ''

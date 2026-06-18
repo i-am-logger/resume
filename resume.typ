@@ -59,7 +59,7 @@
 #let sepline(items) = items.map(x => text(fill: c-border, size: 6.5pt, tracking: 0.2pt)[#upper(x)]).join(text(fill: c-comment, size: 6.5pt)[ | ])
 #let urlIcon(u) = [#text(fill: c-link, size: 7pt)[#fa-icon("link")] #text(size: 7.6pt)[#link(u)[#text(fill: c-link)[#stripScheme(u)]]]]
 #let langIcon(l) = box(baseline: 1.5pt, image("assets/lang-" + lower(l) + ".svg", height: 6.5pt))
-#let projCard(p) = block(breakable: false, width: 100%, fill: c-surface, stroke: 0.6pt + rgb("#dcd4c8"), radius: 4pt, inset: (x: 8pt, y: 6pt), {
+#let projCard(p) = block(breakable: false, width: 100%, fill: c-bg, stroke: 0.6pt + c-sel, radius: 4pt, inset: (x: 8pt, y: 6pt), {
   set par(justify: false, leading: 0.5em)
   grid(columns: (1fr, auto), align: (left + horizon, right + horizon),
     text(weight: "bold", size: 9.5pt, fill: c-heading)[#p.name],
