@@ -64,25 +64,30 @@
       packages.default = resume;
       packages.pdf = resume;
 
-      # `nix run .#live` -> recompile resume.pdf on every save (open it in a hot-reloading viewer).
+      # `nix run .#live` -> build the HTML site, serve it with hot-reload, and
+      # rebuild on every edit of resume.json / site.nix / resume.typ. Open the printed URL.
       apps.live = {
         type = "app";
         program = toString (pkgs.writeShellScript "resume-live" ''
-          echo "Watching resume.typ/resume.json -> resume.pdf (open resume.pdf in a viewer)"
-          exec ${typst-with}/bin/typst watch --font-path ${fonts}/share/fonts resume.typ resume.pdf
-        '');
-      };
-
-      # `nix run .#site` -> build the HTML site + PDF and serve it locally (open the printed URL).
-      apps.site = {
-        type = "app";
-        program = toString (pkgs.writeShellScript "resume-site" ''
-          out=$(${pkgs.nix}/bin/nix build --no-link --print-out-paths .#default)
-          echo "Serving $out  (Ctrl-C to stop)"
-          exec ${pkgs.python3}/bin/python3 -m http.server --directory "$out" 8000
+          set -euo pipefail
+          SD=$(mktemp -d); export SD
+          REBUILD='o=$(${pkgs.nix}/bin/nix build --no-link --print-out-paths .#default 2>/dev/null) || { echo "[build failed]"; exit 0; }; rm -rf "$SD"/* 2>/dev/null || true; cp -rL "$o"/. "$SD"/; chmod -R u+w "$SD"; echo "[site rebuilt -> reload browser]"'
+          sh -c "$REBUILD"
+          ${pkgs.live-server}/bin/live-server "$SD" &
+          trap 'kill %1 2>/dev/null || true' EXIT
+          printf '%s\n' resume.json site.nix resume.typ flake.nix \
+            | ${pkgs.entr}/bin/entr -np sh -c "$REBUILD"
         '');
       };
       apps.default = self.apps.${system}.live;
+
+      # `nix run .#watch-pdf` -> recompile resume.pdf on save (open it in a PDF viewer).
+      apps.watch-pdf = {
+        type = "app";
+        program = toString (pkgs.writeShellScript "resume-watch-pdf" ''
+          exec ${typst-with}/bin/typst watch --font-path ${fonts}/share/fonts resume.typ resume.pdf
+        '');
+      };
 
       # `nix develop` -> typst (+ fontawesome) and fonts for ad-hoc `typst compile`.
       devShells.default = pkgs.mkShell {

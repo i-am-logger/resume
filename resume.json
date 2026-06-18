@@ -6,7 +6,7 @@
     "image": "https://gravatar.com/userimage/69310917/d2ecd272a3be58d58eed9212bbe44f40.jpeg?size=256",
     "email": "ido.samuelson@gmail.com",
     "phone": "7204537927",
-    "summary": "Engineering executive and software architect, 20+ years — first employee and VP Engineering at Jet ($3.3B Walmart acquisition) and Technology Director at EPAM/Walmart (100+ engineers, $40M+ in SRE operational savings). I make the durable engineering calls — system design, interface boundaries, data models, failure modes, and what 'correct' means — and prove them with executable specifications, property tests, and CI gates rather than asserting them. Today I design and ship released, CI-gated Rust and Nix systems (pr4xis, vogix, nix-license, mynixos), directing agentic AI for throughput under a verification-first discipline: I own the design, judgment, and correctness criteria; the tests and CI own the proof. Earlier career across defense-sector, fintech, and eCommerce companies. U.S.-based; eligible for U.S. Secret clearance.",
+    "summary": "Seasoned Software Engineering Executive and architect with 20+ years across eCommerce, fintech, and defense, proven in scaling teams from startup to 100+ engineers. VP of Engineering at Jet (first employee, $3.3B Walmart acquisition), Technology Director at Walmart ($40M+ in operational savings), and Principal Cloud Architect driving cloud strategy. Now building Rust and Nix systems with agentic-AI workflows. Passionate about technological innovation, mentoring teams, and strategic solutions that transform business operations.",
     "location": {
       "countryCode": "US",
       "address": "United States",
