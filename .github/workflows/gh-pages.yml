@@ -8,19 +8,19 @@ name: Update Github Pages
 
 jobs:
   update-resume-pages:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     permissions:
       # This makes sure that this action has permissions to push to
       # the gh-pages branch.
       contents: write
     steps:
-      - uses: actions/checkout@v4
-      - uses: DeterminateSystems/nix-installer-action@v9
+      - uses: actions/checkout@v6
+      - uses: DeterminateSystems/nix-installer-action@v22
 
       - run: |
           nix build . -L
 
-      - uses: peaceiris/actions-gh-pages@v3
+      - uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./result
