@@ -105,45 +105,52 @@
       set text(fill: c-text, size: 8pt)
       set par(leading: 0.46em)
 
-      s-head("Skills")
-      box(for s in data.skills { chip(s.name); [ ] })
-
-      s-head("Languages")
-      for l in data.languages { [*#l.language* \ #text(fill: c-comment)[#l.fluency]]; v(2pt) }
-
-      s-head("Education")
-      for e in data.education {
-        text(weight: "bold")[#e.institution]; linebreak()
-        [#e.area]; linebreak()
-        if "score" in e and e.score != "" { [#e.score]; linebreak() }
-        text(weight: "bold")[#yspan(e.startDate, e.endDate)]; linebreak()
-        [#e.studyType]
+      block(breakable: false, spacing: 0pt, {
+        s-head("Skills")
+        box(for s in data.skills { chip(s.name); [ ] })
+      })
+      block(breakable: false, spacing: 0pt, {
+        s-head("Languages")
+        for l in data.languages { [*#l.language* \ #text(fill: c-comment)[#l.fluency]]; v(2pt) }
+      })
+      block(breakable: false, spacing: 0pt, {
+        s-head("Education")
+        for e in data.education {
+          text(weight: "bold")[#e.institution]; linebreak()
+          [#e.area]; linebreak()
+          if "score" in e and e.score != "" { [#e.score]; linebreak() }
+          text(weight: "bold")[#yspan(e.startDate, e.endDate)]; linebreak()
+          [#e.studyType]
+          v(2pt)
+        }
+      })
+      block(breakable: false, spacing: 0pt, {
+        s-head("Military Service")
+        text(weight: "bold")[Air Force]; linebreak()
+        [sergeant]; linebreak()
+        text(weight: "bold")[1994 - 1997]; linebreak()
+        [Israel]; linebreak()
+        [Light Helicopter Technician]
         v(2pt)
-      }
-
-      s-head("Military Service")
-      text(weight: "bold")[Air Force]; linebreak()
-      [sergeant]; linebreak()
-      text(weight: "bold")[1994 - 1997]; linebreak()
-      [Israel]; linebreak()
-      [Light Helicopter Technician]
-      v(2pt)
-
-      s-head("Certifications")
-      for c in data.certificates {
-        text(weight: "bold")[#c.name]; linebreak()
-        text(fill: c-comment)[#c.issuer]; linebreak()
-        text(fill: c-comment)[#ym(c.date)]
-        v(2pt)
-      }
-
-      s-head("Volunteering")
-      for vo in data.volunteer {
-        text(weight: "bold")[#vo.organization]; linebreak()
-        [#vo.position]; linebreak()
-        text(fill: c-comment, weight: "bold")[#yspan(vo.startDate, vo.at("endDate", default: none))]
-        v(2pt)
-      }
+      })
+      block(breakable: false, spacing: 0pt, {
+        s-head("Certifications")
+        for c in data.certificates {
+          text(weight: "bold")[#c.name]; linebreak()
+          text(fill: c-comment)[#c.issuer]; linebreak()
+          text(fill: c-comment)[#ym(c.date)]
+          v(2pt)
+        }
+      })
+      block(breakable: false, spacing: 0pt, {
+        s-head("Volunteering")
+        for vo in data.volunteer {
+          text(weight: "bold")[#vo.organization]; linebreak()
+          [#vo.position]; linebreak()
+          text(fill: c-comment, weight: "bold")[#yspan(vo.startDate, vo.at("endDate", default: none))]
+          v(2pt)
+        }
+      })
     })
   },
 
@@ -158,13 +165,15 @@
 
     m-head("Experience")
     for w in jobs {
-      grid(columns: (1fr, auto), align: (left + bottom, right + bottom),
-        [#text(weight: "bold", size: 11pt, fill: c-heading)[#w.name]#if "url" in w [ #h(4pt)#text(size: 7.6pt)[#link(w.url)[#box(baseline: 1pt, text(fill: c-comment)[#fa-icon("link")]) #text(fill: c-link)[#stripScheme(w.url)]]]]],
-        text(fill: c-comment, size: 8.3pt)[#yspan(w.startDate, w.at("endDate", default: none))],
-      )
-      text(fill: c-border, size: 8.8pt)[#w.position]
-      if w.summary != "" { linebreak(); text(size: 8.8pt)[#w.summary] }
-      if w.highlights.len() > 0 { linebreak(); v(1pt); sepline(w.highlights) }
+      block(breakable: false, {
+        grid(columns: (1fr, auto), align: (left + bottom, right + bottom),
+          [#text(weight: "bold", size: 11pt, fill: c-heading)[#w.name]#if "url" in w [ #h(4pt)#text(size: 7.6pt)[#link(w.url)[#box(baseline: 1pt, text(fill: c-comment)[#fa-icon("link")]) #text(fill: c-link)[#stripScheme(w.url)]]]]],
+          text(fill: c-comment, size: 8.3pt)[#yspan(w.startDate, w.at("endDate", default: none))],
+        )
+        text(fill: c-border, size: 8.8pt)[#w.position]
+        if w.summary != "" { linebreak(); text(size: 8.8pt)[#w.summary] }
+        if w.highlights.len() > 0 { linebreak(); v(1pt); sepline(w.highlights) }
+      })
       v(5pt)
     }
   }),
