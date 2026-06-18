@@ -86,12 +86,15 @@
     block(width: 100%, fill: c-heading, outset: (top: top-m), inset: (x: side-pad, top: 0.16in, bottom: 0.14in), {
       set text(fill: c-bg)
       set par(leading: 0.5em)
-      box(clip: true, radius: 6pt, image("assets/photo.png", width: 0.82in, height: 0.82in, fit: "cover"))
-      v(7pt)
-      text(size: 14pt, weight: "bold", fill: c-bg)[#b.name]
-      v(2pt)
-      text(size: 8.8pt, fill: c-comment)[Technology Executive]
-      v(7pt)
+      grid(columns: (auto, 1fr), column-gutter: 10pt, align: (center + horizon, left + horizon),
+        image("assets/photo-light.png", width: 0.8in, height: 0.8in),
+        {
+          text(size: 14pt, weight: "bold", fill: c-bg)[#b.name]
+          v(2pt)
+          text(size: 8.8pt, fill: c-comment)[Technology Executive]
+        },
+      )
+      v(8pt)
       set text(size: 8.2pt, fill: c-surface)
       stack(spacing: 3.5pt,
         [#box(width: 12pt)[#text(fill: c-comment)[#fa-icon("location-dot")]]#b.location.address],
@@ -141,7 +144,7 @@
       for vo in data.volunteer {
         text(weight: "bold")[#vo.organization]; linebreak()
         [#vo.position]; linebreak()
-        text(fill: c-comment, weight: "bold")[#rspan(vo.startDate, vo.at("endDate", default: none))]
+        text(fill: c-comment, weight: "bold")[#yspan(vo.startDate, vo.at("endDate", default: none))]
         v(2pt)
       }
     })
@@ -160,7 +163,7 @@
     for w in jobs {
       grid(columns: (1fr, auto), align: (left + bottom, right + bottom),
         text(weight: "bold", size: 11pt, fill: c-heading)[#w.name],
-        text(fill: c-comment, size: 8.3pt)[#rspan(w.startDate, w.at("endDate", default: none))],
+        text(fill: c-comment, size: 8.3pt)[#yspan(w.startDate, w.at("endDate", default: none))],
       )
       text(fill: c-border, size: 8.8pt)[#w.position]
       if "url" in w { linebreak(); urlIcon(w.url) }

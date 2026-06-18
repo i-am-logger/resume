@@ -10,6 +10,9 @@ let
   isBlank = d: d == null || d == "";
   ym = d: if isBlank d then "Current" else d;
   ymRange = s: e: "${ym s} - ${ym e}";
+  # Year only (drop the month) — date ranges read cleaner on a résumé.
+  yr = d: if isBlank d then "Current" else lib.head (lib.splitString "-" d);
+  yrRange = s: e: "${yr s} - ${yr e}";
 
   stripScheme = u: lib.removePrefix "https://" (lib.removePrefix "http://" u);
   phone = p: if lib.stringLength p == 10
@@ -43,19 +46,19 @@ let
   edu = lib.concatMapStringsSep "" (e:
     ''<div class="item"><strong>${esc e.institution}</strong><div>${esc e.area}</div>''
     + lib.optionalString (e ? score && e.score != "") ''<div>${esc e.score}</div>''
-    + ''<div><strong>${ym e.startDate} - ${ym (e.endDate or null)}</strong></div><div>${esc e.studyType}</div></div>'')
+    + ''<div><strong>${yr e.startDate} - ${yr (e.endDate or null)}</strong></div><div>${esc e.studyType}</div></div>'')
     data.education;
   certs = lib.concatMapStringsSep "" (c:
     ''<div class="item"><strong>${esc c.name}</strong><div class="muted">${esc c.issuer}</div><div class="muted">${esc c.date}</div></div>'')
     data.certificates;
   vols = lib.concatMapStringsSep "" (v:
     ''<div class="item"><strong>${esc v.organization}</strong><div>${esc v.position}</div>''
-    + ''<div class="muted"><strong>${ym v.startDate} - ${ym (v.endDate or null)}</strong></div></div>'')
+    + ''<div class="muted"><strong>${yr v.startDate} - ${yr (v.endDate or null)}</strong></div></div>'')
     data.volunteer;
 
   jobsHtml = lib.concatMapStringsSep "" (w:
     ''<div class="entry"><div class="erow"><span class="org">${esc w.name}</span>''
-    + ''<span class="date">${ymRange w.startDate (w.endDate or null)}</span></div>''
+    + ''<span class="date">${yrRange w.startDate (w.endDate or null)}</span></div>''
     + ''<div class="pos">${esc w.position}</div>''
     + lib.optionalString (w ? url) ''<div class="urlrow">${icLink}<a href="${w.url}">${esc (stripScheme w.url)}</a></div>''
     + lib.optionalString (w.summary != "") "<p>${esc w.summary}</p>"
@@ -108,9 +111,12 @@ body { font-family: "Inter", Arial, "Liberation Sans", sans-serif; color: var(--
 .page { display: flex; align-items: stretch; min-height: 100vh; }
 .sidebar { width: 33%; background: var(--surface); }
 .head { background: var(--heading); color: var(--bg); padding: 28px 24px 22px; }
-.photo { width: 96px; height: 96px; border-radius: 6px; object-fit: cover; display: block; margin-bottom: 14px; }
-.head h1 { font-size: 23px; font-weight: 700; margin: 0; color: var(--bg); letter-spacing: .2px; }
-.subtitle { font-size: 13px; color: var(--comment); margin: 3px 0 16px; }
+.headtop { display: flex; align-items: center; gap: 15px; margin-bottom: 16px; }
+.photo { width: 92px; height: 92px; flex: 0 0 auto; background: var(--bg);
+  -webkit-mask: url("assets/photo.png") center / contain no-repeat; mask: url("assets/photo.png") center / contain no-repeat; }
+.headname { min-width: 0; }
+.head h1 { font-size: 22px; font-weight: 700; margin: 0; color: var(--bg); letter-spacing: .2px; }
+.subtitle { font-size: 12.5px; color: var(--comment); margin: 4px 0 0; }
 .contact div { display: flex; align-items: center; gap: 9px; font-size: 12px; margin: 6px 0; color: var(--surface); }
 .contact .ic { color: var(--comment); }
 .contact a { color: var(--surface); text-decoration: underline; }
@@ -185,9 +191,13 @@ a { color: var(--link); text-decoration: none; }
 <div class="page">
   <aside class="sidebar">
     <div class="head">
-      <img class="photo" src="assets/photo.png" alt="${esc b.name}" />
-      <h1>${esc b.name}</h1>
-      <div class="subtitle">Technology Executive</div>
+      <div class="headtop">
+        <div class="photo" role="img" aria-label="${esc b.name}"></div>
+        <div class="headname">
+          <h1>${esc b.name}</h1>
+          <div class="subtitle">Technology Executive</div>
+        </div>
+      </div>
       <div class="contact">
         <div>${icLoc}<span>${esc b.location.address}</span></div>
         <div>${icPhone}<a href="tel:${b.phone}">${phone b.phone}</a></div>
