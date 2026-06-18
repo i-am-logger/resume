@@ -81,9 +81,12 @@ let
 
   themeOpts = lib.concatMapStringsSep "" (n: ''<option value="${n}">${lib.replaceStrings [ "_" ] [ " " ] n}</option>'') (lib.attrNames themes);
   # Default theme/variant — drives BOTH the first-paint :root vars and the JS init (kept in sync).
+  # variant "system" follows the OS prefers-color-scheme (day/night chosen at runtime).
   defName = "yoga";
-  defVariant = "night";
-  defc = themes.${defName}.${defVariant};
+  defVariant = "system";
+  rootVars = c: ''--bg: ${c.base00}; --surface: ${c.base01}; --sel: ${c.base02}; --comment: ${c.base03}; --border: ${c.base04}; --text: ${c.base05}; --heading: ${c.base06}; --link: ${c.base0D};'';
+  defDay = themes.${defName}.day;
+  defNight = themes.${defName}.night;
 in
 ''
 <!doctype html>
@@ -96,10 +99,8 @@ in
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
 <style>
 @font-face { font-family: "Inter"; src: url("assets/fonts/InterVariable.ttf") format("truetype-variations"); font-weight: 100 900; font-display: swap; }
-:root {
-  --bg: ${defc.base00}; --surface: ${defc.base01}; --sel: ${defc.base02}; --comment: ${defc.base03};
-  --border: ${defc.base04}; --text: ${defc.base05}; --heading: ${defc.base06}; --link: ${defc.base0D};
-}
+:root { ${rootVars defDay} }
+@media (prefers-color-scheme: dark) { :root { ${rootVars defNight} } }
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
 body { font-family: "Inter", Arial, "Liberation Sans", sans-serif; color: var(--text); font-size: 13px; line-height: 1.55; background: var(--bg); }
@@ -149,15 +150,25 @@ a { color: var(--link); text-decoration: none; }
 .cdemo { display: inline-flex; align-items: center; gap: 5px; margin-top: 5px; color: var(--link); font-size: 8.5px; }
 .cdemo .ic { width: 11px; height: 11px; color: var(--comment); }
 .toolbar { position: fixed; bottom: 18px; right: 18px; display: flex; align-items: center; gap: 8px; z-index: 10; }
-.tbtn { display: inline-flex; align-items: center; gap: 7px; background: var(--heading); color: var(--bg); padding: 9px 14px; border-radius: 6px; text-decoration: none; font: inherit; font-size: 13px; border: none; cursor: pointer; box-shadow: 0 2px 10px rgba(0,0,0,.3); }
-.tbtn:hover { filter: brightness(1.18); }
+.tbtn { display: inline-flex; align-items: center; gap: 7px; color: var(--bg); padding: 9px 14px; border-radius: 9px; text-decoration: none; font: inherit; font-size: 13px; cursor: pointer; box-shadow: 0 4px 18px rgba(0,0,0,.22);
+  background: var(--heading);
+  background: color-mix(in srgb, var(--heading) 66%, transparent);
+  -webkit-backdrop-filter: blur(11px) saturate(1.35); backdrop-filter: blur(11px) saturate(1.35);
+  border: 1px solid rgba(127,127,127,.25);
+  border: 1px solid color-mix(in srgb, var(--bg) 22%, transparent); }
+.tbtn:hover { filter: brightness(1.12); }
 .tbtn .ic { color: var(--bg); }
 .tbtn select { background: transparent; color: inherit; border: none; font: inherit; cursor: pointer; outline: none; text-transform: capitalize; }
 .tbtn select option { color: #222; background: #fff; text-transform: capitalize; }
-.poweredby { position: fixed; bottom: 18px; left: 18px; display: inline-flex; align-items: center; gap: 6px; font-size: 11px; color: var(--comment); background: var(--surface); border: 1px solid var(--sel); border-radius: 6px; padding: 5px 10px; text-decoration: none; opacity: .82; z-index: 10; }
-.poweredby:hover { opacity: 1; }
-.poweredby .ic { width: 12px; height: 12px; color: var(--comment); }
-.poweredby b { color: var(--text); font-weight: 700; }
+.poweredby { position: fixed; bottom: 18px; left: 18px; display: inline-flex; align-items: center; gap: 6px; font-size: 11px; color: var(--bg); border-radius: 9px; padding: 6px 11px; text-decoration: none; box-shadow: 0 4px 18px rgba(0,0,0,.22); z-index: 10;
+  background: var(--heading);
+  background: color-mix(in srgb, var(--heading) 66%, transparent);
+  -webkit-backdrop-filter: blur(11px) saturate(1.35); backdrop-filter: blur(11px) saturate(1.35);
+  border: 1px solid rgba(127,127,127,.25);
+  border: 1px solid color-mix(in srgb, var(--bg) 22%, transparent); }
+.poweredby:hover { filter: brightness(1.12); }
+.poweredby .ic { width: 12px; height: 12px; color: var(--bg); opacity: .9; }
+.poweredby b { color: var(--bg); font-weight: 700; }
 @page { margin: 0; }
 @media print { .toolbar, .poweredby { display: none !important; } * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; } }
 @media (max-width: 720px) { .page { flex-direction: column; } .sidebar, .main { width: 100%; } }
@@ -166,7 +177,7 @@ a { color: var(--link); text-decoration: none; }
 <body>
 <div class="toolbar">
   <label class="tbtn" title="Theme">${icPalette}<select id="themeSel">${themeOpts}</select></label>
-  <button class="tbtn" id="variantBtn" title="Light / dark">☾ Dark</button>
+  <button class="tbtn" id="variantBtn" title="System / light / dark">🖥 System</button>
   <a class="tbtn" href="#" onclick="window.print();return false;">${icPrint} Print</a>
 </div>
 <a class="poweredby" href="https://github.com/i-am-logger/vogix16-themes" target="_blank" rel="noopener">${icPalette} Powered by <b>Vogix</b></a>
@@ -206,27 +217,32 @@ const THEMES = ${builtins.toJSON themes};
 const KEYS = ["base00","base01","base02","base03","base04","base05","base06","base0D"];
 const VARS = ["--bg","--surface","--sel","--comment","--border","--text","--heading","--link"];
 const DEFAULT = { name: "${defName}", variant: "${defVariant}" };
-const SV = 2; // bump to invalidate stale saved settings (forces the current default once)
+const SV = 3; // bump to invalidate stale saved settings (variant is now system|day|night)
+const ORDER = ["system", "day", "night"];
+const mq = window.matchMedia("(prefers-color-scheme: dark)");
 let CUR = { name: DEFAULT.name, variant: DEFAULT.variant };
+function resolved(variant) { return (variant === "day" || variant === "night") ? variant : (mq.matches ? "night" : "day"); }
 function applyTheme(name, variant) {
   if (!THEMES[name]) name = DEFAULT.name;
-  if (variant !== "day" && variant !== "night") variant = DEFAULT.variant;
+  if (ORDER.indexOf(variant) < 0) variant = DEFAULT.variant;
   CUR = { name: name, variant: variant };
-  const c = THEMES[name][variant];
+  const c = THEMES[name][resolved(variant)];
   for (let i = 0; i < KEYS.length; i++) document.documentElement.style.setProperty(VARS[i], c[KEYS[i]]);
   const sel = document.getElementById("themeSel"); if (sel) sel.value = name;
-  const btn = document.getElementById("variantBtn"); if (btn) btn.textContent = variant === "night" ? "☾ Dark" : "☀ Light";
+  const btn = document.getElementById("variantBtn"); if (btn) btn.textContent = variant === "system" ? "🖥 System" : (variant === "night" ? "☾ Dark" : "☀ Light");
   try { localStorage.setItem("resumeTheme", JSON.stringify({ v: SV, name: name, variant: variant })); } catch (e) {}
 }
 // Script sits at end of <body>, so the controls already exist — bind directly.
 const _sel = document.getElementById("themeSel");
 if (_sel) _sel.addEventListener("change", function () { applyTheme(this.value, CUR.variant); });
 const _btn = document.getElementById("variantBtn");
-if (_btn) _btn.addEventListener("click", function () { applyTheme(CUR.name, CUR.variant === "day" ? "night" : "day"); });
+if (_btn) _btn.addEventListener("click", function () { applyTheme(CUR.name, ORDER[(ORDER.indexOf(CUR.variant) + 1) % ORDER.length]); });
+// Follow the OS live while in "system" mode.
+if (mq.addEventListener) mq.addEventListener("change", function () { if (CUR.variant === "system") applyTheme(CUR.name, "system"); });
 (function () {
   let s = null;
   try { s = JSON.parse(localStorage.getItem("resumeTheme")); } catch (e) {}
-  if (!s || s.v !== SV || !THEMES[s.name]) s = { name: DEFAULT.name, variant: DEFAULT.variant };
+  if (!s || s.v !== SV || !THEMES[s.name] || ORDER.indexOf(s.variant) < 0) s = { name: DEFAULT.name, variant: DEFAULT.variant };
   applyTheme(s.name, s.variant);
 })();
 </script>
