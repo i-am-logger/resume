@@ -67,8 +67,10 @@
   )
   v(2.5pt)
   block(height: 0.26in)[#text(size: 7.6pt, fill: c-text)[#p.description]]
-  text(size: 6pt, fill: c-comment, tracking: 0.2pt)[#for l in p.languages [#langIcon(l) #upper(l)#h(7pt)]★ #p.stars#h(7pt)#upper(p.loc)#if "tests" in p [#h(7pt)#upper(p.tests)]]
-  if "demo" in p { v(2.5pt); text(size: 6pt)[#link(p.demo)[#box(baseline: 1pt, text(fill: c-comment)[#fa-icon("arrow-up-right-from-square")]) #text(fill: c-link)[#stripScheme(p.demo)]]] }
+  grid(columns: (1fr, auto), align: (left + horizon, right + horizon), column-gutter: 5pt,
+    text(size: 6pt, fill: c-comment, tracking: 0.2pt)[#for l in p.languages [#langIcon(l) #upper(l)#h(7pt)]★ #p.stars#h(7pt)#upper(p.loc)#if "tests" in p [#h(7pt)#upper(p.tests)]],
+    [#if "demo" in p [#link(p.demo)[#box(baseline: 1pt, text(fill: c-comment)[#fa-icon("arrow-up-right-from-square")]) #text(size: 6pt, fill: c-link)[#stripScheme(p.demo)]]]],
+  )
 })
 
 #let jobs = data.work.filter(w => w.name != "Israeli Air Force")

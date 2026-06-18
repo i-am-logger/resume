@@ -68,14 +68,14 @@ let
     ''<div class="card"><div class="chead"><span class="cname">${esc p.name}</span>''
     + ''<a class="crepo" href="${p.url}">${icGithub}${esc (stripScheme p.url)}</a></div>''
     + ''<div class="cdesc">${esc p.description}</div>''
-    + ''<div class="cmeta">''
+    + ''<div class="cmetarow"><div class="cmeta">''
     + lib.concatMapStringsSep "" (l: ''<span class="m2">${langIcon l}${esc l}</span>'') p.languages
     + ''<span class="m2">★ ${toString p.stars}</span>''
     + ''<span class="m2">${esc p.loc}</span>''
     + lib.optionalString (p ? tests) ''<span class="m2">${esc p.tests}</span>''
     + ''</div>''
     + lib.optionalString (p ? demo) ''<a class="cdemo" href="${p.demo}">${icExt}${esc (stripScheme p.demo)}</a>''
-    + ''</div>'')
+    + ''</div></div>'')
     data.projects
     + "</div>";
 
@@ -143,32 +143,35 @@ a { color: var(--link); text-decoration: none; }
 .crepo { color: var(--link); font-size: 8.5px; display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
 .crepo .ic { width: 10px; height: 10px; color: var(--comment); flex: 0 0 auto; }
 .cdesc { font-size: 11px; margin: 5px 0 7px; color: var(--text); min-height: 30px; }
-.cmeta { display: flex; flex-wrap: wrap; gap: 9px; font-size: 8.5px; color: var(--comment); align-items: center; text-transform: uppercase; letter-spacing: .3px; }
+.cmetarow { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.cmeta { display: flex; flex-wrap: wrap; gap: 8px; font-size: 8.5px; color: var(--comment); align-items: center; text-transform: uppercase; letter-spacing: .3px; min-width: 0; }
 .m2 { display: inline-flex; align-items: center; gap: 4px; }
 .m2 .ic { width: 10px; height: 10px; }
 .langicon { width: 10px; height: 10px; }
-.cdemo { display: inline-flex; align-items: center; gap: 5px; margin-top: 5px; color: var(--link); font-size: 8.5px; }
+.cdemo { display: inline-flex; align-items: center; gap: 5px; color: var(--link); font-size: 8.5px; flex: 0 0 auto; white-space: nowrap; }
 .cdemo .ic { width: 11px; height: 11px; color: var(--comment); }
 .toolbar { position: fixed; bottom: 18px; right: 18px; display: flex; align-items: center; gap: 8px; z-index: 10; }
-.tbtn { display: inline-flex; align-items: center; gap: 7px; color: var(--bg); padding: 9px 14px; border-radius: 9px; text-decoration: none; font: inherit; font-size: 13px; cursor: pointer; box-shadow: 0 4px 18px rgba(0,0,0,.22);
-  background: var(--heading);
-  background: color-mix(in srgb, var(--heading) 66%, transparent);
-  -webkit-backdrop-filter: blur(11px) saturate(1.35); backdrop-filter: blur(11px) saturate(1.35);
-  border: 1px solid rgba(127,127,127,.25);
-  border: 1px solid color-mix(in srgb, var(--bg) 22%, transparent); }
-.tbtn:hover { filter: brightness(1.12); }
-.tbtn .ic { color: var(--bg); }
+.tbtn { display: inline-flex; align-items: center; gap: 7px; color: var(--text); padding: 8px 14px; border-radius: 12px; text-decoration: none; font: inherit; font-size: 13px; cursor: pointer;
+  background: var(--surface);
+  background: color-mix(in srgb, var(--surface) 46%, transparent);
+  -webkit-backdrop-filter: blur(26px) saturate(185%); backdrop-filter: blur(26px) saturate(185%);
+  border: 1px solid rgba(127,127,127,.18);
+  border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);
+  box-shadow: 0 8px 30px rgba(0,0,0,.18), inset 0 1px 0.5px rgba(255,255,255,.4); }
+.tbtn:hover { background: color-mix(in srgb, var(--surface) 64%, transparent); }
+.tbtn .ic { color: var(--text); opacity: .7; }
 .tbtn select { background: transparent; color: inherit; border: none; font: inherit; cursor: pointer; outline: none; text-transform: capitalize; }
 .tbtn select option { color: #222; background: #fff; text-transform: capitalize; }
-.poweredby { position: fixed; bottom: 18px; left: 18px; display: inline-flex; align-items: center; gap: 6px; font-size: 11px; color: var(--bg); border-radius: 9px; padding: 6px 11px; text-decoration: none; box-shadow: 0 4px 18px rgba(0,0,0,.22); z-index: 10;
-  background: var(--heading);
-  background: color-mix(in srgb, var(--heading) 66%, transparent);
-  -webkit-backdrop-filter: blur(11px) saturate(1.35); backdrop-filter: blur(11px) saturate(1.35);
-  border: 1px solid rgba(127,127,127,.25);
-  border: 1px solid color-mix(in srgb, var(--bg) 22%, transparent); }
-.poweredby:hover { filter: brightness(1.12); }
-.poweredby .ic { width: 12px; height: 12px; color: var(--bg); opacity: .9; }
-.poweredby b { color: var(--bg); font-weight: 700; }
+.poweredby { position: fixed; bottom: 18px; left: 18px; display: inline-flex; align-items: center; gap: 6px; font-size: 11px; color: var(--text); border-radius: 12px; padding: 6px 11px; text-decoration: none; z-index: 10;
+  background: var(--surface);
+  background: color-mix(in srgb, var(--surface) 46%, transparent);
+  -webkit-backdrop-filter: blur(26px) saturate(185%); backdrop-filter: blur(26px) saturate(185%);
+  border: 1px solid rgba(127,127,127,.18);
+  border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);
+  box-shadow: 0 8px 30px rgba(0,0,0,.18), inset 0 1px 0.5px rgba(255,255,255,.4); }
+.poweredby:hover { background: color-mix(in srgb, var(--surface) 64%, transparent); }
+.poweredby .ic { width: 12px; height: 12px; color: var(--text); opacity: .7; }
+.poweredby b { color: var(--text); font-weight: 700; }
 @page { margin: 0; }
 @media print { .toolbar, .poweredby { display: none !important; } * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; } }
 @media (max-width: 720px) { .page { flex-direction: column; } .sidebar, .main { width: 100%; } }
@@ -180,7 +183,7 @@ a { color: var(--link); text-decoration: none; }
   <button class="tbtn" id="variantBtn" title="System / light / dark">🖥 System</button>
   <a class="tbtn" href="#" onclick="window.print();return false;">${icPrint} Print</a>
 </div>
-<a class="poweredby" href="https://github.com/i-am-logger/vogix16-themes" target="_blank" rel="noopener">${icPalette} Powered by <b>Vogix</b></a>
+<a class="poweredby" href="https://github.com/i-am-logger/vogix16-themes" target="_blank" rel="noopener">${icPalette} Powered by <b>Vogix16</b></a>
 <div class="page">
   <aside class="sidebar">
     <div class="head">
