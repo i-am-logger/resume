@@ -80,6 +80,10 @@ let
     + "</div>";
 
   themeOpts = lib.concatMapStringsSep "" (n: ''<option value="${n}">${lib.replaceStrings [ "_" ] [ " " ] n}</option>'') (lib.attrNames themes);
+  # Default theme/variant — drives BOTH the first-paint :root vars and the JS init (kept in sync).
+  defName = "yoga";
+  defVariant = "night";
+  defc = themes.${defName}.${defVariant};
 in
 ''
 <!doctype html>
@@ -93,8 +97,8 @@ in
 <style>
 @font-face { font-family: "Inter"; src: url("assets/fonts/InterVariable.ttf") format("truetype-variations"); font-weight: 100 900; font-display: swap; }
 :root {
-  --bg: #f7f4ee; --surface: #ece5d8; --sel: #d2c8bd; --comment: #a89c90;
-  --border: #6c5d52; --text: #51463e; --heading: #3b342f; --link: #1f5fa6;
+  --bg: ${defc.base00}; --surface: ${defc.base01}; --sel: ${defc.base02}; --comment: ${defc.base03};
+  --border: ${defc.base04}; --text: ${defc.base05}; --heading: ${defc.base06}; --link: ${defc.base0D};
 }
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
@@ -157,8 +161,8 @@ a { color: var(--link); text-decoration: none; }
 </head>
 <body>
 <div class="toolbar">
-  <label class="tbtn" title="Theme">${icPalette}<select id="themeSel" onchange="pickTheme(this.value)">${themeOpts}</select></label>
-  <button class="tbtn" id="variantBtn" onclick="toggleVariant()" title="Light / dark">☀ Light</button>
+  <label class="tbtn" title="Theme">${icPalette}<select id="themeSel">${themeOpts}</select></label>
+  <button class="tbtn" id="variantBtn" title="Light / dark">☾ Dark</button>
   <a class="tbtn" href="#" onclick="window.print();return false;">${icPrint} Print</a>
 </div>
 <div class="page">
@@ -196,23 +200,28 @@ a { color: var(--link); text-decoration: none; }
 const THEMES = ${builtins.toJSON themes};
 const KEYS = ["base00","base01","base02","base03","base04","base05","base06","base0D"];
 const VARS = ["--bg","--surface","--sel","--comment","--border","--text","--heading","--link"];
-let CUR = { name: "yoga", variant: "day" };
+const DEFAULT = { name: "${defName}", variant: "${defVariant}" };
+const SV = 2; // bump to invalidate stale saved settings (forces the current default once)
+let CUR = { name: DEFAULT.name, variant: DEFAULT.variant };
 function applyTheme(name, variant) {
-  if (!THEMES[name]) name = "yoga";
-  if (variant !== "night") variant = "day";
+  if (!THEMES[name]) name = DEFAULT.name;
+  if (variant !== "day" && variant !== "night") variant = DEFAULT.variant;
   CUR = { name: name, variant: variant };
   const c = THEMES[name][variant];
   for (let i = 0; i < KEYS.length; i++) document.documentElement.style.setProperty(VARS[i], c[KEYS[i]]);
   const sel = document.getElementById("themeSel"); if (sel) sel.value = name;
   const btn = document.getElementById("variantBtn"); if (btn) btn.textContent = variant === "night" ? "☾ Dark" : "☀ Light";
-  try { localStorage.setItem("resumeTheme", JSON.stringify(CUR)); } catch (e) {}
+  try { localStorage.setItem("resumeTheme", JSON.stringify({ v: SV, name: name, variant: variant })); } catch (e) {}
 }
-function pickTheme(name) { applyTheme(name, CUR.variant); }
-function toggleVariant() { applyTheme(CUR.name, CUR.variant === "day" ? "night" : "day"); }
+// Script sits at end of <body>, so the controls already exist — bind directly.
+const _sel = document.getElementById("themeSel");
+if (_sel) _sel.addEventListener("change", function () { applyTheme(this.value, CUR.variant); });
+const _btn = document.getElementById("variantBtn");
+if (_btn) _btn.addEventListener("click", function () { applyTheme(CUR.name, CUR.variant === "day" ? "night" : "day"); });
 (function () {
   let s = null;
   try { s = JSON.parse(localStorage.getItem("resumeTheme")); } catch (e) {}
-  if (!s || !THEMES[s.name]) s = { name: "yoga", variant: "day" };
+  if (!s || s.v !== SV || !THEMES[s.name]) s = { name: DEFAULT.name, variant: DEFAULT.variant };
   applyTheme(s.name, s.variant);
 })();
 </script>
