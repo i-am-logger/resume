@@ -83,6 +83,22 @@
           runHook postInstall
         '';
       };
+
+      # Rebuild + copy-into-serve-dir as a SCRIPT FILE (not an inline string). watchexec re-shells
+      # and word-splits an inline `sh -c "<string>"`, which mangled the build invocation (nix ran
+      # with no subcommand) — the cause of the perpetual "[build failed]". A single script path
+      # survives that. Reads $FLAKE_DIR (absolute flake path) and $SD (serve dir) from the env.
+      rebuildScript = pkgs.writeShellScript "resume-rebuild" ''
+        ${pkgs.nix}/bin/nix build --no-link --print-out-paths "$FLAKE_DIR#default" >/tmp/resume-out.txt 2>/tmp/resume-live.log
+        o=$(${pkgs.coreutils}/bin/cat /tmp/resume-out.txt 2>/dev/null)
+        if [ -z "$o" ] || [ ! -f "$o/index.html" ]; then
+          echo "[build failed - keeping previous]"
+          ${pkgs.coreutils}/bin/tail -n 4 /tmp/resume-live.log
+          exit 0
+        fi
+        ${pkgs.coreutils}/bin/cp -fRL "$o"/. "$SD"/ && ${pkgs.coreutils}/bin/chmod -R u+w "$SD"
+        echo "[rebuilt -> reload http://localhost:4321]"
+      '';
     in
     {
       # `nix build` -> result/{index.html (dark-sidebar site), resume.pdf, assets/photo.png}
@@ -95,25 +111,20 @@
         type = "app";
         program = toString (pkgs.writeShellScript "resume-live" ''
           set -euo pipefail
+          export PATH="${pkgs.git}/bin:$PATH"   # Nix needs git on PATH to read the flake's git tree
           PORT=4321
+          FLAKE_DIR="$PWD"; export FLAKE_DIR    # absolute flake path (the rebuild runs from another cwd)
           SD=$(mktemp -d); export SD
-          # Copy ONLY the known output files (no recursion) so an empty $o can never
-          # turn into a copy of "/"; skip entirely unless the build produced index.html.
-          # Guard first: only copy when the build produced a real output ($o non-empty AND has
-          # index.html) — that check is what prevents an empty $o from ever becoming a copy of "/".
-          # Then copy the WHOLE output (no hand-maintained file list); chmod so the next rebuild can
-          # overwrite the read-only store copies.
-          REBUILD='o=$(${pkgs.nix}/bin/nix build --no-link --print-out-paths .#default 2>/dev/null); if [ -z "$o" ] || [ ! -f "$o/index.html" ]; then echo "[build failed - keeping previous]"; exit 0; fi; ${pkgs.coreutils}/bin/cp -fRL "$o"/. "$SD"/ && ${pkgs.coreutils}/bin/chmod -R u+w "$SD"; echo "[rebuilt -> reload http://localhost:'"$PORT"']"'
-          sh -c "$REBUILD"
+          ${rebuildScript}                       # initial build + copy into the serve dir
           # free the fixed port from a previous run, then serve on it.
           ${pkgs.procps}/bin/pkill -x live-server 2>/dev/null || true
           ${pkgs.live-server}/bin/live-server --port "$PORT" "$SD" &
           trap 'kill %1 2>/dev/null || true' EXIT
           echo "Serving http://localhost:$PORT  — edit resume.json / site.nix / resume.typ to auto-reload"
-          # watchexec survives atomic-save edits (entr exits after the first); rebuild on any change.
-          exec ${pkgs.watchexec}/bin/watchexec --debounce 300ms \
-            -w resume.json -w site.nix -w resume.typ -w flake.nix \
-            -- sh -c "$REBUILD"
+          # --postpone: don't also rebuild on launch (the script already built above).
+          exec ${pkgs.watchexec}/bin/watchexec --postpone --debounce 300ms \
+            -w "$FLAKE_DIR/resume.json" -w "$FLAKE_DIR/site.nix" -w "$FLAKE_DIR/resume.typ" -w "$FLAKE_DIR/flake.nix" \
+            -- ${rebuildScript}
         '');
       };
       apps.default = self.apps.${system}.live;
