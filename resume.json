@@ -204,8 +204,9 @@
   ],
   "publications": [],
   "skills": [
-    { "name": "Architecture & System Design" },
     { "name": "Engineering Leadership" },
+    { "name": "System Thinking" },
+    { "name": "System Design & Architecture" },
     { "name": "Agentic-AI Engineering" },
     { "name": "Cloud (AWS / Azure / GCP)" },
     { "name": "CI/CD & Release Engineering" },

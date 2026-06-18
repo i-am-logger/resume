@@ -62,14 +62,15 @@ let
 
   langIcon = l: if l == "Rust" then icRust else if l == "Nix" then icNix else "";
   projHtml = ''<div class="cards">'' + lib.concatMapStringsSep "" (p:
-    ''<div class="card"><div class="chead"><span class="cname">${esc p.name}</span><span class="clinks">''
-    + lib.optionalString (p ? demo) ''<a class="demo" href="${p.demo}" title="Demo">${icExt}</a>''
-    + ''<a href="${p.url}" title="Repository">${icGithub}</a></span></div>''
+    ''<div class="card"><div class="cname">${esc p.name}</div>''
     + ''<div class="cdesc">${esc p.description}</div>''
     + ''<div class="cmeta"><span class="m2">${langIcon p.language}${esc p.language}</span>''
     + ''<span class="m2">★ ${toString p.stars}</span>''
     + ''<span class="m2">${esc p.loc}</span>''
     + lib.optionalString (p ? tests) ''<span class="m2">${esc p.tests}</span>''
+    + ''</div><div class="curls">''
+    + ''<a href="${p.url}">${icGithub}${esc (stripScheme p.url)}</a>''
+    + lib.optionalString (p ? demo) ''<a href="${p.demo}">${icExt}${esc (stripScheme p.demo)}</a>''
     + ''</div></div>'')
     data.projects
     + "</div>";
@@ -81,6 +82,8 @@ in
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>${esc b.name} — Résumé</title>
+<link rel="icon" href="favicon.ico" sizes="any" />
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
 <style>
 @font-face { font-family: "Inter"; src: url("assets/fonts/InterVariable.ttf") format("truetype-variations"); font-weight: 100 900; font-display: swap; }
 :root {
@@ -123,17 +126,15 @@ a { color: var(--link); text-decoration: none; }
 .kw { color: var(--border); font-size: 10px; letter-spacing: .4px; text-transform: uppercase; margin-top: 5px; }
 .kw .sep { color: var(--comment); }
 .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
-.card { border: 1px solid #dcd4c8; border-radius: 6px; padding: 11px 13px; background: #fff; }
-.chead { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.card { border: 1px solid #dcd4c8; border-radius: 6px; padding: 11px 13px; background: var(--surface); }
 .cname { font-weight: 700; color: var(--heading); font-size: 14px; }
-.clinks { display: inline-flex; gap: 8px; flex: 0 0 auto; }
-.clinks a { color: var(--comment); display: inline-flex; }
-.clinks a.demo { color: var(--link); }
-.clinks .ic { width: 15px; height: 15px; }
 .cdesc { font-size: 12px; margin: 7px 0 10px; color: var(--text); }
 .cmeta { display: flex; flex-wrap: wrap; gap: 12px; font-size: 11px; color: var(--comment); align-items: center; }
 .m2 { display: inline-flex; align-items: center; gap: 5px; }
 .m2 .ic { width: 12px; height: 12px; }
+.curls { display: flex; flex-direction: column; gap: 3px; margin-top: 8px; font-size: 11px; }
+.curls a { display: inline-flex; align-items: center; gap: 5px; color: var(--link); width: fit-content; }
+.curls .ic { width: 12px; height: 12px; color: var(--comment); }
 .dl { position: fixed; top: 16px; right: 16px; display: inline-flex; align-items: center; gap: 7px; background: var(--heading); color: var(--bg); padding: 10px 16px; border-radius: 6px; text-decoration: none; font-size: 13px; box-shadow: 0 2px 8px rgba(0,0,0,.25); z-index: 10; }
 .dl:hover { background: #2a2521; }
 .dl .ic { color: var(--bg); }

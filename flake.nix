@@ -55,6 +55,8 @@
           cp resume.pdf $out/resume.pdf
           cp ${siteHtml} $out/index.html
           cp assets/photo.png $out/assets/photo.png
+          cp assets/favicon.ico $out/favicon.ico
+          cp assets/favicon.svg $out/assets/favicon.svg
           cp ${pkgs.inter}/share/fonts/truetype/InterVariable.ttf $out/assets/fonts/InterVariable.ttf
           runHook postInstall
         '';
@@ -75,7 +77,7 @@
           SD=$(mktemp -d); export SD
           # Copy ONLY the known output files (no recursion) so an empty $o can never
           # turn into a copy of "/"; skip entirely unless the build produced index.html.
-          REBUILD='o=$(${pkgs.nix}/bin/nix build --no-link --print-out-paths .#default 2>/dev/null); if [ -z "$o" ] || [ ! -f "$o/index.html" ]; then echo "[build failed - keeping previous]"; exit 0; fi; i() { ${pkgs.coreutils}/bin/install -D -m644 "$o/$1" "$SD/$1"; }; i index.html; i resume.pdf; i assets/photo.png; i assets/fonts/InterVariable.ttf; echo "[rebuilt -> reload http://localhost:'"$PORT"']"'
+          REBUILD='o=$(${pkgs.nix}/bin/nix build --no-link --print-out-paths .#default 2>/dev/null); if [ -z "$o" ] || [ ! -f "$o/index.html" ]; then echo "[build failed - keeping previous]"; exit 0; fi; i() { ${pkgs.coreutils}/bin/install -D -m644 "$o/$1" "$SD/$1"; }; i index.html; i resume.pdf; i favicon.ico; i assets/photo.png; i assets/favicon.svg; i assets/fonts/InterVariable.ttf; echo "[rebuilt -> reload http://localhost:'"$PORT"']"'
           sh -c "$REBUILD"
           # free the fixed port from a previous run, then serve on it.
           ${pkgs.procps}/bin/pkill -x live-server 2>/dev/null || true
