@@ -127,7 +127,7 @@ body { font-family: "Inter", Arial, "Liberation Sans", sans-serif; color: var(--
 .contact a { color: var(--surface); text-decoration: underline; }
 .sections { padding: 18px 24px 26px; }
 .sections h2 { font-size: 14px; font-weight: 700; color: var(--heading); border-bottom: 1px solid var(--border); padding-bottom: 4px; margin: 18px 0 9px; }
-.sections h2:first-child { margin-top: 0; }
+.sections .sec:first-child h2 { margin-top: 0; }
 .item { margin-bottom: 10px; font-size: 12.5px; line-height: 1.5; }
 .muted { color: var(--comment); }
 .chips { display: flex; flex-wrap: wrap; gap: 6px; }
@@ -197,7 +197,7 @@ a { color: var(--link); text-decoration: none; }
   html { background: linear-gradient(to right, var(--surface) 0, var(--surface) 33%, var(--bg) 33%, var(--bg) 100%); }
   .page { min-height: 0; }
   /* Don't slice an entry/card across a page break. */
-  .entry, .item, .erow, .card { break-inside: avoid; }
+  .entry, .item, .erow, .card, .sec { break-inside: avoid; }
   .main h3, .sections h2 { break-after: avoid; }
   /* The print sidebar is narrow — stack the photo above the name so the name isn't clipped. */
   .headtop { flex-direction: column; align-items: flex-start; gap: 10px; }
@@ -243,13 +243,13 @@ a { color: var(--link); text-decoration: none; }
       </div>
     </div>
     <div class="sections">
-      <h2>Skills</h2><div class="chips">${skills}</div>
-      <h2>Languages</h2>${langs}
-      <h2>Education</h2>${edu}
-      <h2>Military Service</h2>
-      <div class="item"><strong>Air Force</strong><div>sergeant</div><div><strong>1994 - 1997</strong></div><div>Israel</div><div>Light Helicopter Technician</div></div>
-      <h2>Certifications</h2>${certs}
-      <h2>Volunteering</h2>${vols}
+      <div class="sec"><h2>Skills</h2><div class="chips">${skills}</div></div>
+      <div class="sec"><h2>Languages</h2>${langs}</div>
+      <div class="sec"><h2>Education</h2>${edu}</div>
+      <div class="sec"><h2>Military Service</h2>
+      <div class="item"><strong>Air Force</strong><div>sergeant</div><div><strong>1994 - 1997</strong></div><div>Israel</div><div>Light Helicopter Technician</div></div></div>
+      <div class="sec"><h2>Certifications</h2>${certs}</div>
+      <div class="sec"><h2>Volunteering</h2>${vols}</div>
     </div>
   </aside>
   <main class="main">
