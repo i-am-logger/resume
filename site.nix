@@ -161,20 +161,20 @@ a { color: var(--link); text-decoration: none; }
 .toolbar { position: fixed; bottom: 18px; right: 18px; display: flex; align-items: center; gap: 8px; z-index: 10; }
 .tbtn { display: inline-flex; align-items: center; gap: 7px; color: var(--text); padding: 8px 14px; border-radius: 12px; text-decoration: none; font: inherit; font-size: 13px; cursor: pointer;
   background: var(--surface);
-  background: linear-gradient(135deg, rgba(255,255,255,.28) 0%, rgba(255,255,255,.06) 45%, rgba(255,255,255,.02) 100%), color-mix(in srgb, var(--surface) 22%, transparent);
-  -webkit-backdrop-filter: blur(22px) saturate(170%); backdrop-filter: blur(22px) saturate(170%);
-  border: 1px solid color-mix(in srgb, var(--text) 16%, transparent);
-  box-shadow: 0 8px 26px rgba(0,0,0,.22), inset 0 1px 0 rgba(255,255,255,.6), inset 0 -8px 14px -10px rgba(0,0,0,.14); }
+  background: color-mix(in srgb, var(--surface) 12%, transparent);
+  -webkit-backdrop-filter: blur(16px) saturate(180%); backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255,255,255,.28);
+  box-shadow: 0 10px 30px rgba(0,0,0,.18), inset 0 1px 1px rgba(255,255,255,.75), inset 0 -2px 3px rgba(255,255,255,.28), inset 0 0 0 .5px rgba(255,255,255,.12); }
 .tbtn:hover { filter: brightness(1.06); }
 .tbtn .ic { color: var(--text); opacity: .7; }
 .tbtn select { background: transparent; color: inherit; border: none; font: inherit; cursor: pointer; outline: none; text-transform: capitalize; }
 .tbtn select option { color: #222; background: #fff; text-transform: capitalize; }
 .poweredby { position: fixed; bottom: 18px; left: 18px; display: inline-flex; align-items: center; gap: 6px; font-size: 11px; color: var(--text); border-radius: 12px; padding: 6px 11px; text-decoration: none; z-index: 10;
   background: var(--surface);
-  background: linear-gradient(135deg, rgba(255,255,255,.28) 0%, rgba(255,255,255,.06) 45%, rgba(255,255,255,.02) 100%), color-mix(in srgb, var(--surface) 22%, transparent);
-  -webkit-backdrop-filter: blur(22px) saturate(170%); backdrop-filter: blur(22px) saturate(170%);
-  border: 1px solid color-mix(in srgb, var(--text) 16%, transparent);
-  box-shadow: 0 8px 26px rgba(0,0,0,.22), inset 0 1px 0 rgba(255,255,255,.6), inset 0 -8px 14px -10px rgba(0,0,0,.14); }
+  background: color-mix(in srgb, var(--surface) 12%, transparent);
+  -webkit-backdrop-filter: blur(16px) saturate(180%); backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255,255,255,.28);
+  box-shadow: 0 10px 30px rgba(0,0,0,.18), inset 0 1px 1px rgba(255,255,255,.75), inset 0 -2px 3px rgba(255,255,255,.28), inset 0 0 0 .5px rgba(255,255,255,.12); }
 .poweredby:hover { filter: brightness(1.06); }
 .poweredby .ic { width: 12px; height: 12px; color: var(--text); opacity: .7; }
 .poweredby b { color: var(--text); font-weight: 700; }
