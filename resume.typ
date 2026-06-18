@@ -140,7 +140,7 @@
         urlIcon(p.url),
       )
       text(size: 8.8pt)[#p.description]
-      if "keywords" in p { linebreak(); text(fill: ink-mut, size: 7.8pt)[#p.keywords.join(" · ")] }
+      if "keywords" in p { linebreak(); text(fill: ink-mut, size: 7.8pt)[#p.keywords.join(" | ")] }
       v(6pt)
     }
 
@@ -153,7 +153,7 @@
       text(fill: accent, size: 8.8pt)[#w.position]
       if "url" in w { linebreak(); urlIcon(w.url) }
       if w.summary != "" { linebreak(); text(size: 8.8pt)[#w.summary] }
-      if w.highlights.len() > 0 { linebreak(); text(fill: ink-mut, size: 7.8pt)[#w.highlights.join(" · ")] }
+      if w.highlights.len() > 0 { linebreak(); text(fill: ink-mut, size: 7.8pt)[#w.highlights.join(" | ")] }
       v(7pt)
     }
   }),

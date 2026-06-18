@@ -49,7 +49,7 @@ let
     + lib.optionalString (w ? url) ''<div class="urlrow">${icLink}<a href="${w.url}">${esc (stripScheme w.url)}</a></div>''
     + lib.optionalString (w.summary != "") "<p>${esc w.summary}</p>"
     + lib.optionalString (w.highlights != [])
-      (''<div class="kw">'' + lib.concatStringsSep " · " (map esc w.highlights) + "</div>")
+      (''<div class="kw">'' + lib.concatStringsSep " | " (map esc w.highlights) + "</div>")
     + "</div>")
     jobs;
 
@@ -57,7 +57,7 @@ let
     ''<div class="entry"><div class="erow"><span class="org">${esc p.name}</span>''
     + ''<span class="date"><span class="urlrow">${icLink}<a href="${p.url}">${esc (stripScheme p.url)}</a></span></span></div>''
     + "<p>${esc p.description}</p>"
-    + lib.optionalString (p ? keywords) (''<div class="kw">'' + lib.concatStringsSep " · " (map esc p.keywords) + "</div>")
+    + lib.optionalString (p ? keywords) (''<div class="kw">'' + lib.concatStringsSep " | " (map esc p.keywords) + "</div>")
     + "</div>")
     data.projects;
 in
