@@ -1,1064 +1,201 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>Ido Samuelson</title><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/><style>@font-face {
-  font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?z1lat9');
-  src:  url('fonts/icomoon.eot?z1lat9#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?z1lat9') format('truetype'),
-    url('fonts/icomoon.woff?z1lat9') format('woff'),
-    url('fonts/icomoon.svg?z1lat9#icomoon') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-
-[class^="icon-"], [class*=" icon-"] {
-  /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'icomoon' !important;
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.icon-gitlab .path1:before {
-  content: "\e906";
-  color: rgb(252, 109, 38);
-}
-.icon-gitlab .path2:before {
-  content: "\e907";
-  margin-left: -1em;
-  color: rgb(226, 67, 41);
-}
-.icon-gitlab .path3:before {
-  content: "\e908";
-  margin-left: -1em;
-  color: rgb(252, 109, 38);
-}
-.icon-gitlab .path4:before {
-  content: "\e909";
-  margin-left: -1em;
-  color: rgb(252, 163, 38);
-}
-.icon-gitlab .path5:before {
-  content: "\e90a";
-  margin-left: -1em;
-  color: rgb(226, 67, 41);
-}
-.icon-gitlab .path6:before {
-  content: "\e90b";
-  margin-left: -1em;
-  color: rgb(252, 109, 38);
-}
-.icon-gitlab .path7:before {
-  content: "\e90c";
-  margin-left: -1em;
-  color: rgb(252, 163, 38);
-}
-.icon-gitlab .path8:before {
-  content: "\e90d";
-  margin-left: -1em;
-  color: rgb(226, 67, 41);
-}
-.icon-meetup .path1:before {
-  content: "\e901";
-  color: rgb(255, 255, 255);
-}
-.icon-meetup .path2:before {
-  content: "\e902";
-  margin-left: -1.5em;
-  color: rgb(240, 1, 1);
-}
-.icon-meetup .path3:before {
-  content: "\e903";
-  margin-left: -1.5em;
-  color: rgb(3, 3, 3);
-}
-.icon-blogger:before {
-  content: "\e900";
-}
-.icon-exercism:before {
-  content: "\e601";
-}
-.icon-telegram:before {
-  content: "\e904";
-}
-.icon-flickr:before {
-  content: "\f16e";
-}
-.icon-medium:before {
-  content: "\f23a";
-}
-.icon-heart:before {
-  content: "\f004";
-}
-.icon-book:before {
-  content: "\f02d";
-}
-.icon-linkedin:before {
-  content: "\f08c";
-}
-.icon-twitter:before {
-  content: "\f099";
-}
-.icon-github:before {
-  content: "\f09b";
-}
-.icon-link:before {
-  content: "\f0c1";
-}
-.icon-bars:before {
-  content: "\f0c9";
-}
-.icon-pinterest:before {
-  content: "\f0d2";
-}
-.icon-googleplus:before {
-  content: "\f0d5";
-}
-.icon-circle:before {
-  content: "\f111";
-}
-.icon-code:before {
-  content: "\f121";
-}
-.icon-youtube:before {
-  content: "\f167";
-}
-.icon-stackoverflow:before {
-  content: "\f16c";
-}
-.icon-bitbucket:before {
-  content: "\f171";
-}
-.icon-tumblr:before {
-  content: "\f173";
-}
-.icon-dribbble:before {
-  content: "\f17d";
-}
-.icon-skype:before {
-  content: "\f17e";
-}
-.icon-foursquare:before {
-  content: "\f180";
-}
-.icon-gittip:before {
-  content: "\f184";
-}
-.icon-gratipay:before {
-  content: "\f184";
-}
-.icon-stackexchange:before {
-  content: "\f18d";
-}
-.icon-vimeo:before {
-  content: "\f194";
-}
-.icon-graduation-cap:before {
-  content: "\f19d";
-}
-.icon-language:before {
-  content: "\f1ab";
-}
-.icon-child:before {
-  content: "\f1ae";
-}
-.icon-behance:before {
-  content: "\f1b5";
-}
-.icon-spotify:before {
-  content: "\f1bc";
-}
-.icon-soundcloud:before {
-  content: "\f1be";
-}
-.icon-codepen:before {
-  content: "\f1cb";
-}
-.icon-hackernews:before {
-  content: "\f1d4";
-}
-.icon-lastfm:before {
-  content: "\f202";
-}
-.icon-angellist:before {
-  content: "\f209";
-}
-.icon-facebook:before {
-  content: "\f230";
-}
-.icon-instagram:before {
-  content: "\e905";
-}
-.icon-trophy:before {
-  content: "\e605";
-}
-.icon-office:before {
-  content: "\e606";
-}
-.icon-clock:before {
-  content: "\e60a";
-}
-.icon-reddit:before {
-  content: "\e609";
-}
-.icon-profile:before {
-  content: "\e600";
-}
-.icon-tools:before {
-  content: "\e034";
-}
-.icon-location:before {
-  content: "\e602";
-}
-.icon-mail:before {
-  content: "\e603";
-}
-.icon-phone:before {
-  content: "\e03f";
-}
-.icon-newspaper:before {
-  content: "\e607";
-}
-.icon-chevron-down:before {
-  content: "\e60c";
-}
-.icon-chevron-up:before {
-  content: "\e60d";
-}
-.icon-dots-three-horizontal:before {
-  content: "\e60b";
-}
-.icon-thumbs-up:before {
-  content: "\e604";
-}
-.icon-board:before {
-  content: "\e608";
-}
-
-.relative {
-  position: relative;
-}
-.clear-margin {
-  margin: 0;
-}
-.space-top {
-  margin-top: 10px;
-}
-.space-right {
-  margin-right: 10px;
-}
-.space-bottom {
-  margin-bottom: 10px;
-}
-.mr-5 {
-  margin-right: 5px;
-}
-.mr-10 {
-  margin-right: 10px;
-}
-.ml-5 {
-  margin-left: 5px;
-}
-.labels {
-  line-height: 2;
-}
-.label-keyword {
-  display: inline-block;
-  background: #7eb0db;
-  color: white;
-  font-size: 0.9em;
-  padding: 5px;
-  border: 1px solid #357ebd;
-  margin-right: 5px;
-}
-.label-keyword:last-child {
-  margin-right: 0;
-}
-.label-keyword p {
-  margin: 0;
-}
-.label-keyword a {
-  color: white;
-}
-.label-keyword a:hover {
-  text-decoration: none;
-}
-.link-disguise {
-  color: inherit;
-}
-.link-disguise:hover {
-  color: inherit;
-}
-.clear-margin {
-  margin: 0;
-}
-@media (max-width: 992px) {
-  .clear-margin-sm {
-    margin-bottom: 0;
-  }
-}
-.fs-lg {
-  font-size: 1.33333333em;
-  line-height: 0.75em;
-  vertical-align: -15%;
-}
-.fs-2x {
-  font-size: 2em;
-}
-.fs-3x {
-  font-size: 3em;
-}
-.fs-4x {
-  font-size: 4em;
-}
-.btn-circle-sm {
-  width: 28px;
-  height: 28px;
-  line-height: 28px;
-  border-radius: 50%;
-  text-align: center;
-  padding: 0;
-  outline: none !important;
-}
-/* the version when the icon file is last updated */
-@font-face {
-  font-family: 'jst-elegant';
-  src: url("//unpkg.com/jsonresume-theme-elegant@1.12.0/assets/icomoon/fonts/icomoon.eot?f218wo");
-  src: url("//unpkg.com/jsonresume-theme-elegant@1.12.0/assets/icomoon/fonts/icomoon.eot?f218wo#iefix") format('embedded-opentype'), url("//unpkg.com/jsonresume-theme-elegant@1.12.0/assets/icomoon/fonts/icomoon.ttf?f218wo") format('truetype'), url("//unpkg.com/jsonresume-theme-elegant@1.12.0/assets/icomoon/fonts/icomoon.woff?f218wo") format('woff'), url("//unpkg.com/jsonresume-theme-elegant@1.12.0/assets/icomoon/fonts/icomoon.svg?f218wo#icomoon") format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-[class^="icon-"],
-[class*=" icon-"] {
-  /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'jst-elegant' !important;
-}
-body {
-  font-family: 'Lato';
-  background: #f0f0f0;
-  color: #333;
-}
-.main {
-  padding: 5px;
-}
-.card {
-  background: white;
-  border: 1px solid #e6e6e6;
-  border-radius: 3px;
-  min-height: 300px;
-  padding: 10px 0;
-}
-.card-nested {
-  min-height: 0;
-  border-width: 1px 0 0 0;
-}
-.card-nested:before,
-.card-nested:after {
-  content: " ";
-  display: table;
-}
-.card-nested:after {
-  clear: both;
-}
-@media (max-width: 480px) {
-  .card-nested {
-    padding: 5px 0;
-  }
-}
-.background-card {
-  padding: 10px 20px;
-}
-.card-wrapper {
-  padding: 5px;
-}
-@media (max-width: 992px) {
-  .card-wrapper {
-    float: none !important;
-  }
-}
-.background-details .detail {
-  display: table;
-}
-.background-details .detail .icon {
-  min-width: 45px;
-  max-width: 45px;
-  text-align: center;
-}
-.background-details .detail .info {
-  width: 100%;
-}
-.background-details .detail .title,
-.background-details .detail .icon {
-  color: #707070;
-}
-.background-details .detail .mobile-title {
-  display: none;
-}
-@media (max-width: 480px) {
-  .background-details .detail .mobile-title {
-    display: inline-block;
-    margin-left: 5px;
-    font-weight: bold;
-    text-transform: uppercase;
-    vertical-align: middle;
-  }
-}
-.background-details .detail .icon,
-.background-details .detail .info {
-  display: table-cell;
-  padding: 0 10px;
-}
-@media (max-width: 480px) {
-  .background-details .detail {
-    display: block;
-  }
-  .background-details .detail .icon {
-    max-width: inherit;
-    min-width: inherit;
-    text-align: left;
-  }
-  .background-details .detail .icon,
-  .background-details .detail .info {
-    display: block;
-    padding: 10px 0;
-  }
-  .background-details .detail .title {
-    display: none;
-  }
-}
-.info .content.has-sidebar {
-  width: 80%;
-  box-sizing: border-box;
-  float: left;
-  padding: 0 10px;
-  border-right: 1px solid #cdcdcd;
-}
-@media (max-width: 992px) {
-  .info .content.has-sidebar {
-    width: 100%;
-    border-right: 0;
-  }
-}
-@media (max-width: 480px) {
-  .info .content.has-sidebar {
-    padding: 0 2px;
-  }
-}
-.info .sidebar {
-  margin-left: 80%;
-  box-sizing: border-box;
-  padding: 10px;
-}
-@media (max-width: 480px) {
-  ul {
-    padding-left: 25px;
-  }
-}
-.current-event {
-  font-size: 8px;
-  color: #5ACE24;
-  position: absolute;
-  right: 100%;
-  top: 4px;
-  left: -10px;
-}
-.mop-wrapper > p:last-child {
-  margin: 0;
-}
-/*
-    Credits: http://codyhouse.co/demo/smart-fixed-navigation/index.html
-*/
-.floating-nav-trigger {
-  width: 50px;
-  height: 50px;
-  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.24);
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.24);
-  -webkit-transition: background-color 0.5s ease;
-  -o-transition: background-color 0.5s ease;
-  transition: background-color 0.5s ease;
-  display: block;
-  border-radius: 50%;
-  text-align: center;
-  background-color: white;
-  font-size: 1.5em;
-  color: #357ebd;
-  z-index: 100;
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-  text-decoration: none !important;
-}
-.floating-nav-trigger > [class^="icon-"],
-.floating-nav-trigger [class*=" icon-"],
-.floating-nav-trigger > .close-icon {
-  line-height: 50px;
-}
-.floating-nav-trigger .close-icon {
-  display: none;
-}
-.floating-nav-trigger:hover {
-  color: #1f496e;
-  background-color: #e6e6e6;
-}
-.floating-nav-trigger.is-open {
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-.floating-nav-trigger.is-open .close-icon {
-  display: inherit;
-}
-.floating-nav-trigger.is-open .icon-bars {
-  display: none;
-}
-.floating-nav-trigger.is-open:hover {
-  background-color: white;
-}
-.floating-nav {
-  -webkit-transform: scale(0);
-  -ms-transform: scale(0);
-  -o-transform: scale(0);
-  transform: scale(0);
-  -webkit-transform-origin: 100% 100%;
-  -moz-transform-origin: 100% 100%;
-  -ms-transform-origin: 100% 100%;
-  transform-origin: 100% 100%;
-  -webkit-transition: transform 0.3s, visibility 0s 0.3s;
-  -o-transition: transform 0.3s, visibility 0s 0.3s;
-  transition: transform 0.3s, visibility 0s 0.3s;
-  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.24);
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.24);
-  position: fixed;
-  z-index: 50;
-  right: 10px;
-  bottom: 10px;
-  background-color: white;
-  width: 90%;
-  max-width: 400px;
-  visibility: hidden;
-  overflow: hidden;
-}
-.floating-nav ul {
-  font-size: 1.2em;
-  margin: 0;
-}
-.floating-nav ul li {
-  border-bottom: 1px solid #eff2f6;
-}
-.floating-nav ul li a {
-  padding: 20px;
-  text-decoration: none;
-  color: #357ebd;
-  display: block;
-}
-.floating-nav ul li a:hover {
-  color: #1f496e;
-}
-.floating-nav ul li:last-child {
-  border-bottom: 0;
-}
-.floating-nav.is-visible {
-  -webkit-transform: scale(1);
-  -ms-transform: scale(1);
-  -o-transform: scale(1);
-  transform: scale(1);
-  -webkit-transition: transform 0.3s, visibility 0s 0s;
-  -o-transition: transform 0.3s, visibility 0s 0s;
-  transition: transform 0.3s, visibility 0s 0s;
-  visibility: visible;
-}
-@media (max-width: 992px) {
-  .profile-card-wrapper {
-    position: relative;
-  }
-}
-.profile-card-wrapper .profile-card {
-  padding: 10px;
-}
-.profile-pic {
-  padding: 20px 0;
-}
-@media (max-width: 992px) {
-  .profile-pic {
-    padding: 10px 0;
-  }
-}
-.profile-pic img {
-  width: 100px;
-  height: 100px;
-}
-@media (max-width: 992px) {
-  .name {
-    margin-top: 10px;
-  }
-}
-@media (max-width: 768px) {
-  .contact-details {
-    text-align: center;
-  }
-}
-.contact-details .detail {
-  display: table;
-  padding: 10px 0;
-}
-.contact-details .detail .icon {
-  padding: 0 10px;
-  color: #707070;
-}
-@media (max-width: 992px) {
-  .contact-details .detail .icon {
-    padding: 0 5px 0 0;
-  }
-}
-.contact-details .detail .info {
-  font-size: 0.8em;
-}
-.contact-details .detail .icon,
-.contact-details .detail .info {
-  display: table-cell;
-  vertical-align: middle;
-}
-@media (max-width: 768px) {
-  .contact-details .detail {
-    position: relative;
-    float: left;
-    width: 100%;
-    min-height: 1px;
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-}
-@media (max-width: 992px) {
-  .contact-details .detail {
-    position: relative;
-    min-height: 1px;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding: 10px;
-  }
-  .contact-details .detail .icon,
-  .contact-details .detail .info {
-    display: inline-block;
-  }
-}
-@media (max-width: 992px) and (min-width: 768px) {
-  .contact-details .detail {
-    float: left;
-    width: 25%;
-  }
-}
-.social-links {
-  line-height: 2.5;
-}
-.social-link {
-  margin-left: 5px;
-  min-width: 35px;
-  display: inline-block;
-}
-.social-link:first-child {
-  margin-left: 0;
-}
-.social-link:hover {
-  text-decoration: none;
-}
-.link-github {
-  color: #454545;
-}
-.link-github:hover,
-.link-github:focus {
-  text-decoration: none;
-  color: #2b2b2b;
-}
-.link-twitter {
-  color: #33ccff;
-}
-.link-twitter:hover,
-.link-twitter:focus {
-  text-decoration: none;
-  color: #00bfff;
-}
-.link-blog {
-  color: #f36f24;
-}
-.link-blog:hover,
-.link-blog:focus {
-  text-decoration: none;
-  color: #d8560c;
-}
-.link-linkedin {
-  color: #007bb6;
-}
-.link-linkedin:hover,
-.link-linkedin:focus {
-  text-decoration: none;
-  color: #005983;
-}
-.link-skype {
-  color: #12A5F4;
-}
-.link-skype:hover,
-.link-skype:focus {
-  text-decoration: none;
-  color: #0986ca;
-}
-.link-instagram {
-  color: #e4405f;
-}
-.link-instagram:hover,
-.link-instagram:focus {
-  text-decoration: none;
-  color: #d31e40;
-}
-.link-stackoverflow {
-  color: #8e8e92;
-}
-.link-stackoverflow:hover,
-.link-stackoverflow:focus {
-  text-decoration: none;
-  color: #747479;
-}
-.link-stackexchange {
-  color: #62b0df;
-}
-.link-stackexchange:hover,
-.link-stackexchange:focus {
-  text-decoration: none;
-  color: #389bd6;
-}
-.link-lastfm {
-  color: #d12127;
-}
-.link-lastfm:hover,
-.link-lastfm:focus {
-  text-decoration: none;
-  color: #a51a1f;
-}
-.link-soundcloud {
-  color: #e8822d;
-}
-.link-soundcloud:hover,
-.link-soundcloud:focus {
-  text-decoration: none;
-  color: #cc6916;
-}
-.link-googleplus {
-  color: #dd4b39;
-}
-.link-googleplus:hover,
-.link-googleplus:focus {
-  text-decoration: none;
-  color: #c23321;
-}
-.link-youtube {
-  color: #dd4b39;
-}
-.link-youtube:hover,
-.link-youtube:focus {
-  text-decoration: none;
-  color: #c23321;
-}
-.link-pinterest {
-  color: #bd091f;
-}
-.link-pinterest:hover,
-.link-pinterest:focus {
-  text-decoration: none;
-  color: #8c0717;
-}
-.link-gratipay {
-  color: #630;
-}
-.link-gratipay:hover,
-.link-gratipay:focus {
-  text-decoration: none;
-  color: #331a00;
-}
-.link-vimeo {
-  color: #17b3e8;
-}
-.link-vimeo:hover,
-.link-vimeo:focus {
-  text-decoration: none;
-  color: #128fba;
-}
-.link-behance {
-  color: #2c98cf;
-}
-.link-behance:hover,
-.link-behance:focus {
-  text-decoration: none;
-  color: #2379a5;
-}
-.link-codepen {
-  color: #1c1c1c;
-}
-.link-codepen:hover,
-.link-codepen:focus {
-  text-decoration: none;
-  color: #020202;
-}
-.link-foursquare {
-  color: #fa4778;
-}
-.link-foursquare:hover,
-.link-foursquare:focus {
-  text-decoration: none;
-  color: #f91554;
-}
-.link-reddit {
-  color: #545454;
-}
-.link-reddit:hover,
-.link-reddit:focus {
-  text-decoration: none;
-  color: #3b3b3b;
-}
-.link-spotify {
-  color: #acd200;
-}
-.link-spotify:hover,
-.link-spotify:focus {
-  text-decoration: none;
-  color: #829f00;
-}
-.link-tumblr {
-  color: #2d4661;
-}
-.link-tumblr:hover,
-.link-tumblr:focus {
-  text-decoration: none;
-  color: #1d2d3e;
-}
-.link-dribbble {
-  color: #ce366f;
-}
-.link-dribbble:hover,
-.link-dribbble:focus {
-  text-decoration: none;
-  color: #a82959;
-}
-.link-facebook {
-  color: #4b6daa;
-}
-.link-facebook:hover,
-.link-facebook:focus {
-  text-decoration: none;
-  color: #3b5687;
-}
-.link-angellist {
-  color: black;
-}
-.link-angellist:hover,
-.link-angellist:focus {
-  text-decoration: none;
-  color: #000000;
-}
-.link-bitbucket {
-  color: #205081;
-}
-.link-bitbucket:hover,
-.link-bitbucket:focus {
-  text-decoration: none;
-  color: #163758;
-}
-.link-hackernews {
-  color: #ff6600;
-}
-.link-hackernews:hover,
-.link-hackernews:focus {
-  text-decoration: none;
-  color: #cc5200;
-}
-.link-exercism {
-  color: #d81d4e;
-}
-.link-exercism:hover,
-.link-exercism:focus {
-  text-decoration: none;
-  color: #ab173e;
-}
-.link-blogger {
-  color: #FF9234;
-}
-.link-blogger:hover,
-.link-blogger:focus {
-  text-decoration: none;
-  color: #ff7701;
-}
-.link-medium {
-  color: #00AB6C;
-}
-.link-medium:hover,
-.link-medium:focus {
-  text-decoration: none;
-  color: #00784c;
-}
-.link-flickr {
-  color: black;
-}
-.link-flickr:hover,
-.link-flickr:focus {
-  text-decoration: none;
-  color: #000000;
-}
-.link-telegram {
-  color: #3BABDD;
-}
-.link-telegram:hover,
-.link-telegram:focus {
-  text-decoration: none;
-  color: #2291c3;
-}
-.card-skills {
-  position: relative;
-}
-.skill-level {
-  border-radius: 3px;
-  position: absolute;
-  top: 10px;
-  bottom: 10px;
-  left: 0;
-  width: 10px;
-  box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.2);
-}
-.skill-level .skill-progress {
-  position: absolute;
-  border-radius: 3px;
-  bottom: 0;
-  width: 100%;
-  -webkit-transition: height 1s ease;
-}
-.skill-level .skill-progress.beginner {
-  height: 50%;
-  background: #e74c3c;
-}
-.skill-level .skill-progress.intermediate {
-  height: 70%;
-  background: #f1c40f;
-}
-.skill-level .skill-progress.advanced {
-  height: 80%;
-  background: #428bca;
-}
-.skill-level .skill-progress.master {
-  height: 95%;
-  background: #5cb85c;
-}
-.skill-info {
-  margin-left: 15px;
-}
-@media (max-width: 480px) {
-  .skill-info {
-    margin-left: 20px;
-  }
-}
-@media (max-width: 768px) {
-  .quote {
-    font-size: inherit;
-  }
-}
-.icon-meetup .path2:before {
-  margin-left: 0;
-}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ido Samuelson — Résumé</title>
+<link rel="icon" href="favicon.ico" sizes="any" />
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+<style>
+@font-face { font-family: "Inter"; src: url("assets/fonts/InterVariable.ttf") format("truetype-variations"); font-weight: 100 900; font-display: swap; }
+:root { --bg: #f7f4ee; --surface: #ece5d8; --sel: #d2c8bd; --comment: #a89c90; --border: #6c5d52; --text: #51463e; --heading: #3b342f; --link: #1f5fa6; }
+@media (prefers-color-scheme: dark) { :root { --bg: #232020; --surface: #2f2a27; --sel: #3b342f; --comment: #51463e; --border: #6c5d52; --text: #a89c90; --heading: #cec5bb; --link: #6aa0e6; } }
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body { font-family: "Inter", Arial, "Liberation Sans", sans-serif; color: var(--text); font-size: 13px; line-height: 1.55; background: var(--bg); }
+.ic { width: 14px; height: 14px; flex: 0 0 auto; vertical-align: -2px; }
+.page { display: flex; align-items: stretch; min-height: 100vh; }
+.sidebar { width: 33%; background: var(--surface); }
+.head { background: var(--heading); color: var(--bg); padding: 28px 24px 22px; }
+.headtop { display: flex; align-items: center; gap: 15px; margin-bottom: 16px; }
+.photo { width: 94px; height: 94px; flex: 0 0 auto; border-radius: 12px;
+  background: #f4efe6 url("assets/photo.png") center / contain no-repeat;
+  box-shadow: 0 2px 9px rgba(0,0,0,.22); }
+.headname { min-width: 0; }
+.head h1 { font-size: 19px; font-weight: 700; margin: 0; color: var(--bg); letter-spacing: .2px; line-height: 1.15; }
+.subtitle { font-size: 12.5px; color: var(--comment); margin: 4px 0 0; }
+.contact div { display: flex; align-items: center; gap: 9px; font-size: 12px; margin: 6px 0; color: var(--surface); }
+.contact .ic { color: var(--comment); }
+.contact a { color: var(--surface); text-decoration: underline; }
+.sections { padding: 18px 24px 26px; }
+.sections h2 { font-size: 14px; font-weight: 700; color: var(--heading); border-bottom: 1px solid var(--border); padding-bottom: 4px; margin: 18px 0 9px; }
+.sections .sec:first-child h2 { margin-top: 0; }
+.item { margin-bottom: 10px; font-size: 12.5px; line-height: 1.5; }
+.muted { color: var(--comment); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { background: var(--sel); color: var(--heading); border-radius: 4px; padding: 2px 8px; font-size: 11.5px; }
+.main { flex: 1; padding: 30px 36px 36px; min-width: 0; }
+.summary { margin: 0 0 8px; font-size: 13px; text-align: justify; }
+.main h3 { font-size: 16px; font-weight: 700; color: var(--heading); border-bottom: 1.5px solid var(--heading); padding-bottom: 4px; margin: 26px 0 14px; }
+.entry { margin-bottom: 16px; }
+.erow { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; }
+.org { font-weight: 700; font-size: 14.5px; color: var(--heading); }
+.date { color: var(--comment); font-size: 12px; white-space: nowrap; }
+.pos { color: var(--border); font-size: 12.5px; margin-top: 1px; }
+.orghead { display: inline-flex; align-items: baseline; gap: 9px; flex-wrap: wrap; min-width: 0; }
+.orglink { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; color: var(--link); white-space: nowrap; }
+.orglink .ic { width: 11px; height: 11px; color: var(--comment); position: relative; top: 1px; }
+.orglink:hover { text-decoration: underline; }
+a { color: var(--link); text-decoration: none; }
+.entry p { margin: 6px 0; font-size: 12.5px; text-align: justify; }
+.kw { color: var(--border); font-size: 9px; letter-spacing: .4px; text-transform: uppercase; margin-top: 5px; }
+.kw .sep { color: var(--comment); }
+.cards { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-top: 11px; }
+.card { border: 1px solid var(--sel); border-radius: 5px; padding: 8px 11px; background: var(--bg); }
+.chead { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.cname { display: inline-flex; align-items: center; gap: 6px; font-weight: 700; color: var(--heading); font-size: 13px; text-decoration: none; min-width: 0; }
+.cname:hover { text-decoration: underline; text-decoration-color: var(--comment); }
+.cname .ic { width: 13px; height: 13px; color: var(--comment); flex: 0 0 auto; }
+.cdesc { font-size: 11px; margin: 5px 0 7px; color: var(--text); min-height: 30px; }
+.cmeta { display: flex; flex-wrap: wrap; gap: 8px; font-size: 8.5px; color: var(--comment); align-items: center; text-transform: uppercase; letter-spacing: .3px; min-width: 0; margin-top: 6px; }
+.m2 { display: inline-flex; align-items: center; gap: 4px; }
+.m2 .ic { width: 10px; height: 10px; }
+.langicon { width: 10px; height: 10px; }
+.cdemo { display: inline-flex; align-items: center; gap: 5px; color: var(--link); font-size: 8.5px; flex: 0 0 auto; white-space: nowrap; }
+.cdemo .ic { width: 11px; height: 11px; color: var(--comment); }
+.toolbar { position: fixed; bottom: 18px; right: 18px; display: flex; align-items: center; gap: 8px; z-index: 10; }
+.tbtn { display: inline-flex; align-items: center; gap: 7px; color: var(--text); padding: 8px 14px; border-radius: 12px; text-decoration: none; font: inherit; font-size: 13px; cursor: pointer;
+  background: color-mix(in srgb, var(--surface) 7%, transparent);
+  isolation: isolate; will-change: transform; transform: translateZ(0);
+  border: 1px solid rgba(255,255,255,.15);
+  box-shadow: 0 8px 22px rgba(0,0,0,.15), inset 0 1px 0.5px rgba(255,255,255,.4), inset 0 -1.5px 2px rgba(255,255,255,.12); }
+.tbtn:hover { filter: brightness(1.06); }
+.tbtn .ic { color: var(--text); opacity: .7; }
+.tbtn select { background: transparent; color: inherit; border: none; font: inherit; cursor: pointer; outline: none; text-transform: capitalize; }
+.tbtn select option { color: #222; background: #fff; text-transform: capitalize; }
+.poweredby { position: fixed; bottom: 18px; left: 18px; display: inline-flex; align-items: center; gap: 6px; font-size: 11px; color: var(--text); border-radius: 12px; padding: 6px 11px; text-decoration: none; z-index: 10;
+  background: color-mix(in srgb, var(--surface) 7%, transparent);
+  isolation: isolate; will-change: transform; transform: translateZ(0);
+  border: 1px solid rgba(255,255,255,.15);
+  box-shadow: 0 8px 22px rgba(0,0,0,.15), inset 0 1px 0.5px rgba(255,255,255,.4), inset 0 -1.5px 2px rgba(255,255,255,.12); }
+.poweredby:hover { filter: brightness(1.06); }
+.poweredby .ic { width: 12px; height: 12px; color: var(--text); opacity: .7; }
+.poweredby b { color: var(--text); font-weight: 700; }
+/* Glass backdrop: plain blur where supported; SVG edge-refraction (liquid glass) where Chromium
+   accepts a url() backdrop-filter. The base rule has no backdrop-filter, so non-supporting engines
+   just get the tint + rim. */
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .tbtn, .poweredby { -webkit-backdrop-filter: blur(14px) saturate(150%); backdrop-filter: blur(14px) saturate(150%); }
+}
+@supports ((backdrop-filter: url(#tbtn-glass)) or (-webkit-backdrop-filter: url(#tbtn-glass))) {
+  .tbtn, .poweredby { -webkit-backdrop-filter: url(#tbtn-glass) blur(9px) saturate(150%); backdrop-filter: url(#tbtn-glass) blur(9px) saturate(150%); }
+}
+@page { margin: 0.42in; }       /* white margin around the resume on every side (all pages) */
 @media print {
-  a[href]:after {
-    content: none !important;
-  }
-  .profile-card {
-    text-align: center;
-  }
-  .profile-pic {
-    display: inline-block;
-    vertical-align: middle;
-  }
-  .profile-pic img {
-    border-radius: 0;
-  }
-  .name-and-profession {
-    display: inline-block;
-    vertical-align: middle;
-    margin-left: 15px;
-  }
-  .contact-details .detail {
-    position: relative;
-    float: left;
-    width: 25%;
-    min-height: 1px;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding: 0;
-  }
-  .floating-nav,
-  .floating-nav-trigger {
-    display: none;
-  }
-  .pagebreak {
-    page-break-before: always;
-  }
+  .toolbar, .poweredby { display: none !important; }
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  /* Persistent two-tone background so the sidebar surface fills every page edge-to-edge
+     (instead of the .sidebar box ending in a hard rectangle on the last page). */
+  html { background: linear-gradient(to right, var(--surface) 0, var(--surface) 33%, var(--bg) 33%, var(--bg) 100%); }
+  .page { min-height: 0; }
+  /* Don't slice an entry/card across a page break. */
+  .entry, .item, .erow, .card, .sec { break-inside: avoid; }
+  .main h3, .sections h2 { break-after: avoid; }
+  /* The print sidebar is narrow — stack the photo above the name so the name isn't clipped. */
+  .headtop { flex-direction: column; align-items: flex-start; gap: 10px; }
 }
-</style><style><!-- __print_hide_social_links__ -->@media print { body .social-links, body .social-links * { display: none !important; visibility: hidden !important; } body a[href*="linkedin.com"], body a[href*="linkedin.com"] * { display: none !important; visibility: hidden !important; } body .link-linkedin, body .icon-linkedin { display: none !important; visibility: hidden !important; } body .icon-linkedin:before { content: "" !important; } .profile-card hr { display: none !important; } }</style></head><body itemscope="itemscope" itemtype="http://schema.org/Person"><div class="container-fluid"><div class="row main clearfix"><a class="js-floating-nav-trigger floating-nav-trigger" href="#"><i class="icon-bars"></i><span class="close-icon">&times;</span></a><nav class="floating-nav js-floating-nav"><ul class="list-unstyled"><li><a href="#about"><i class="mr-10 icon-board"></i>About</a></li><li><a href="#work-experience"><i class="mr-10 icon-office"></i>Work Experience</a></li><li><a href="#education"><i class="mr-10 icon-graduation-cap"></i>Education</a></li><li><a href="#certificates"><i class="mr-10 icon-profile"></i>Certificates</a></li><li><a href="#volunteer-work"><i class="mr-10 icon-child"></i>Volunteer Work</a></li></ul></nav><section class="col-md-3 card-wrapper profile-card-wrapper affix"><div class="card profile-card"><span class="profile-pic-container"><div class="profile-pic"><img class="media-object img-circle center-block" data-src="holder.js/100x100" alt="Ido Samuelson" src="https://s.gravatar.com/avatar/8437c7763790b45464b074a2b6009bd4?s=100&amp;r=pg&amp;d=mm" itemprop="image"/></div><div class="name-and-profession text-center"><h3 itemprop="name"><b>Ido Samuelson</b></h3><h5 class="text-muted" itemprop="jobTitle">Executive | Engineering Leadership | Architecture | Hands-on Programmer</h5></div></span><hr/><div class="contact-details clearfix"><div class="detail"><span class="icon"><i class="icon fs-lg icon-location"></i></span><span class="info">United States, Denver, US</span></div><div class="detail"><span class="icon"><i class="icon fs-lg icon-phone"></i></span><span class="info" itemprop="telephone">7204537927</span></div><div class="detail"><span class="icon"><i class="icon fs-lg icon-mail"></i></span><span class="info"><a class="link-disguise" href="mailto:ido.samuelson@gmail.com" itemprop="email">ido.samuelson@gmail.com</a></span></div><div class="detail"><span class="icon" title="Languages I speak"><i class="icon fs-lg icon-language"></i></span><span class="info">English, Hebrew</span></div></div><hr/><div class="social-links text-center"><div></div></div></div></section><section class="col-md-9 card-wrapper pull-right"><div class="card background-card"><h4 class="text-uppercase">Background</h4><hr/><div class="background-details"><div class="detail" id="about"><div class="icon"><i class="fs-lg icon-board"></i><span class="mobile-title">About</span></div><div class="info"><h4 class="title text-uppercase">About</h4><div class="card card-nested"><div class="content mop-wrapper" itemprop="description"><p>Engineering Executive who helped grow organizations from startup to 100+ engineers. VP at Jet (first employee, $3.3B exit) and Director at Walmart ($40M+ savings). Combines strategic leadership with hands-on development, leveraging agentic AI while enjoying Rust development and cloud infrastructure automation.</p>
-</div></div></div></div><div class="detail" id="work-experience"><div class="icon"><i class="fs-lg icon-office"></i><span class="mobile-title">Work Experience</span></div><div class="info"><h4 class="title text-uppercase">Work Experience</h4><ul class="list-unstyled clear-margin"><li class="card card-nested clearfix"><div class="content"><p class="clear-margin relative"><strong>Senior Software Engineer</strong>,&nbsp;<a href="https://ukon.com" target="_blank">Ukon</a></p><p class="text-muted"><small><span class="space-right">Dec, 2024 - Aug, 2025</span><span><i class="icon-clock mr-5"></i>8 months</span></small></p><div class="mop-wrapper space-bottom"><p>Mentored junior engineers. Leveraged agentic AI to build Rust-based product features , immutable cloud infrastructure, CI/CD using Pulumi and TypeScript for safe multi-environment deployments.</p>
-</div><ul><li class="mop-wrapper"><p>Agentic AI | Rust | Nix | Google Cloud | Pulumi | Github Issues/Actions</p>
-</li></ul></div></li><li class="card card-nested clearfix"><div class="content"><p class="clear-margin relative"><strong>Head Software Engineering | Management Team | Volunteer | Open Source</strong>,&nbsp;<a href="https://sky360.org" target="_blank">Sky360</a></p><p class="text-muted"><small><span class="space-right">May, 2022 - May, 2024</span><span><i class="icon-clock mr-5"></i>2 years</span></small></p><div class="mop-wrapper space-bottom"><p>Led open source engineering team of over 20 contributers building an open-source robotic system to study UAPs. Responsible for overall software architecture and leadership.</p>
-</div><ul><li class="mop-wrapper"><p>rust | C++ | Python | nixOS | ros2 | openMCT</p>
-</li><li class="mop-wrapper"><p>software architecture</p>
-</li><li class="mop-wrapper"><p>world-wide community with over 2500 members</p>
-</li></ul></div></li><li class="card card-nested clearfix"><div class="content"><p class="clear-margin relative"><strong>Principal Cloud Architect | Executive | Automotive</strong>,&nbsp;<a href="https://aptiv.com" target="_blank">Aptiv PLC ($APTV)</a></p><p class="text-muted"><small><span class="space-right">Mar, 2022 - Mar, 2023</span><span><i class="icon-clock mr-5"></i>1 year</span></small></p><div class="mop-wrapper space-bottom"><p>Spearheaded strategic cloud architecture and drove innovation initiatives as technical executive, focusing on 5-10 year future projections for compute, real-time cloud (sub-ms latency), network (including 6G and satellites), storage, and AI technologies.</p>
-</div><ul><li class="mop-wrapper"><p>cloud architecture</p>
-</li><li class="mop-wrapper"><p>Azure | AWS | GCP | On-Premise</p>
-</li></ul></div></li><li class="card card-nested clearfix"><div class="content"><p class="clear-margin relative"><strong>Director Technology Solutions | Consulting Firm</strong>,&nbsp;<a href="https://epam.com" target="_blank">EPAM Systems ($EPAM)</a></p><p class="text-muted"><small><span class="space-right">Feb, 2020 - Feb, 2022</span><span><i class="icon-clock mr-5"></i>2 years</span></small></p><div class="mop-wrapper space-bottom"><p>Directed a team of 100+ engineers, driving technology strategy, innovation, and modernization for Walmart's SRE and Health &amp; Wellness (Clinics and Pharmacies). Provided SRE leadership that delivered over $40M in operational cost savings within 3 months. Key responsibilities included architecture design, coaching, and mentoring.</p>
-</div><ul><li class="mop-wrapper"><p>software architecture</p>
-</li><li class="mop-wrapper"><p>Azure | On-Premise</p>
-</li><li class="mop-wrapper"><p>Java | Kotlin | Go | F# | NodeJS</p>
-</li></ul></div></li><li class="card card-nested clearfix"><div class="content"><p class="clear-margin relative"><strong>Head Of Engineering | FinTech</strong>,&nbsp;The Reserve Trust Company</p><p class="text-muted"><small><span class="space-right">Aug, 2019 - Mar, 2020</span><span><i class="icon-clock mr-5"></i>8 months</span></small></p><div class="mop-wrapper space-bottom"><p>Led the technology strategy for a Trust Financial Institution, overseeing all engineering and IT efforts. Provided executive leadership, driving the development and implementation of regulatory technology solutions. Ensured robust IT security and managed both AWS and on-premise environments. Key responsibilities included strategic hiring and guiding the company through its startup phase.</p>
-</div><ul><li class="mop-wrapper"><p>AWS | On-Premise</p>
-</li><li class="mop-wrapper"><p>Go, Rust, NodeJS</p>
-</li><li class="mop-wrapper"><p>IT security</p>
-</li></ul></div></li><li class="card card-nested clearfix"><div class="content"><p class="clear-margin relative"><strong>Advisor / Consultant | Coaching | Startup Consulting</strong>,&nbsp;Self Employed</p><p class="text-muted"><small><span class="space-right">Mar, 2017 - Jul, 2019</span><span><i class="icon-clock mr-5"></i>2 years 5 months</span></small></p><div class="mop-wrapper space-bottom"><p>Consulting to companies needing strategy, technology, architecture and growth guidance</p>
-</div></div></li><li class="card card-nested clearfix"><div class="content"><p class="clear-margin relative"><strong>VP Engineering | Architect/Programmer | First Employee | eCommerce</strong>,&nbsp;<a href="https://www.linkedin.com/company/jet-com/" target="_blank">Jet.com</a></p><p class="text-muted"><small><span class="space-right">Aug, 2013 - Sep, 2016</span><span><i class="icon-clock mr-5"></i>3 years 2 months</span></small></p><div class="mop-wrapper space-bottom"><p>Core Architecture Team; Initiated many early projects; Worked on Hiring OKR; Lead Internal Tooling and Productivy Team. Led to production: Jet Insider Game; eCommerce Crawler v1; microservices Dev/CI/CD platform (v1 and v2); cloud multi-region replication and geo redundancy</p>
-</div><ul><li class="mop-wrapper"><p>cloud architecture</p>
-</li><li class="mop-wrapper"><p>Azure</p>
-</li><li class="mop-wrapper"><p>F# | .NET | NodeJS</p>
-</li><li class="mop-wrapper"><p>Jet.com sold to walmart for $3.3B</p>
-</li></ul></div></li><li class="card card-nested clearfix"><div class="content"><p class="clear-margin relative"><strong>Principal Software Engineer | Lead | Architect/Programmer | Supply Chain</strong>,&nbsp;<a href="https://www.icix.com" target="_blank">icix</a></p><p class="text-muted"><small><span class="space-right">Dec, 2012 - Dec, 2013</span><span><i class="icon-clock mr-5"></i>1 year</span></small></p><div class="mop-wrapper space-bottom"></div></div></li><li class="card card-nested clearfix"><div class="content"><p class="clear-margin relative"><strong>Princiapl Software Engineer | Lead | Gaming Social Network</strong>,&nbsp;<a href="https://www.linkedin.com/company/hi5/" target="_blank">Hi5</a></p><p class="text-muted"><small><span class="space-right">Dec, 2011 - Dec, 2012</span><span><i class="icon-clock mr-5"></i>1 year</span></small></p><div class="mop-wrapper space-bottom"></div></div></li><li class="card card-nested clearfix"><div class="content"><p class="clear-margin relative"><strong>Principal Software Engineer | Architect/Programmer | Payroll/HR</strong>,&nbsp;<a href="https://www.linkedin.com/company/viventium/" target="_blank">BDB Payroll Service</a></p><p class="text-muted"><small><span class="space-right">Dec, 2010 - Dec, 2011</span><span><i class="icon-clock mr-5"></i>1 year</span></small></p><div class="mop-wrapper space-bottom"></div></div></li><li class="card card-nested clearfix"><div class="content"><p class="clear-margin relative"><strong>Chief Software Architect | Lead | Architect/Programmer | Defnese</strong>,&nbsp;4D Security Solutions, Inc.</p><p class="text-muted"><small><span class="space-right">Dec, 2007 - Dec, 2009</span><span><i class="icon-clock mr-5"></i>2 years</span></small></p><div class="mop-wrapper space-bottom"></div></div></li><li class="card card-nested clearfix"><div class="content"><p class="clear-margin relative"><strong>Project Manager | Manager/Lead | Architect/Programmer | Defense</strong>,&nbsp;<a href="https://www.mprest.com" target="_blank">mPrest</a></p><p class="text-muted"><small><span class="space-right">Dec, 2006 - Dec, 2007</span><span><i class="icon-clock mr-5"></i>1 year</span></small></p><div class="mop-wrapper space-bottom"></div></div></li><li class="card card-nested clearfix"><div class="content"><p class="clear-margin relative"><strong>Senior Consultant | Architect/Programmer | Consulting Firm</strong>,&nbsp;Magen MTC/Advantech</p><p class="text-muted"><small><span class="space-right">Dec, 2004 - Dec, 2006</span><span><i class="icon-clock mr-5"></i>2 years</span></small></p><div class="mop-wrapper space-bottom"></div></div></li><li class="card card-nested clearfix"><div class="content"><p class="clear-margin relative"><strong>Senior Principal Engineer | Architect/Programmer | Consulting Firm</strong>,&nbsp;<a href="https://www.ibm.com" target="_blank">IBM Global Services ($IBM)</a></p><p class="text-muted"><small><span class="space-right">Dec, 2003 - Dec, 2004</span><span><i class="icon-clock mr-5"></i>1 year</span></small></p><div class="mop-wrapper space-bottom"></div></div></li><li class="card card-nested clearfix"><div class="content"><p class="clear-margin relative"><strong>Software Engineer | Architect/Programmer | Defense</strong>,&nbsp;Galdor Systems</p><p class="text-muted"><small><span class="space-right">Dec, 2002 - Dec, 2003</span><span><i class="icon-clock mr-5"></i>1 year</span></small></p><div class="mop-wrapper space-bottom"></div></div></li></ul></div></div><div class="detail" id="education"><div class="icon"><i class="fs-lg icon-graduation-cap"></i><span class="mobile-title">Education</span></div><div class="info"><h4 class="title text-uppercase">Education</h4><div class="content"><ul class="list-unstyled clear-margin"><li class="card card-nested"><div class="content"><p class="clear-margin relative"><strong>Business/Computers, B.Sc.,&nbsp;</strong>Champlain College</p><p class="text-muted clear-margin"><small>Dec, 1998 - Dec, 2001</small></p><i></i></div></li></ul></div></div></div><div class="detail" id="certificates"><div class="icon"><i class="fs-lg icon-profile"></i><span class="mobile-title">Certificates</span></div><div class="info"><h4 class="title text-uppercase">Certificates</h4><div class="content"><ul class="list-unstyled clear-margin"><li class="card card-nested"><div class="content"><p class="clear-margin" itemprop="certificate"><strong>Ameteur Radio Operator, </strong>Federal Communications Commission</p><p class="text-muted"><small>Issued on: Dec 01, 2022</small></p></div></li></ul></div></div></div><div class="detail" id="volunteer-work"><div class="icon"><i class="fs-lg icon-child"></i><span class="mobile-title">Volunteer Work</span></div><div class="info"><h4 class="title text-uppercase">Volunteer Work</h4><div class="content"><ul class="list-unstyled clear-margin"><li class="card card-nested"><div class="content"><p class="clear-margin relative"><strong>AI: Dean - Denver, </strong>School of AI</p><p class="text-muted"><small>Dec, 2018 - Dec, 2019</small></p><div class="mop-wrapper"></div></div></li><li class="card card-nested"><div class="content"><p class="clear-margin relative"><strong>Head Software Engineering | Open Source, </strong>Sky360 non profit</p><p class="text-muted"><small>May, 2022 - May, 2024</small></p><div class="mop-wrapper"></div></div></li><li class="card card-nested"><div class="content"><p class="clear-margin relative"><i class="icon-circle current-event" rel="tooltip" title="Currently Volunteering" data-placement="left"></i><strong>Contributor | Open Source, </strong>NixOS</p><p class="text-muted"><small>Jan, 2023 - Present</small></p><div class="mop-wrapper"></div></div></li><li class="card card-nested"><div class="content"><p class="clear-margin relative"><i class="icon-circle current-event" rel="tooltip" title="Currently Volunteering" data-placement="left"></i><strong>Contributor | Open Source, </strong>NixPkgs</p><p class="text-muted"><small>Jan, 2023 - Present</small></p><div class="mop-wrapper"></div></div></li></ul></div></div></div></div></div></section></div></div><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script><script>$(function () {
-  var toggleFloatingMenu = function() {
-    $( '.js-floating-nav' ).toggleClass( 'is-visible' );
-    $( '.js-floating-nav-trigger' ).toggleClass( 'is-open' );
-  };
-
-  $( ".background-card" ).css( "min-height", window.screen.availHeight + "px" );
-  $( "[data-toggle=tooltip]" ).tooltip();
-  $( '.js-floating-nav-trigger' ).on( 'click', function(e) {
-    e.preventDefault();
-    toggleFloatingMenu();
-  });
-  $( '.js-floating-nav a' ).on( 'click', toggleFloatingMenu );
-
-  $("#remaining-profiles").on('show.bs.collapse', function() {
-    $( '.js-profiles-collapse > i' )
-      .removeClass( 'icon-chevron-down' )
-      .addClass( 'icon-chevron-up' );
-  });
-
-  $("#remaining-profiles").on('hidden.bs.collapse', function() {
-    $( '.js-profiles-collapse > i' )
-      .removeClass( 'icon-chevron-up' )
-      .addClass( 'icon-chevron-down' );
-  });
-});
-</script><script>WebFontConfig = {
-  google: { families: [ 'Lato:300,400,700:latin' ] }
-};
-(function() {
-  var wf = document.createElement('script');
-  wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-    '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-  wf.type = 'text/javascript';
-  wf.async = 'true';
-  var s = document.getElementsByTagName('script')[0];
-  s.parentNode.insertBefore(wf, s);
-})();</script><script>(function(){var $=window.jQuery;if(!$)return;var $bg=$(".background-details");var $li=$("#work-experience .info ul.list-unstyled > li").filter(function(){return $(this).text().indexOf("Israeli Air Force")!==-1;}).first();if(!$li.length)return;if(!$("#military-service").length){var html="<div class="detail" id="military-service"><div class="icon"><i class="fs-lg icon-trophy"></i><span class="mobile-title">Military Service</span></div><div class="info"><h4 class="title text-uppercase">Military Service</h4><ul class="list-unstyled clear-margin"></ul></div></div>";var $edu=$("#education").closest(".detail");if($edu.length){$(html).insertBefore($edu);}else{$bg.append(html);}$(".floating-nav ul.list-unstyled").append("<li><a href="#military-service"><i class="mr-10 icon-trophy"></i>Military Service</a></li>");}$li.appendTo($("#military-service .info ul"));})();</script></body></html>
+/* Column-stack only on small SCREENS — never in print (A4's narrower width was triggering it). */
+@media screen and (max-width: 720px) { .page { flex-direction: column; } .sidebar, .main { width: 100%; } }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<filter id="tbtn-glass" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+<feTurbulence type="fractalNoise" baseFrequency="0.012 0.012" numOctaves="2" seed="7" result="noise"/>
+<feGaussianBlur in="noise" stdDeviation="1.4" result="softnoise"/>
+<feComponentTransfer in="SourceAlpha" result="solid"><feFuncA type="discrete" tableValues="0 1"/></feComponentTransfer>
+<feMorphology in="solid" operator="erode" radius="4" result="inner"/>
+<feGaussianBlur in="inner" stdDeviation="3" result="innerblur"/>
+<feComposite in="solid" in2="innerblur" operator="out" result="ring"/>
+<feGaussianBlur in="ring" stdDeviation="2" result="edgemask"/>
+<feComposite in="softnoise" in2="edgemask" operator="in" result="edgenoise"/>
+<feDisplacementMap in="SourceGraphic" in2="edgenoise" scale="16" xChannelSelector="R" yChannelSelector="G"/>
+</filter></defs></svg>
+<div class="toolbar">
+  <label class="tbtn" title="Theme"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 000 18 1.8 1.8 0 001.4-3 1.8 1.8 0 011.4-3H17a4 4 0 004-4c0-3.3-4-5-9-5z"/><circle cx="7.5" cy="11.5" r=".6"/><circle cx="10" cy="7.5" r=".6"/><circle cx="14.5" cy="7.5" r=".6"/></svg><select id="themeSel"><option value="aikido">aikido</option><option value="amber">amber</option><option value="arctic_aurora">arctic aurora</option><option value="blue">blue</option><option value="crystal_cave">crystal cave</option><option value="cyber">cyber</option><option value="cyberspace">cyberspace</option><option value="desert">desert</option><option value="forest_night">forest night</option><option value="futuristic">futuristic</option><option value="ghost">ghost</option><option value="green">green</option><option value="mainframe">mainframe</option><option value="matrix">matrix</option><option value="military">military</option><option value="nordic">nordic</option><option value="ocean_depths">ocean depths</option><option value="orange">orange</option><option value="purple">purple</option><option value="retro">retro</option><option value="sepia">sepia</option><option value="volcanic">volcanic</option><option value="walnut">walnut</option><option value="white">white</option><option value="yoga">yoga</option></select></label>
+  <button class="tbtn" id="variantBtn" title="System / light / dark"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8"/><path d="M12 16v4"/></svg><span>System</span></button>
+  <a class="tbtn" href="resume.pdf" target="_blank" rel="noopener" title="Open the clean print-ready PDF (no browser headers/footers)"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V3h12v6"/><rect x="4" y="9" width="16" height="8" rx="2"/><path d="M6 14h12v6H6z"/></svg> PDF</a>
+</div>
+<a class="poweredby" href="https://github.com/i-am-logger/vogix16-themes" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 000 18 1.8 1.8 0 001.4-3 1.8 1.8 0 011.4-3H17a4 4 0 004-4c0-3.3-4-5-9-5z"/><circle cx="7.5" cy="11.5" r=".6"/><circle cx="10" cy="7.5" r=".6"/><circle cx="14.5" cy="7.5" r=".6"/></svg> Powered by <b>Vogix16</b></a>
+<div class="page">
+  <aside class="sidebar">
+    <div class="head">
+      <div class="headtop">
+        <div class="photo" role="img" aria-label="Ido Samuelson"></div>
+        <div class="headname">
+          <h1>Ido Samuelson</h1>
+          <div class="subtitle">Technology Executive</div>
+        </div>
+      </div>
+      <div class="contact">
+        <div><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-7.5 7-12a7 7 0 10-14 0c0 4.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><span>Denver, Colorado · Mountain Time</span></div>
+        <div><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h3.5l1.8 5-2.2 1.4a13 13 0 006.5 6.5l1.4-2.2 5 1.8V20a1.5 1.5 0 01-1.6 1.5C9.6 21 3 14.4 3 5.1 3 4 4 3 5 3z"/></svg><a href="tel:7204537927">720-453-7927</a></div>
+        <div><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="M3 6.5l9 6.5 9-6.5"/></svg><a href="mailto:ido.samuelson@gmail.com">ido.samuelson@gmail.com</a></div>
+        <div><svg class="ic" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.65 7.65 0 014 0c1.53-1.03 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><a href="https://github.com/i-am-logger" target="_blank" rel="noopener">github.com/i-am-logger</a></div>
+      </div>
+    </div>
+    <div class="sections">
+      <div class="sec"><h2>Skills</h2><div class="chips"><span class="chip">Engineering Leadership</span><span class="chip">System Thinking, Design &amp; Architecture</span><span class="chip">Agentic-AI Engineering</span><span class="chip">Cloud &amp; On-Premise</span><span class="chip">CI/CD &amp; Release Engineering</span><span class="chip">Rust</span><span class="chip">Nix / NixOS</span></div></div>
+      <div class="sec"><h2>Languages</h2><div class="item"><strong>English</strong><div class="muted">Native Speaker</div></div><div class="item"><strong>Hebrew</strong><div class="muted">Native Speaker</div></div></div>
+      <div class="sec"><h2>Education</h2><div class="item"><strong>Champlain College</strong><div>Business/Computers</div><div>Magna cum laude</div><div><strong>1998 - 2001</strong></div><div>B.Sc.</div></div></div>
+      <div class="sec"><h2>Military Service</h2>
+      <div class="item"><strong>Air Force</strong><div>sergeant</div><div><strong>1994 - 1997</strong></div><div>Israel</div><div>Light Helicopter Technician</div></div></div>
+      <div class="sec"><h2>Certifications</h2><div class="item"><strong>Amateur Radio Operator</strong><div class="muted">Federal Communications Commission</div><div class="muted">2022-12-01</div></div></div>
+      <div class="sec"><h2>Volunteering</h2><div class="item"><strong>School of AI</strong><div>AI: Dean - Denver</div><div class="muted"><strong>2018 - 2019</strong></div></div><div class="item"><strong>Sky360 non profit</strong><div>Head Software Engineering | Open Source</div><div class="muted"><strong>2022 - 2024</strong></div></div><div class="item"><strong>NixOS</strong><div>Contributor | Open Source</div><div class="muted"><strong>2023 - Current</strong></div></div><div class="item"><strong>NixPkgs</strong><div>Contributor | Open Source</div><div class="muted"><strong>2023 - Current</strong></div></div></div>
+    </div>
+  </aside>
+  <main class="main">
+    <p class="summary">Seasoned Software Engineering Executive and architect with 20+ years across eCommerce, fintech, and defense, proven in scaling and leading engineering teams. VP of Engineering at Jet (first employee, $3.3B Walmart acquisition), Technology Director at EPAM (Directed a team of 100+ engineers), and Principal Cloud Architect driving cloud strategy. Now building Rust and Nix systems with agentic-AI workflows. Passionate about advanced technologies, mentoring teams, and strategic solutions.</p>
+    <h3>Open Source Projects</h3>
+    <div class="cards"><div class="card"><div class="chead"><a class="cname" href="https://github.com/i-am-logger/pr4xis" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.65 7.65 0 014 0c1.53-1.03 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span>pr4xis</span></a><a class="cdemo" href="https://pr4xis.dev" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>pr4xis.dev</a></div><div class="cdesc">Axiomatic intelligence. Doing the right thing, provably.</div><div class="cmeta"><span class="m2"><img class="langicon" src="assets/lang-rust.svg" alt="Rust" />Rust</span><span class="m2">★ 12</span><span class="m2">~295K LOC</span><span class="m2">7,600+ tests</span></div></div><div class="card"><div class="chead"><a class="cname" href="https://github.com/i-am-logger/vogix" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.65 7.65 0 014 0c1.53-1.03 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span>vogix</span></a></div><div class="cdesc">A NixOS UX subsystem for unified desktop appearance and behavior.</div><div class="cmeta"><span class="m2"><img class="langicon" src="assets/lang-rust.svg" alt="Rust" />Rust</span><span class="m2"><img class="langicon" src="assets/lang-nix.svg" alt="Nix" />Nix</span><span class="m2">★ 50</span><span class="m2">~15.5K LOC</span><span class="m2">320+ tests</span></div></div><div class="card"><div class="chead"><a class="cname" href="https://github.com/i-am-logger/nix-license" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.65 7.65 0 014 0c1.53-1.03 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span>nix-license</span></a><a class="cdemo" href="https://nix-license.dev" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>nix-license.dev</a></div><div class="cdesc">Define your usage. Ensure license compliance on every build.</div><div class="cmeta"><span class="m2"><img class="langicon" src="assets/lang-nix.svg" alt="Nix" />Nix</span><span class="m2">★ 1</span><span class="m2">~4.7K LOC</span><span class="m2">200K+ checks</span></div></div><div class="card"><div class="chead"><a class="cname" href="https://github.com/i-am-logger/mynixos" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.65 7.65 0 014 0c1.53-1.03 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span>mynixos</span></a></div><div class="cdesc">A NixOS-based distribution. Defaults that work, mkDefault so you always win.</div><div class="cmeta"><span class="m2"><img class="langicon" src="assets/lang-nix.svg" alt="Nix" />Nix</span><span class="m2">★ 3</span><span class="m2">~16K LOC</span><span class="m2">430+ options</span></div></div><div class="card"><div class="chead"><a class="cname" href="https://github.com/i-am-logger/claude-code-proxy" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.65 7.65 0 014 0c1.53-1.03 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span>claude-code-proxy</span></a></div><div class="cdesc">OpenAI-compatible API proxy for Claude Code CLI.</div><div class="cmeta"><span class="m2"><img class="langicon" src="assets/lang-rust.svg" alt="Rust" />Rust</span><span class="m2">★ 7</span><span class="m2">~1.3K LOC</span><span class="m2">54 tests</span></div></div><div class="card"><div class="chead"><a class="cname" href="https://github.com/i-am-logger/resume" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.65 7.65 0 014 0c1.53-1.03 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span>resume</span></a><a class="cdemo" href="https://i-am-logger.github.io/resume/" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>i-am-logger.github.io/resume/</a></div><div class="cdesc">This résumé.</div><div class="cmeta"><span class="m2"><img class="langicon" src="assets/lang-nix.svg" alt="Nix" />Nix</span><span class="m2">★ 2</span><span class="m2">~690 LOC</span></div></div></div>
+    <h3>Experience</h3>
+    <div class="entry"><div class="erow"><span class="orghead"><span class="org">Ukon</span><a class="orglink" href="https://ukon.com" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13.5a4 4 0 005.7.3l3-3a4 4 0 10-5.7-5.7l-1.3 1.3"/><path d="M14 10.5a4 4 0 00-5.7-.3l-3 3a4 4 0 105.7 5.7l1.3-1.3"/></svg>ukon.com</a></span><span class="date">2024 - 2025</span></div><div class="pos">Senior Software Engineer | Cyber Insurance</div><p>Mentored junior engineers. Leveraged agentic AI to build Rust-based product features , immutable cloud infrastructure, CI/CD using Pulumi and TypeScript for safe multi-environment deployments.</p><div class="kw">Agentic AI | Rust | Nix | Google Cloud | Pulumi</div></div><div class="entry"><div class="erow"><span class="orghead"><span class="org">Sky360</span><a class="orglink" href="https://sky360.org" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13.5a4 4 0 005.7.3l3-3a4 4 0 10-5.7-5.7l-1.3 1.3"/><path d="M14 10.5a4 4 0 00-5.7-.3l-3 3a4 4 0 105.7 5.7l1.3-1.3"/></svg>sky360.org</a></span><span class="date">2022 - 2024</span></div><div class="pos">Head Software Engineering | Management Team | Volunteer | Open Source</div><p>Led open source engineering team of over 20 contributers building an open-source, multi-sensor robotic system to observe and track UAPs. Responsible for overall software architecture.</p><div class="kw">Agentic AI | rust | C++ | Python | nixOS | ros2 | openMCT<span class="sep"> | </span>software architecture<span class="sep"> | </span>world-wide community with over 2500 members</div></div><div class="entry"><div class="erow"><span class="orghead"><span class="org">Aptiv PLC ($APTV)</span><a class="orglink" href="https://aptiv.com" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13.5a4 4 0 005.7.3l3-3a4 4 0 10-5.7-5.7l-1.3 1.3"/><path d="M14 10.5a4 4 0 00-5.7-.3l-3 3a4 4 0 105.7 5.7l1.3-1.3"/></svg>aptiv.com</a></span><span class="date">2022 - 2023</span></div><div class="pos">Principal Cloud Architect | Executive | Automotive</div><p>Spearheaded strategic cloud architecture and drove innovation initiatives as technical executive, focusing on 5-10 year future projections for compute, real-time cloud (sub-ms latency), network (including 6G and satellites), storage, and AI technologies.</p><div class="kw">cloud architecture<span class="sep"> | </span>Azure | AWS | GCP | On-Premise</div></div><div class="entry"><div class="erow"><span class="orghead"><span class="org">EPAM Systems ($EPAM)</span><a class="orglink" href="https://epam.com" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13.5a4 4 0 005.7.3l3-3a4 4 0 10-5.7-5.7l-1.3 1.3"/><path d="M14 10.5a4 4 0 00-5.7-.3l-3 3a4 4 0 105.7 5.7l1.3-1.3"/></svg>epam.com</a></span><span class="date">2020 - 2022</span></div><div class="pos">Director Technology Solutions | Consulting Firm</div><p>Directed a team of 100+ engineers, driving technology strategy, innovation, and modernization for Walmart's SRE and Health &amp; Wellness (Clinics and Pharmacies). Provided SRE leadership that delivered over $40M in operational cost savings within 3 months. Key responsibilities included architecture design, coaching, and mentoring.</p><div class="kw">software architecture<span class="sep"> | </span>Azure | On-Premise<span class="sep"> | </span>Java | Kotlin | Go | F# | NodeJS</div></div><div class="entry"><div class="erow"><span class="orghead"><span class="org">The Reserve Trust Company</span></span><span class="date">2019 - 2020</span></div><div class="pos">Head Of Engineering | FinTech</div><p>Led the technology strategy for a Trust Financial Institution, overseeing all engineering and IT efforts. Provided executive leadership, driving the development and implementation of regulatory technology solutions. Ensured robust IT security and managed both AWS and on-premise environments. Key responsibilities included strategic hiring and guiding the company through its startup phase.</p><div class="kw">AWS | On-Premise<span class="sep"> | </span>Go, Rust, NodeJS<span class="sep"> | </span>IT security</div></div><div class="entry"><div class="erow"><span class="orghead"><span class="org">Self Employed</span></span><span class="date">2017 - 2019</span></div><div class="pos">Advisor / Consultant | Coaching | Startup Consulting</div><p>Consulting to companies needing strategy, technology, architecture and growth guidance</p></div><div class="entry"><div class="erow"><span class="orghead"><span class="org">Jet.com</span><a class="orglink" href="https://www.linkedin.com/company/jet-com/" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13.5a4 4 0 005.7.3l3-3a4 4 0 10-5.7-5.7l-1.3 1.3"/><path d="M14 10.5a4 4 0 00-5.7-.3l-3 3a4 4 0 105.7 5.7l1.3-1.3"/></svg>www.linkedin.com/company/jet-com/</a></span><span class="date">2013 - 2016</span></div><div class="pos">VP Engineering | Architect/Programmer | First Employee | eCommerce</div><p>Core Architecture Team; Initiated many early projects; Worked on Hiring OKR; Lead Internal Tooling and Productivy Team. Led to production: Jet Insider Game; eCommerce Crawler v1; microservices Dev/CI/CD platform (v1 and v2); cloud multi-region replication and geo redundancy</p><div class="kw">cloud architecture<span class="sep"> | </span>Azure<span class="sep"> | </span>F# | .NET | NodeJS<span class="sep"> | </span>Jet.com sold to walmart for $3.3B</div></div><div class="entry"><div class="erow"><span class="orghead"><span class="org">icix</span><a class="orglink" href="https://www.icix.com" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13.5a4 4 0 005.7.3l3-3a4 4 0 10-5.7-5.7l-1.3 1.3"/><path d="M14 10.5a4 4 0 00-5.7-.3l-3 3a4 4 0 105.7 5.7l1.3-1.3"/></svg>www.icix.com</a></span><span class="date">2012 - 2013</span></div><div class="pos">Principal Software Engineer | Lead | Architect/Programmer | Supply Chain</div></div><div class="entry"><div class="erow"><span class="orghead"><span class="org">Hi5</span><a class="orglink" href="https://www.linkedin.com/company/hi5/" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13.5a4 4 0 005.7.3l3-3a4 4 0 10-5.7-5.7l-1.3 1.3"/><path d="M14 10.5a4 4 0 00-5.7-.3l-3 3a4 4 0 105.7 5.7l1.3-1.3"/></svg>www.linkedin.com/company/hi5/</a></span><span class="date">2011 - 2012</span></div><div class="pos">Princiapl Software Engineer | Lead | Gaming Social Network</div></div><div class="entry"><div class="erow"><span class="orghead"><span class="org">BDB Payroll Service</span><a class="orglink" href="https://www.linkedin.com/company/viventium/" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13.5a4 4 0 005.7.3l3-3a4 4 0 10-5.7-5.7l-1.3 1.3"/><path d="M14 10.5a4 4 0 00-5.7-.3l-3 3a4 4 0 105.7 5.7l1.3-1.3"/></svg>www.linkedin.com/company/viventium/</a></span><span class="date">2010 - 2011</span></div><div class="pos">Principal Software Engineer | Architect/Programmer | Payroll/HR</div></div><div class="entry"><div class="erow"><span class="orghead"><span class="org">4D Security Solutions, Inc.</span></span><span class="date">2007 - 2009</span></div><div class="pos">Chief Software Architect | Lead | Architect/Programmer | Defense</div></div><div class="entry"><div class="erow"><span class="orghead"><span class="org">mPrest</span><a class="orglink" href="https://www.mprest.com" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13.5a4 4 0 005.7.3l3-3a4 4 0 10-5.7-5.7l-1.3 1.3"/><path d="M14 10.5a4 4 0 00-5.7-.3l-3 3a4 4 0 105.7 5.7l1.3-1.3"/></svg>www.mprest.com</a></span><span class="date">2006 - 2007</span></div><div class="pos">Project Manager | Manager/Lead | Architect/Programmer | Defense</div></div>
+  </main>
+</div>
+<script>
+const THEMES = {"aikido":{"day":{"base00":"#f4f1ea","base01":"#e7e0d2","base02":"#cdc4b7","base03":"#a39a8c","base04":"#6d6457","base05":"#4f483f","base06":"#3a352f","base07":"#23211e","base08":"#bd3b2c","base09":"#8f6010","base0A":"#876a2e","base0B":"#3f6b3a","base0C":"#3d6b78","base0D":"#1d4f86","base0E":"#6a4c9c","base0F":"#7c5a36"},"night":{"base00":"#23211e","base01":"#2e2b27","base02":"#3a352f","base03":"#4f483f","base04":"#6d6457","base05":"#aaa092","base06":"#cfc7bb","base07":"#f4f1ea","base08":"#e0654f","base09":"#d99a2b","base0A":"#c9b36b","base0B":"#7aa06a","base0C":"#7fa8b0","base0D":"#6f9fce","base0E":"#a98fc4","base0F":"#bb805a"}},"amber":{"day":{"base00":"#f6e6c2","base01":"#e6c98c","base02":"#cfa856","base03":"#a8813a","base04":"#7c5c28","base05":"#523c12","base06":"#3a2906","base07":"#190f00","base08":"#7a5410","base09":"#8c5408","base0A":"#6e5410","base0B":"#b02a1c","base0C":"#925010","base0D":"#7e5a20","base0E":"#8a5a1c","base0F":"#6a4e22"},"night":{"base00":"#190f00","base01":"#2b1c02","base02":"#412c0a","base03":"#5d4416","base04":"#856330","base05":"#c79a4e","base06":"#e6c386","base07":"#fbecc6","base08":"#d39a2e","base09":"#ff9d2e","base0A":"#ffc34a","base0B":"#ff5a47","base0C":"#ffb05a","base0D":"#e8b86e","base0E":"#ffd27a","base0F":"#a07a3e"}},"arctic_aurora":{"day":{"base00":"#f0f8ff","base01":"#d9e6f2","base02":"#a9c0d9","base03":"#6b8cae","base04":"#3f546b","base05":"#2d3d50","base06":"#1c2735","base07":"#0f1724","base08":"#155596","base09":"#9a5410","base0A":"#7e6608","base0B":"#16774d","base0C":"#1366ad","base0D":"#2d5483","base0E":"#763aa6","base0F":"#157070"},"night":{"base00":"#0f1724","base01":"#1c2735","base02":"#2d3d50","base03":"#3f546b","base04":"#6b8cae","base05":"#a9c0d9","base06":"#d5e3f0","base07":"#f0f8ff","base08":"#5f9de0","base09":"#f0a35e","base0A":"#f1d06a","base0B":"#5ce6a0","base0C":"#56c2f5","base0D":"#8fb4dd","base0E":"#c89bf0","base0F":"#7fd4c4"}},"blue":{"day":{"base00":"#d7e8f7","base01":"#b6d4ee","base02":"#92bbe2","base03":"#6f9fcb","base04":"#4a7aa6","base05":"#2c5278","base06":"#193553","base07":"#081a30","base08":"#176b3c","base09":"#8f4a0c","base0A":"#8a5a00","base0B":"#c0223a","base0C":"#0f6f86","base0D":"#1659a8","base0E":"#6e2fb0","base0F":"#1d6b66"},"night":{"base00":"#081a30","base01":"#102a48","base02":"#1d3e62","base03":"#34587e","base04":"#5a86ad","base05":"#8fb5d8","base06":"#bcd9f0","base07":"#e6f2fb","base08":"#5cc98a","base09":"#e0a85c","base0A":"#e6d36a","base0B":"#f0707a","base0C":"#4fd6e0","base0D":"#6aa9f0","base0E":"#b98cf0","base0F":"#7fd0c8"}},"crystal_cave":{"day":{"base00":"#f2edf8","base01":"#e1d8ed","base02":"#cbbce0","base03":"#9d85b9","base04":"#6e5494","base05":"#473262","base06":"#312047","base07":"#1a1226","base08":"#0a7361","base09":"#8a5f06","base0A":"#7d620f","base0B":"#7521c0","base0C":"#0a786f","base0D":"#a8325f","base0E":"#5f37a6","base0F":"#3a6f16"},"night":{"base00":"#140e1f","base01":"#221831","base02":"#332346","base03":"#4d3869","base04":"#6f548c","base05":"#ad97c8","base06":"#cabce0","base07":"#ece8f4","base08":"#5fe8c4","base09":"#f0b94a","base0A":"#ffd966","base0B":"#b57bf0","base0C":"#4fd6c9","base0D":"#f4a6c0","base0E":"#c89bff","base0F":"#aee07a"}},"cyber":{"day":{"base00":"#e6faf7","base01":"#c2eee8","base02":"#97dcd3","base03":"#5fb3a9","base04":"#33867d","base05":"#1b5b54","base06":"#0c3530","base07":"#03100f","base08":"#077a45","base09":"#8f5400","base0A":"#6f6200","base0B":"#b80e34","base0C":"#06756f","base0D":"#0f5cb5","base0E":"#742db0","base0F":"#09655c"},"night":{"base00":"#021515","base01":"#04221f","base02":"#073330","base03":"#0d4a45","base04":"#1c6b64","base05":"#52ada3","base06":"#8ed4cb","base07":"#d4f7f2","base08":"#3ff58f","base09":"#ffb14e","base0A":"#ffe45e","base0B":"#ff4d6d","base0C":"#22ffff","base0D":"#5cc8ff","base0E":"#c77dff","base0F":"#2de2c8"}},"cyberspace":{"day":{"base00":"#e6ffff","base01":"#b6e8f0","base02":"#7fc4d6","base03":"#3f93ad","base04":"#226f8a","base05":"#13506b","base06":"#0c3047","base07":"#06121f","base08":"#00735a","base09":"#9a6a00","base0A":"#5a7a00","base0B":"#c80a4b","base0C":"#007579","base0D":"#0072c6","base0E":"#8a2bd4","base0F":"#b3267a"},"night":{"base00":"#06121f","base01":"#0c2436","base02":"#143a52","base03":"#1d5872","base04":"#2e8fa3","base05":"#5fd9e0","base06":"#9defee","base07":"#dafffb","base08":"#39ff8b","base09":"#fcee0a","base0A":"#a6ff00","base0B":"#ff2a6d","base0C":"#00fff9","base0D":"#3ad1ff","base0E":"#c64dff","base0F":"#ff6bb0"}},"desert":{"day":{"base00":"#f6f1e7","base01":"#ebe3d4","base02":"#d6ccba","base03":"#a89484","base04":"#80695a","base05":"#5b4a3c","base06":"#48392d","base07":"#291f17","base08":"#a8482a","base09":"#946411","base0A":"#6f5a1d","base0B":"#566638","base0C":"#16756e","base0D":"#b04e10","base0E":"#9e4f4a","base0F":"#477524"},"night":{"base00":"#291f17","base01":"#382b21","base02":"#48392d","base03":"#5b4a3c","base04":"#80695a","base05":"#a89484","base06":"#d2c6b4","base07":"#f6f1e7","base08":"#d2703f","base09":"#d99a3e","base0A":"#e6c468","base0B":"#8fa06f","base0C":"#5bb3aa","base0D":"#e57d35","base0E":"#cd8b86","base0F":"#9ec46a"}},"forest_night":{"day":{"base00":"#eef2ec","base01":"#dde6df","base02":"#bccdc1","base03":"#94ad9b","base04":"#5f7e63","base05":"#3a5740","base06":"#243b2b","base07":"#0e1712","base08":"#2f6f88","base09":"#8a5d12","base0A":"#7a5010","base0B":"#b02b2b","base0C":"#1f6f88","base0D":"#44702f","base0E":"#7a4a8a","base0F":"#735028"},"night":{"base00":"#0e1712","base01":"#17241b","base02":"#283a2c","base03":"#3d5340","base04":"#5f7e63","base05":"#8aa892","base06":"#b7c8bd","base07":"#eef2ec","base08":"#7fb0c9","base09":"#e0b96a","base0A":"#d0904c","base0B":"#d96a6a","base0C":"#8fd4ea","base0D":"#9ec98a","base0E":"#c79bd1","base0F":"#c79b6f"}},"futuristic":{"day":{"base00":"#f4f7ff","base01":"#e3e7f4","base02":"#c4cbe0","base03":"#8b93ac","base04":"#5a6486","base05":"#3a4159","base06":"#232838","base07":"#0d1018","base08":"#1b6e30","base09":"#b45309","base0A":"#9a6400","base0B":"#d6203f","base0C":"#0e7490","base0D":"#3656c9","base0E":"#8b39c4","base0F":"#0f766e"},"night":{"base00":"#0d1018","base01":"#161a26","base02":"#232838","base03":"#3a4159","base04":"#5a6486","base05":"#8b93ac","base06":"#c4cbe0","base07":"#f4f7ff","base08":"#c3e88d","base09":"#ffb86c","base0A":"#ffd479","base0B":"#ff5d7a","base0C":"#7ee8ff","base0D":"#82aaff","base0E":"#c792ea","base0F":"#5af0d8"}},"ghost":{"day":{"base00":"#f2f4f8","base01":"#e0e4ec","base02":"#c2c9d6","base03":"#9aa4b5","base04":"#6a7488","base05":"#4b5468","base06":"#343b4a","base07":"#20242e","base08":"#2f7a52","base09":"#8a5d18","base0A":"#7a5a9a","base0B":"#c0322f","base0C":"#1f6f96","base0D":"#2a4fb0","base0E":"#7a4fa8","base0F":"#4a5572"},"night":{"base00":"#16181d","base01":"#1f232b","base02":"#2b313c","base03":"#3d4654","base04":"#5c6678","base05":"#9aa6ba","base06":"#c6d0e0","base07":"#e8edf5","base08":"#7fc8a0","base09":"#d8b070","base0A":"#cdb4e6","base0B":"#e06b86","base0C":"#79d2f0","base0D":"#8aa0f0","base0E":"#b388e0","base0F":"#8fa0c0"}},"green":{"day":{"base00":"#e2f3e8","base01":"#bfe2cd","base02":"#94ccab","base03":"#5fa881","base04":"#3a7a58","base05":"#1f5238","base06":"#123626","base07":"#04140a","base08":"#157a42","base09":"#8a5410","base0A":"#6f5d0c","base0B":"#b22a26","base0C":"#147266","base0D":"#1f5a8c","base0E":"#7a30ad","base0F":"#566234"},"night":{"base00":"#04140a","base01":"#0c2014","base02":"#163524","base03":"#235138","base04":"#3a7a58","base05":"#69b58c","base06":"#a4dabd","base07":"#dcf3e6","base08":"#3ad07a","base09":"#e0a341","base0A":"#e6cf52","base0B":"#f0635f","base0C":"#43c9b0","base0D":"#5ab0e6","base0E":"#b985e8","base0F":"#8a9d6a"}},"mainframe":{"day":{"base00":"#fff4e0","base01":"#ffe4b8","base02":"#fccd83","base03":"#e0a23c","base04":"#b97c0a","base05":"#945e00","base06":"#6e4400","base07":"#3d2400","base08":"#3e6b00","base09":"#9a5b00","base0A":"#7a5500","base0B":"#bc2a12","base0C":"#a85a00","base0D":"#7a4a00","base0E":"#a33a00","base0F":"#6e4400"},"night":{"base00":"#1f1300","base01":"#2e1d00","base02":"#4a3100","base03":"#6e4a00","base04":"#a06b00","base05":"#d99000","base06":"#ffb000","base07":"#ffd27f","base08":"#7ad900","base09":"#ffb000","base0A":"#ffd24d","base0B":"#ff5c33","base0C":"#ff9e3d","base0D":"#ffe08a","base0E":"#ff7a1a","base0F":"#c98a2e"}},"matrix":{"day":{"base00":"#eafff0","base01":"#c7f7d0","base02":"#93dba0","base03":"#5cb070","base04":"#2f8c46","base05":"#1c6e30","base06":"#0e4a1e","base07":"#04210c","base08":"#1a7a26","base09":"#8a5e00","base0A":"#4f7400","base0B":"#c01818","base0C":"#0f7a66","base0D":"#0a7a8c","base0E":"#a01ba0","base0F":"#6b5210"},"night":{"base00":"#021202","base01":"#0a2a0a","base02":"#124712","base03":"#1c6b1c","base04":"#2a9d2a","base05":"#00e000","base06":"#7dff7d","base07":"#e6ffe6","base08":"#00e000","base09":"#ffcc33","base0A":"#bfff40","base0B":"#ff4d4d","base0C":"#5effc8","base0D":"#33ffff","base0E":"#ff66ff","base0F":"#d9a441"}},"military":{"day":{"base00":"#dcf2df","base01":"#bce0c2","base02":"#9ccda6","base03":"#74ad81","base04":"#4f7d5b","base05":"#34593e","base06":"#1d3a26","base07":"#08160c","base08":"#177033","base09":"#8a5410","base0A":"#6b5d00","base0B":"#b51f1a","base0C":"#0a705e","base0D":"#1a5f96","base0E":"#6e34ab","base0F":"#4c5f2a"},"night":{"base00":"#08160c","base01":"#102414","base02":"#193420","base03":"#274a30","base04":"#3f6e4a","base05":"#6fb37e","base06":"#a8d6b0","base07":"#dcf2df","base08":"#3bdf6e","base09":"#e8a23e","base0A":"#e0cf4a","base0B":"#ff5f5f","base0C":"#46e0c0","base0D":"#52b6e6","base0E":"#c07ee8","base0F":"#8a9a5a"}},"nordic":{"day":{"base00":"#eceff4","base01":"#e5e9f0","base02":"#d8dee9","base03":"#9099a9","base04":"#697588","base05":"#3b4252","base06":"#333b4a","base07":"#2e3440","base08":"#3f7375","base09":"#8a6718","base0A":"#8f5f2c","base0B":"#a3394a","base0C":"#3a7184","base0D":"#3f6b96","base0E":"#834f7a","base0F":"#516e3f"},"night":{"base00":"#2e3440","base01":"#3b4252","base02":"#434c5e","base03":"#4c566a","base04":"#7b88a1","base05":"#abb5c9","base06":"#d8dee9","base07":"#eceff4","base08":"#8fbcbb","base09":"#ebcb8b","base0A":"#d8a878","base0B":"#e0828c","base0C":"#88c0d0","base0D":"#81a1c1","base0E":"#c8a3c2","base0F":"#a3be8c"}},"ocean_depths":{"day":{"base00":"#eef9ff","base01":"#cfe7f3","base02":"#a8cbe0","base03":"#5d839c","base04":"#436a8d","base05":"#2a4d68","base06":"#1b3447","base07":"#0a1722","base08":"#08718f","base09":"#ad571a","base0A":"#8f6a17","base0B":"#c41e45","base0C":"#0a8068","base0D":"#1d6fa0","base0E":"#6f4cc4","base0F":"#3a6b80"},"night":{"base00":"#0a1722","base01":"#122433","base02":"#1b3447","base03":"#2a4d68","base04":"#436a8d","base05":"#6e93ad","base06":"#a8cbe0","base07":"#eef9ff","base08":"#5ad6ff","base09":"#ff9d5c","base0A":"#ffd166","base0B":"#ff5470","base0C":"#3ef0c8","base0D":"#6cb8e6","base0E":"#c39fff","base0F":"#7fb0c4"}},"orange":{"day":{"base00":"#fff3e6","base01":"#ffe6d1","base02":"#f0c4a0","base03":"#d98c4f","base04":"#b06a28","base05":"#8a4d18","base06":"#5c3210","base07":"#2a1505","base08":"#2f7d22","base09":"#a8550a","base0A":"#856a10","base0B":"#c52719","base0C":"#0f6f7d","base0D":"#1763bd","base0E":"#6e34b8","base0F":"#9c4726"},"night":{"base00":"#1f1004","base01":"#33190a","base02":"#4d2810","base03":"#6e3a14","base04":"#9c581f","base05":"#d98c4f","base06":"#ecb98c","base07":"#fff3e6","base08":"#7bc96f","base09":"#ffb627","base0A":"#ffd95e","base0B":"#ff5c4d","base0C":"#5cc8d6","base0D":"#5aa9f0","base0E":"#c08cf0","base0F":"#d98a6a"}},"purple":{"day":{"base00":"#ebe2f6","base01":"#cdb9e6","base02":"#b7a0d6","base03":"#9580bc","base04":"#7a619e","base05":"#473461","base06":"#322343","base07":"#191222","base08":"#1f7340","base09":"#8f4e0c","base0A":"#7e6308","base0B":"#b3253f","base0C":"#0c7064","base0D":"#3450bf","base0E":"#8a3a8f","base0F":"#6f34a3"},"night":{"base00":"#191222","base01":"#241a30","base02":"#322343","base03":"#473461","base04":"#7a619e","base05":"#b7a0d6","base06":"#cdb9e6","base07":"#ebe2f6","base08":"#6fb98a","base09":"#e0a85a","base0A":"#ead07a","base0B":"#e06a82","base0C":"#52c6b0","base0D":"#9aa8e8","base0E":"#d98fd0","base0F":"#b884e0"}},"retro":{"day":{"base00":"#f3ead6","base01":"#e8ddc5","base02":"#d7ccb6","base03":"#ab9f88","base04":"#847a6a","base05":"#564f43","base06":"#3a342b","base07":"#221f1a","base08":"#467036","base09":"#955714","base0A":"#7c6311","base0B":"#b53e30","base0C":"#2b6f6b","base0D":"#3a5e96","base0E":"#74498f","base0F":"#8a4f24"},"night":{"base00":"#221f1a","base01":"#322d26","base02":"#463f35","base03":"#5f574a","base04":"#847a6a","base05":"#b5aa94","base06":"#d7ccb6","base07":"#f3ead6","base08":"#8faf6a","base09":"#e0a24e","base0A":"#d8c862","base0B":"#e07a6e","base0C":"#6cb5b0","base0D":"#7e9dcb","base0E":"#b793c4","base0F":"#c98f63"}},"sepia":{"day":{"base00":"#f3e8d6","base01":"#e0cfb0","base02":"#c9b088","base03":"#a78c5e","base04":"#7c633f","base05":"#574329","base06":"#39291a","base07":"#1d1409","base08":"#466e1e","base09":"#9c5208","base0A":"#866018","base0B":"#b12c22","base0C":"#1c6f5e","base0D":"#2a6090","base0E":"#71438c","base0F":"#7e5026"},"night":{"base00":"#1a1208","base01":"#281c0f","base02":"#3b2c1a","base03":"#574329","base04":"#7c633f","base05":"#b89a6e","base06":"#d6c099","base07":"#f2e6d2","base08":"#7fae4e","base09":"#f5a02a","base0A":"#e6c34d","base0B":"#e8654a","base0C":"#55b0a0","base0D":"#69a0c8","base0E":"#bd86c4","base0F":"#c89464"}},"volcanic":{"day":{"base00":"#e8e0d6","base01":"#cabdb0","base02":"#a89788","base03":"#6f5d51","base04":"#4b3a31","base05":"#382a23","base06":"#271d18","base07":"#15100d","base08":"#2a6189","base09":"#985112","base0A":"#7e5a06","base0B":"#b22d12","base0C":"#2b6259","base0D":"#30568a","base0E":"#664389","base0F":"#7c4a1a"},"night":{"base00":"#15100d","base01":"#271d18","base02":"#382a23","base03":"#4b3a31","base04":"#6f5d51","base05":"#a89788","base06":"#cabdb0","base07":"#e8e0d6","base08":"#4f8fc0","base09":"#e08a3c","base0A":"#edc23a","base0B":"#e15535","base0C":"#54a39a","base0D":"#7aa6d8","base0E":"#b388d4","base0F":"#c98a52"}},"walnut":{"day":{"base00":"#ecdcc6","base01":"#cbab85","base02":"#ad8c6a","base03":"#8c6c4c","base04":"#6a5238","base05":"#4a3826","base06":"#322014","base07":"#160f09","base08":"#4f6226","base09":"#9a4810","base0A":"#7e5a0c","base0B":"#b22f24","base0C":"#2a6258","base0D":"#3a5f96","base0E":"#7a4c8e","base0F":"#6b4a24"},"night":{"base00":"#160f09","base01":"#241910","base02":"#34261a","base03":"#4c3a28","base04":"#6e563e","base05":"#a8896a","base06":"#cbac8a","base07":"#f1ddc9","base08":"#7d9850","base09":"#c2701c","base0A":"#d4ac3e","base0B":"#dc5544","base0C":"#5fa39a","base0D":"#6f9ad0","base0E":"#b083c4","base0F":"#a87a48"}},"white":{"day":{"base00":"#ebecf0","base01":"#d4d5db","base02":"#b9bac2","base03":"#8d8f99","base04":"#6a6c75","base05":"#47484f","base06":"#2c2d33","base07":"#121316","base08":"#257033","base09":"#8a5410","base0A":"#786309","base0B":"#b32a26","base0C":"#1a6f78","base0D":"#2a5fbc","base0E":"#7338a0","base0F":"#435682"},"night":{"base00":"#121316","base01":"#1f2024","base02":"#2f3036","base03":"#4b4d54","base04":"#73757e","base05":"#a4a6b0","base06":"#cdcfd8","base07":"#f2f3f8","base08":"#5cc274","base09":"#e0993f","base0A":"#e6cf4a","base0B":"#f05f5f","base0C":"#48bcc4","base0D":"#5c9ce6","base0E":"#b27ae0","base0F":"#7f93b8"}},"yoga":{"day":{"base00":"#f7f4ee","base01":"#ece5d8","base02":"#d2c8bd","base03":"#a89c90","base04":"#6c5d52","base05":"#51463e","base06":"#3b342f","base07":"#232020","base08":"#2f7d32","base09":"#8f6210","base0A":"#1f6f9c","base0B":"#c0312b","base0C":"#157a8c","base0D":"#1f5fa6","base0E":"#8b3fb0","base0F":"#8a5a24"},"night":{"base00":"#232020","base01":"#2f2a27","base02":"#3b342f","base03":"#51463e","base04":"#6c5d52","base05":"#a89c90","base06":"#cec5bb","base07":"#f7f4ee","base08":"#6cc06c","base09":"#e6a23c","base0A":"#e8c14a","base0B":"#f0635a","base0C":"#5ec8d8","base0D":"#6aa0e6","base0E":"#c98be0","base0F":"#d99a64"}}};
+const KEYS = ["base00","base01","base02","base03","base04","base05","base06","base0D"];
+const VARS = ["--bg","--surface","--sel","--comment","--border","--text","--heading","--link"];
+const IC_SYS = '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8"/><path d="M12 16v4"/></svg>', IC_LIGHT = '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M4.93 4.93l1.41 1.41"/><path d="M17.66 17.66l1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.93 19.07l1.41-1.41"/><path d="M17.66 6.34l1.41-1.41"/></svg>', IC_DARK = '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+const DEFAULT = { name: "yoga", variant: "system" };
+const SV = 3; // bump to invalidate stale saved settings (variant is now system|day|night)
+const ORDER = ["system", "day", "night"];
+const mq = window.matchMedia("(prefers-color-scheme: dark)");
+let CUR = { name: DEFAULT.name, variant: DEFAULT.variant };
+function resolved(variant) { return (variant === "day" || variant === "night") ? variant : (mq.matches ? "night" : "day"); }
+function applyTheme(name, variant) {
+  if (!THEMES[name]) name = DEFAULT.name;
+  if (ORDER.indexOf(variant) < 0) variant = DEFAULT.variant;
+  CUR = { name: name, variant: variant };
+  const c = THEMES[name][resolved(variant)];
+  for (let i = 0; i < KEYS.length; i++) document.documentElement.style.setProperty(VARS[i], c[KEYS[i]]);
+  const sel = document.getElementById("themeSel"); if (sel) sel.value = name;
+  const btn = document.getElementById("variantBtn"); if (btn) btn.innerHTML = (variant === "system" ? IC_SYS + "<span>System</span>" : variant === "night" ? IC_DARK + "<span>Dark</span>" : IC_LIGHT + "<span>Light</span>");
+  try { localStorage.setItem("resumeTheme", JSON.stringify({ v: SV, name: name, variant: variant })); } catch (e) {}
+}
+// Script sits at end of <body>, so the controls already exist — bind directly.
+const _sel = document.getElementById("themeSel");
+if (_sel) _sel.addEventListener("change", function () { applyTheme(this.value, CUR.variant); });
+const _btn = document.getElementById("variantBtn");
+if (_btn) _btn.addEventListener("click", function () { applyTheme(CUR.name, ORDER[(ORDER.indexOf(CUR.variant) + 1) % ORDER.length]); });
+// Follow the OS live while in "system" mode.
+if (mq.addEventListener) mq.addEventListener("change", function () { if (CUR.variant === "system") applyTheme(CUR.name, "system"); });
+(function () {
+  let s = null;
+  try { s = JSON.parse(localStorage.getItem("resumeTheme")); } catch (e) {}
+  if (!s || s.v !== SV || !THEMES[s.name] || ORDER.indexOf(s.variant) < 0) s = { name: DEFAULT.name, variant: DEFAULT.variant };
+  applyTheme(s.name, s.variant);
+})();
+</script>
+</body>
+</html>
