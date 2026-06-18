@@ -57,10 +57,10 @@ let
     data.volunteer;
 
   jobsHtml = lib.concatMapStringsSep "" (w:
-    ''<div class="entry"><div class="erow"><span class="org">${esc w.name}</span>''
-    + ''<span class="date">${yrRange w.startDate (w.endDate or null)}</span></div>''
+    ''<div class="entry"><div class="erow"><span class="orghead"><span class="org">${esc w.name}</span>''
+    + lib.optionalString (w ? url) ''<a class="orglink" href="${w.url}" target="_blank" rel="noopener">${icLink}${esc (stripScheme w.url)}</a>''
+    + ''</span><span class="date">${yrRange w.startDate (w.endDate or null)}</span></div>''
     + ''<div class="pos">${esc w.position}</div>''
-    + lib.optionalString (w ? url) ''<div class="urlrow">${icLink}<a href="${w.url}" target="_blank" rel="noopener">${esc (stripScheme w.url)}</a></div>''
     + lib.optionalString (w.summary != "") "<p>${esc w.summary}</p>"
     + lib.optionalString (w.highlights != []) (sepLine w.highlights)
     + "</div>")
@@ -68,17 +68,18 @@ let
 
   langIcon = l: ''<img class="langicon" src="assets/lang-${lib.toLower l}.svg" alt="${l}" />'';
   projHtml = ''<div class="cards">'' + lib.concatMapStringsSep "" (p:
-    ''<div class="card"><div class="chead"><span class="cname">${esc p.name}</span>''
-    + ''<a class="crepo" href="${p.url}" target="_blank" rel="noopener">${icGithub}${esc (stripScheme p.url)}</a></div>''
+    ''<div class="card"><div class="chead">''
+    + ''<a class="cname" href="${p.url}" target="_blank" rel="noopener">${icGithub}<span>${esc p.name}</span></a>''
+    + lib.optionalString (p ? demo) ''<a class="cdemo" href="${p.demo}" target="_blank" rel="noopener">${icExt}${esc (stripScheme p.demo)}</a>''
+    + ''</div>''
     + ''<div class="cdesc">${esc p.description}</div>''
-    + ''<div class="cmetarow"><div class="cmeta">''
+    + ''<div class="cmeta">''
     + lib.concatMapStringsSep "" (l: ''<span class="m2">${langIcon l}${esc l}</span>'') p.languages
     + ''<span class="m2">★ ${toString p.stars}</span>''
     + ''<span class="m2">${esc p.loc}</span>''
     + lib.optionalString (p ? tests) ''<span class="m2">${esc p.tests}</span>''
     + ''</div>''
-    + lib.optionalString (p ? demo) ''<a class="cdemo" href="${p.demo}" target="_blank" rel="noopener">${icExt}${esc (stripScheme p.demo)}</a>''
-    + ''</div></div>'')
+    + ''</div>'')
     data.projects
     + "</div>";
 
@@ -136,22 +137,22 @@ body { font-family: "Inter", Arial, "Liberation Sans", sans-serif; color: var(--
 .org { font-weight: 700; font-size: 14.5px; color: var(--heading); }
 .date { color: var(--comment); font-size: 12px; white-space: nowrap; }
 .pos { color: var(--border); font-size: 12.5px; margin-top: 1px; }
-.urlrow { display: inline-flex; align-items: center; gap: 5px; font-size: 11.5px; }
-.urlrow .ic { width: 12px; height: 12px; color: var(--link); }
+.orghead { display: inline-flex; align-items: baseline; gap: 9px; flex-wrap: wrap; min-width: 0; }
+.orglink { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; color: var(--link); white-space: nowrap; }
+.orglink .ic { width: 11px; height: 11px; color: var(--comment); position: relative; top: 1px; }
+.orglink:hover { text-decoration: underline; }
 a { color: var(--link); text-decoration: none; }
-.urlrow a { text-decoration: underline; }
 .entry p { margin: 6px 0; font-size: 12.5px; text-align: justify; }
 .kw { color: var(--border); font-size: 9px; letter-spacing: .4px; text-transform: uppercase; margin-top: 5px; }
 .kw .sep { color: var(--comment); }
 .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-top: 11px; }
 .card { border: 1px solid var(--sel); border-radius: 5px; padding: 8px 11px; background: var(--bg); }
-.chead { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
-.cname { font-weight: 700; color: var(--heading); font-size: 12.5px; flex: 0 0 auto; }
-.crepo { color: var(--link); font-size: 8.5px; display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
-.crepo .ic { width: 10px; height: 10px; color: var(--comment); flex: 0 0 auto; }
+.chead { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.cname { display: inline-flex; align-items: center; gap: 6px; font-weight: 700; color: var(--heading); font-size: 13px; text-decoration: none; min-width: 0; }
+.cname:hover { text-decoration: underline; text-decoration-color: var(--comment); }
+.cname .ic { width: 13px; height: 13px; color: var(--comment); flex: 0 0 auto; }
 .cdesc { font-size: 11px; margin: 5px 0 7px; color: var(--text); min-height: 30px; }
-.cmetarow { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
-.cmeta { display: flex; flex-wrap: wrap; gap: 8px; font-size: 8.5px; color: var(--comment); align-items: center; text-transform: uppercase; letter-spacing: .3px; min-width: 0; }
+.cmeta { display: flex; flex-wrap: wrap; gap: 8px; font-size: 8.5px; color: var(--comment); align-items: center; text-transform: uppercase; letter-spacing: .3px; min-width: 0; margin-top: 6px; }
 .m2 { display: inline-flex; align-items: center; gap: 4px; }
 .m2 .ic { width: 10px; height: 10px; }
 .langicon { width: 10px; height: 10px; }
@@ -177,7 +178,7 @@ a { color: var(--link); text-decoration: none; }
 .poweredby:hover { filter: brightness(1.06); }
 .poweredby .ic { width: 12px; height: 12px; color: var(--text); opacity: .7; }
 .poweredby b { color: var(--text); font-weight: 700; }
-@page { margin: 0.3in; }        /* white margin around the resume on every side (all pages) */
+@page { margin: 0.42in; }       /* white margin around the resume on every side (all pages) */
 @media print {
   .toolbar, .poweredby { display: none !important; }
   * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
@@ -188,9 +189,6 @@ a { color: var(--link); text-decoration: none; }
   /* Don't slice an entry/card across a page break. */
   .entry, .item, .erow, .card { break-inside: avoid; }
   .main h3, .sections h2 { break-after: avoid; }
-  /* Stack project cards full-width in print — at the narrower margined width the 2-col grid
-     overflowed (the repo-URL line forced each card wider than its track) and clipped the right column. */
-  .cards { grid-template-columns: 1fr; }
 }
 /* Column-stack only on small SCREENS — never in print (A4's narrower width was triggering it). */
 @media screen and (max-width: 720px) { .page { flex-direction: column; } .sidebar, .main { width: 100%; } }

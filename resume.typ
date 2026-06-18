@@ -61,16 +61,13 @@
 #let langIcon(l) = box(baseline: 1.5pt, image("assets/lang-" + lower(l) + ".svg", height: 6.5pt))
 #let projCard(p) = block(breakable: false, width: 100%, fill: c-bg, stroke: 0.6pt + c-sel, radius: 4pt, inset: (x: 8pt, y: 6pt), {
   set par(justify: false, leading: 0.5em)
-  grid(columns: (1fr, auto), align: (left + horizon, right + horizon),
-    text(weight: "bold", size: 9.5pt, fill: c-heading)[#p.name],
-    text(size: 6pt)[#link(p.url)[#box(baseline: 1pt, text(fill: c-comment)[#fa-icon("github")]) #text(fill: c-link)[#stripScheme(p.url)]]],
+  grid(columns: (1fr, auto), align: (left + horizon, right + horizon), column-gutter: 5pt,
+    link(p.url)[#box(baseline: 1pt, text(fill: c-comment, size: 8.5pt)[#fa-icon("github")]) #text(weight: "bold", size: 9.5pt, fill: c-heading)[#p.name]],
+    [#if "demo" in p [#link(p.demo)[#box(baseline: 1pt, text(fill: c-comment)[#fa-icon("arrow-up-right-from-square")]) #text(size: 6pt, fill: c-link)[#stripScheme(p.demo)]]]],
   )
   v(2.5pt)
   block(height: 0.26in)[#text(size: 7.6pt, fill: c-text)[#p.description]]
-  grid(columns: (1fr, auto), align: (left + horizon, right + horizon), column-gutter: 5pt,
-    text(size: 6pt, fill: c-comment, tracking: 0.2pt)[#for l in p.languages [#langIcon(l) #upper(l)#h(7pt)]★ #p.stars#h(7pt)#upper(p.loc)#if "tests" in p [#h(7pt)#upper(p.tests)]],
-    [#if "demo" in p [#link(p.demo)[#box(baseline: 1pt, text(fill: c-comment)[#fa-icon("arrow-up-right-from-square")]) #text(size: 6pt, fill: c-link)[#stripScheme(p.demo)]]]],
-  )
+  text(size: 6pt, fill: c-comment, tracking: 0.2pt)[#for l in p.languages [#langIcon(l) #upper(l)#h(7pt)]★ #p.stars#h(7pt)#upper(p.loc)#if "tests" in p [#h(7pt)#upper(p.tests)]]
 })
 
 #let jobs = data.work.filter(w => w.name != "Israeli Air Force")
@@ -162,11 +159,10 @@
     m-head("Experience")
     for w in jobs {
       grid(columns: (1fr, auto), align: (left + bottom, right + bottom),
-        text(weight: "bold", size: 11pt, fill: c-heading)[#w.name],
+        [#text(weight: "bold", size: 11pt, fill: c-heading)[#w.name]#if "url" in w [ #h(4pt)#text(size: 7.6pt)[#link(w.url)[#box(baseline: 1pt, text(fill: c-comment)[#fa-icon("link")]) #text(fill: c-link)[#stripScheme(w.url)]]]]],
         text(fill: c-comment, size: 8.3pt)[#yspan(w.startDate, w.at("endDate", default: none))],
       )
       text(fill: c-border, size: 8.8pt)[#w.position]
-      if "url" in w { linebreak(); urlIcon(w.url) }
       if w.summary != "" { linebreak(); text(size: 8.8pt)[#w.summary] }
       if w.highlights.len() > 0 { linebreak(); v(1pt); sepline(w.highlights) }
       v(5pt)
