@@ -58,6 +58,18 @@
 // Uppercase keyword/highlight line, muted separators — shared by projects + experience.
 #let sepline(items) = items.map(x => text(fill: c-border, size: 7pt, tracking: 0.2pt)[#upper(x)]).join(text(fill: c-comment, size: 7pt)[ | ])
 #let urlIcon(u) = [#text(fill: c-link, size: 7pt)[#fa-icon("link")] #text(size: 7.6pt)[#link(u)[#text(fill: c-link)[#stripScheme(u)]]]]
+#let langColor(l) = ("Rust": rgb("#c97c4e"), "Nix": rgb("#6f6fde")).at(l, default: c-comment)
+#let projCard(p) = block(breakable: false, width: 100%, fill: white, stroke: 0.7pt + rgb("#dcd4c8"), radius: 5pt, inset: (x: 10pt, y: 8pt), {
+  set par(justify: false, leading: 0.5em)
+  grid(columns: (1fr, auto), align: (left + horizon, right + horizon),
+    text(weight: "bold", size: 10.5pt, fill: c-heading)[#p.name],
+    [#if "demo" in p [#link(p.demo)[#text(fill: c-link, size: 8pt)[#fa-icon("arrow-up-right-from-square")]]#h(4pt)]#link(p.url)[#text(fill: c-comment, size: 8pt)[#fa-icon("github")]]],
+  )
+  v(3pt)
+  text(size: 8.3pt, fill: c-text)[#p.description]
+  v(5pt)
+  text(size: 7.3pt, fill: c-comment)[#box(baseline: 1pt, circle(radius: 2.5pt, fill: langColor(p.language)))#h(3pt)#p.language#h(9pt)★ #p.stars#h(9pt)#p.loc#if "tests" in p [#h(9pt)#p.tests]]
+})
 
 #let jobs = data.work.filter(w => w.name != "Israeli Air Force")
 
@@ -138,15 +150,9 @@
     text(size: 9pt)[#b.summary]
 
     m-head("Open Source Projects")
-    for p in data.projects {
-      grid(columns: (1fr, auto), align: (left + bottom, right + bottom),
-        text(weight: "bold", size: 11pt, fill: c-heading)[#p.name],
-        urlIcon(p.url),
-      )
-      text(size: 8.8pt)[#p.description]
-      if "keywords" in p { linebreak(); v(1pt); sepline(p.keywords) }
-      v(8pt)
-    }
+    grid(columns: (1fr, 1fr), column-gutter: 8pt, row-gutter: 8pt,
+      ..data.projects.map(p => projCard(p)))
+    v(2pt)
 
     m-head("Experience")
     for w in jobs {

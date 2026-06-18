@@ -24,6 +24,8 @@ let
   icMail = svg ''<rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="M3 6.5l9 6.5 9-6.5"/>'';
   icLink = svg ''<path d="M10 13.5a4 4 0 005.7.3l3-3a4 4 0 10-5.7-5.7l-1.3 1.3"/><path d="M14 10.5a4 4 0 00-5.7-.3l-3 3a4 4 0 105.7 5.7l1.3-1.3"/>'';
   icDl = svg ''<path d="M12 3v12"/><path d="M7 11l5 5 5-5"/><path d="M4 20h16"/>'';
+  icPrint = svg ''<path d="M6 9V3h12v6"/><rect x="4" y="9" width="16" height="8" rx="2"/><path d="M6 14h12v6H6z"/>'';
+  icExt = svg ''<path d="M14 4h6v6"/><path d="M20 4l-9 9"/><path d="M18 13v6a1 1 0 01-1 1H5a1 1 0 01-1-1V7a1 1 0 011-1h6"/>'';
   icGithub = ''<svg class="ic" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.65 7.65 0 014 0c1.53-1.03 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>'';
 
   # uppercase keyword/highlight line with muted separators (shared by projects + experience)
@@ -56,13 +58,19 @@ let
     + "</div>")
     jobs;
 
-  projHtml = lib.concatMapStringsSep "" (p:
-    ''<div class="entry"><div class="erow"><span class="org">${esc p.name}</span>''
-    + ''<span class="date"><span class="urlrow">${icLink}<a href="${p.url}">${esc (stripScheme p.url)}</a></span></span></div>''
-    + "<p>${esc p.description}</p>"
-    + lib.optionalString (p ? keywords) (sepLine p.keywords)
-    + "</div>")
-    data.projects;
+  langDot = l: ''<span class="dot" style="background:${if l == "Rust" then "#c97c4e" else if l == "Nix" then "#6f6fde" else "#a89c90"}"></span>'';
+  projHtml = ''<div class="cards">'' + lib.concatMapStringsSep "" (p:
+    ''<div class="card"><div class="chead"><span class="cname">${esc p.name}</span><span class="clinks">''
+    + lib.optionalString (p ? demo) ''<a class="demo" href="${p.demo}" title="Demo">${icExt}</a>''
+    + ''<a href="${p.url}" title="Repository">${icGithub}</a></span></div>''
+    + ''<div class="cdesc">${esc p.description}</div>''
+    + ''<div class="cmeta"><span class="m2">${langDot p.language}${esc p.language}</span>''
+    + ''<span class="m2">★ ${toString p.stars}</span>''
+    + ''<span class="m2">${esc p.loc}</span>''
+    + lib.optionalString (p ? tests) ''<span class="m2">${esc p.tests}</span>''
+    + ''</div></div>'')
+    data.projects
+    + "</div>";
 in
 ''
 <!doctype html>
@@ -112,15 +120,28 @@ a { color: var(--link); text-decoration: none; }
 .entry p { margin: 6px 0; font-size: 12.5px; text-align: justify; }
 .kw { color: var(--border); font-size: 10px; letter-spacing: .4px; text-transform: uppercase; margin-top: 5px; }
 .kw .sep { color: var(--comment); }
+.cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
+.card { border: 1px solid #dcd4c8; border-radius: 6px; padding: 11px 13px; background: #fff; }
+.chead { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.cname { font-weight: 700; color: var(--heading); font-size: 14px; }
+.clinks { display: inline-flex; gap: 8px; flex: 0 0 auto; }
+.clinks a { color: var(--comment); display: inline-flex; }
+.clinks a.demo { color: var(--link); }
+.clinks .ic { width: 15px; height: 15px; }
+.cdesc { font-size: 12px; margin: 7px 0 10px; color: var(--text); }
+.cmeta { display: flex; flex-wrap: wrap; gap: 12px; font-size: 11px; color: var(--comment); align-items: center; }
+.m2 { display: inline-flex; align-items: center; gap: 5px; }
+.dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
 .dl { position: fixed; top: 16px; right: 16px; display: inline-flex; align-items: center; gap: 7px; background: var(--heading); color: var(--bg); padding: 10px 16px; border-radius: 6px; text-decoration: none; font-size: 13px; box-shadow: 0 2px 8px rgba(0,0,0,.25); z-index: 10; }
 .dl:hover { background: #2a2521; }
 .dl .ic { color: var(--bg); }
-@media print { .dl { display: none; } }
+@page { margin: 0; }
+@media print { .dl { display: none !important; } html, body { background: #fff; -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
 @media (max-width: 720px) { .page { flex-direction: column; } .sidebar, .main { width: 100%; } }
 </style>
 </head>
 <body>
-<a class="dl" href="resume.pdf" download>${icDl} Download PDF</a>
+<a class="dl" href="#" onclick="window.print();return false;">${icPrint} Print</a>
 <div class="page">
   <aside class="sidebar">
     <div class="head">

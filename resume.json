@@ -227,33 +227,59 @@
   "projects": [
     {
       "name": "pr4xis",
-      "description": "pr4xis is a new kind of AI: axiomatic, not statistical. Where LLMs predict the next token from training data, pr4xis derives the next claim from accepted axioms — the same way mathematicians prove theorems.",
-      "keywords": [
-        "Rust",
-        "~295K LOC",
-        "7,600+ tests"
-      ],
-      "url": "https://github.com/i-am-logger/pr4xis"
+      "description": "Axiomatic intelligence. Doing the right thing, provably.",
+      "language": "Rust",
+      "stars": 12,
+      "loc": "~295K LOC",
+      "tests": "7,600+ tests",
+      "url": "https://github.com/i-am-logger/pr4xis",
+      "demo": "https://pr4xis.dev"
     },
     {
-      "name": "Vogix",
-      "description": "Vogix is a declarative UX layer for NixOS and a Rust runtime that unifies desktop configurations (Appearance and Behavior).",
-      "keywords": [
-        "Rust",
-        "~15.5K LOC",
-        "320+ tests"
-      ],
+      "name": "vogix",
+      "description": "A NixOS UX subsystem for unified desktop appearance and behavior.",
+      "language": "Rust",
+      "stars": 50,
+      "loc": "~15.5K LOC",
+      "tests": "320+ tests",
       "url": "https://github.com/i-am-logger/vogix"
+    },
+    {
+      "name": "nix-license",
+      "description": "Define your usage. Ensure license compliance on every build.",
+      "language": "Nix",
+      "stars": 1,
+      "loc": "~4.7K LOC",
+      "tests": "200K+ checks",
+      "url": "https://github.com/i-am-logger/nix-license",
+      "demo": "https://nix-license.dev"
     },
     {
       "name": "mynixos",
       "description": "A NixOS-based distribution. Defaults that work, mkDefault so you always win.",
-      "keywords": [
-        "Nix",
-        "~16K LOC",
-        "430+ options"
-      ],
+      "language": "Nix",
+      "stars": 3,
+      "loc": "~16K LOC",
+      "tests": "430+ options",
       "url": "https://github.com/i-am-logger/mynixos"
+    },
+    {
+      "name": "claude-code-proxy",
+      "description": "OpenAI-compatible API proxy for Claude Code CLI.",
+      "language": "Rust",
+      "stars": 7,
+      "loc": "~1.3K LOC",
+      "tests": "54 tests",
+      "url": "https://github.com/i-am-logger/claude-code-proxy"
+    },
+    {
+      "name": "resume",
+      "description": "This résumé — generated from JSON with Typst and Nix.",
+      "language": "Nix",
+      "stars": 2,
+      "loc": "~690 LOC",
+      "url": "https://github.com/i-am-logger/resume",
+      "demo": "https://i-am-logger.github.io/resume/"
     }
   ],
   "meta": {

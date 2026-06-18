@@ -72,12 +72,15 @@
         program = toString (pkgs.writeShellScript "resume-live" ''
           set -euo pipefail
           SD=$(mktemp -d); export SD
-          REBUILD='o=$(${pkgs.nix}/bin/nix build --no-link --print-out-paths .#default 2>/dev/null) || { echo "[build failed]"; exit 0; }; rm -rf "$SD"/* 2>/dev/null || true; cp -rL "$o"/. "$SD"/; chmod -R u+w "$SD"; echo "[site rebuilt -> reload browser]"'
+          REBUILD='o=$(${pkgs.nix}/bin/nix build --no-link --print-out-paths .#default 2>/dev/null) || { echo "[build failed]"; exit 0; }; rm -rf "$SD"/* 2>/dev/null || true; cp -rL "$o"/. "$SD"/; chmod -R u+w "$SD"; echo "[rebuilt -> browser reloads]"'
           sh -c "$REBUILD"
           ${pkgs.live-server}/bin/live-server "$SD" &
           trap 'kill %1 2>/dev/null || true' EXIT
-          printf '%s\n' resume.json site.nix resume.typ flake.nix \
-            | ${pkgs.entr}/bin/entr -np sh -c "$REBUILD"
+          # watchexec keeps watching across atomic-save edits (entr exits after the first);
+          # rebuilds the site on any change to the sources, live-server reloads the browser.
+          exec ${pkgs.watchexec}/bin/watchexec --debounce 300ms \
+            -w resume.json -w site.nix -w resume.typ -w flake.nix \
+            -- sh -c "$REBUILD"
         '');
       };
       apps.default = self.apps.${system}.live;
