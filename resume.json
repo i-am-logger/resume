@@ -274,7 +274,7 @@
     },
     {
       "name": "resume",
-      "description": "This résumé — generated from JSON with Typst and Nix.",
+      "description": "This résumé.",
       "languages": ["Nix"],
       "stars": 2,
       "loc": "~690 LOC",
