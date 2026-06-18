@@ -63,8 +63,7 @@
   set par(justify: false, leading: 0.5em)
   text(weight: "bold", size: 10.5pt, fill: c-heading)[#p.name]
   v(3pt)
-  text(size: 8.3pt, fill: c-text)[#p.description]
-  v(5pt)
+  block(height: 0.34in)[#text(size: 8.3pt, fill: c-text)[#p.description]]
   text(size: 6.5pt, fill: c-comment, tracking: 0.2pt)[#for l in p.languages [#langIcon(l) #upper(l)#h(8pt)]★ #p.stars#h(8pt)#upper(p.loc)#if "tests" in p [#h(8pt)#upper(p.tests)]]
   v(4pt)
   text(size: 6.8pt)[#link(p.url)[#text(fill: c-link)[#fa-icon("github") #stripScheme(p.url)]]#if "demo" in p [\ #link(p.demo)[#text(fill: c-link)[#fa-icon("arrow-up-right-from-square") #stripScheme(p.demo)]]]]

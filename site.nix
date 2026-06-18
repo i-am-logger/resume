@@ -127,9 +127,9 @@ a { color: var(--link); text-decoration: none; }
 .kw { color: var(--border); font-size: 9px; letter-spacing: .4px; text-transform: uppercase; margin-top: 5px; }
 .kw .sep { color: var(--comment); }
 .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
-.card { border: 1px solid #dcd4c8; border-radius: 6px; padding: 11px 13px; background: var(--surface); display: flex; flex-direction: column; }
+.card { border: 1px solid #dcd4c8; border-radius: 6px; padding: 11px 13px; background: var(--surface); }
 .cname { font-weight: 700; color: var(--heading); font-size: 14px; }
-.cdesc { font-size: 12px; margin: 7px 0 10px; color: var(--text); flex: 1; }
+.cdesc { font-size: 12px; margin: 7px 0 9px; color: var(--text); min-height: 38px; }
 .cmeta { display: flex; flex-wrap: wrap; gap: 10px; font-size: 9px; color: var(--comment); align-items: center; text-transform: uppercase; letter-spacing: .3px; }
 .m2 { display: inline-flex; align-items: center; gap: 5px; }
 .m2 .ic { width: 11px; height: 11px; }
