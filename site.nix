@@ -117,7 +117,7 @@ body { font-family: "Inter", Arial, "Liberation Sans", sans-serif; color: var(--
   background: #f4efe6 url("assets/photo.png") center / contain no-repeat;
   box-shadow: 0 2px 9px rgba(0,0,0,.22); }
 .headname { min-width: 0; }
-.head h1 { font-size: 22px; font-weight: 700; margin: 0; color: var(--bg); letter-spacing: .2px; }
+.head h1 { font-size: 19px; font-weight: 700; margin: 0; color: var(--bg); letter-spacing: .2px; line-height: 1.15; }
 .subtitle { font-size: 12.5px; color: var(--comment); margin: 4px 0 0; }
 .contact div { display: flex; align-items: center; gap: 9px; font-size: 12px; margin: 6px 0; color: var(--surface); }
 .contact .ic { color: var(--comment); }
@@ -161,20 +161,20 @@ a { color: var(--link); text-decoration: none; }
 .toolbar { position: fixed; bottom: 18px; right: 18px; display: flex; align-items: center; gap: 8px; z-index: 10; }
 .tbtn { display: inline-flex; align-items: center; gap: 7px; color: var(--text); padding: 8px 14px; border-radius: 12px; text-decoration: none; font: inherit; font-size: 13px; cursor: pointer;
   background: var(--surface);
-  background: linear-gradient(rgba(255,255,255,.09), rgba(255,255,255,.02)), color-mix(in srgb, var(--surface) 14%, transparent);
-  -webkit-backdrop-filter: blur(24px) saturate(180%); backdrop-filter: blur(24px) saturate(180%);
-  border: 1px solid rgba(150,150,150,.30);
-  box-shadow: 0 8px 28px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.55); }
+  background: linear-gradient(135deg, rgba(255,255,255,.28) 0%, rgba(255,255,255,.06) 45%, rgba(255,255,255,.02) 100%), color-mix(in srgb, var(--surface) 22%, transparent);
+  -webkit-backdrop-filter: blur(22px) saturate(170%); backdrop-filter: blur(22px) saturate(170%);
+  border: 1px solid color-mix(in srgb, var(--text) 16%, transparent);
+  box-shadow: 0 8px 26px rgba(0,0,0,.22), inset 0 1px 0 rgba(255,255,255,.6), inset 0 -8px 14px -10px rgba(0,0,0,.14); }
 .tbtn:hover { filter: brightness(1.06); }
 .tbtn .ic { color: var(--text); opacity: .7; }
 .tbtn select { background: transparent; color: inherit; border: none; font: inherit; cursor: pointer; outline: none; text-transform: capitalize; }
 .tbtn select option { color: #222; background: #fff; text-transform: capitalize; }
 .poweredby { position: fixed; bottom: 18px; left: 18px; display: inline-flex; align-items: center; gap: 6px; font-size: 11px; color: var(--text); border-radius: 12px; padding: 6px 11px; text-decoration: none; z-index: 10;
   background: var(--surface);
-  background: linear-gradient(rgba(255,255,255,.09), rgba(255,255,255,.02)), color-mix(in srgb, var(--surface) 14%, transparent);
-  -webkit-backdrop-filter: blur(24px) saturate(180%); backdrop-filter: blur(24px) saturate(180%);
-  border: 1px solid rgba(150,150,150,.30);
-  box-shadow: 0 8px 28px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.55); }
+  background: linear-gradient(135deg, rgba(255,255,255,.28) 0%, rgba(255,255,255,.06) 45%, rgba(255,255,255,.02) 100%), color-mix(in srgb, var(--surface) 22%, transparent);
+  -webkit-backdrop-filter: blur(22px) saturate(170%); backdrop-filter: blur(22px) saturate(170%);
+  border: 1px solid color-mix(in srgb, var(--text) 16%, transparent);
+  box-shadow: 0 8px 26px rgba(0,0,0,.22), inset 0 1px 0 rgba(255,255,255,.6), inset 0 -8px 14px -10px rgba(0,0,0,.14); }
 .poweredby:hover { filter: brightness(1.06); }
 .poweredby .ic { width: 12px; height: 12px; color: var(--text); opacity: .7; }
 .poweredby b { color: var(--text); font-weight: 700; }
@@ -189,6 +189,8 @@ a { color: var(--link); text-decoration: none; }
   /* Don't slice an entry/card across a page break. */
   .entry, .item, .erow, .card { break-inside: avoid; }
   .main h3, .sections h2 { break-after: avoid; }
+  /* The print sidebar is narrow — stack the photo above the name so the name isn't clipped. */
+  .headtop { flex-direction: column; align-items: flex-start; gap: 10px; }
 }
 /* Column-stack only on small SCREENS — never in print (A4's narrower width was triggering it). */
 @media screen and (max-width: 720px) { .page { flex-direction: column; } .sidebar, .main { width: 100%; } }
