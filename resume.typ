@@ -153,10 +153,7 @@
       text(fill: accent, size: 8.8pt)[#w.position]
       if "url" in w { linebreak(); urlIcon(w.url) }
       if w.summary != "" { linebreak(); text(size: 8.8pt)[#w.summary] }
-      if w.highlights.len() > 0 {
-        set text(size: 8.3pt)
-        list(..w.highlights)
-      }
+      if w.highlights.len() > 0 { linebreak(); text(fill: ink-mut, size: 7.8pt)[#w.highlights.join(" · ")] }
       v(7pt)
     }
   }),

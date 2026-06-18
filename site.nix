@@ -49,7 +49,7 @@ let
     + lib.optionalString (w ? url) ''<div class="urlrow">${icLink}<a href="${w.url}">${esc (stripScheme w.url)}</a></div>''
     + lib.optionalString (w.summary != "") "<p>${esc w.summary}</p>"
     + lib.optionalString (w.highlights != [])
-      ("<ul>" + lib.concatMapStrings (h: "<li>${esc h}</li>") w.highlights + "</ul>")
+      (''<div class="kw">'' + lib.concatStringsSep " · " (map esc w.highlights) + "</div>")
     + "</div>")
     jobs;
 

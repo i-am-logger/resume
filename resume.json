@@ -226,14 +226,14 @@
   ],
   "publications": [],
   "skills": [
-    { "name": "Rust" },
-    { "name": "Nix / NixOS" },
-    { "name": "CI/CD & Release Engineering" },
     { "name": "Architecture & System Design" },
-    { "name": "Test-Driven Verification" },
-    { "name": "Agentic-AI Engineering" },
     { "name": "Engineering Leadership" },
-    { "name": "Cloud (AWS / Azure / GCP)" }
+    { "name": "Agentic-AI Engineering" },
+    { "name": "Cloud (AWS / Azure / GCP)" },
+    { "name": "CI/CD & Release Engineering" },
+    { "name": "Test-Driven Verification" },
+    { "name": "Rust" },
+    { "name": "Nix / NixOS" }
   ],
   "languages": [
     {
@@ -250,45 +250,23 @@
   "projects": [
     {
       "name": "pr4xis",
-      "description": "Rust engine that represents knowledge as typed ontologies and checks its rules as executable axioms rather than asserting them. 11-crate workspace, ~295K LOC, 7,600+ tests; 4 crates published to crates.io.",
+      "description": "pr4xis is a new kind of AI: axiomatic, not statistical. Where LLMs predict the next token from training data, pr4xis derives the next claim from accepted axioms — the same way mathematicians prove theorems.",
       "keywords": [
         "Rust",
-        "no_std",
-        "ontologies",
-        "crates.io"
+        "~295K LOC",
+        "7,600+ tests"
       ],
       "url": "https://github.com/i-am-logger/pr4xis"
     },
     {
-      "name": "vogix",
-      "description": "NixOS/Hyprland desktop UX subsystem with an evdev→uinput keyboard input engine and runtime theme switching. ~15.5K LOC Rust, unit + NixOS VM tests; most-starred repo (50★), alpha.",
-      "keywords": [
-        "Rust",
-        "NixOS",
-        "Hyprland",
-        "evdev/uinput"
-      ],
+      "name": "Vogix",
+      "description": "Vogix is a declarative UX layer for NixOS and a Rust runtime that unifies desktop configurations (Appearance and Behavior).",
       "url": "https://github.com/i-am-logger/vogix"
     },
     {
       "name": "mynixos",
-      "description": "Released NixOS distribution and module framework with a typed my.* option API (430+ options). ~16K Nix LOC, a Nix test suite plus a VM boot test, automated releases.",
-      "keywords": [
-        "NixOS",
-        "Nix flakes",
-        "nixos-modules"
-      ],
+      "description": "A NixOS-based distribution. Defaults that work, mkDefault so you always win.",
       "url": "https://github.com/i-am-logger/mynixos"
-    },
-    {
-      "name": "nix-license & SALT",
-      "description": "NixOS module that enforces per-package license compliance at build time — an allowUnfree replacement with exhaustive property tests. SALT, its backing dataset, classifies 2,649 licenses with SHA-256 verification.",
-      "keywords": [
-        "Nix",
-        "license compliance",
-        "property-based testing"
-      ],
-      "url": "https://github.com/i-am-logger/nix-license"
     }
   ],
   "meta": {
