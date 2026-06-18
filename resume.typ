@@ -29,7 +29,7 @@
   background: place(left + top, rect(width: side-w, height: 100%, fill: c-surface)),
 )
 #set text(font: ("Inter", "Liberation Sans", "DejaVu Sans"), size: 9.5pt, fill: c-text)
-#set par(justify: true, leading: 0.62em)
+#set par(justify: true, leading: 0.56em)
 
 // ---- helpers ----
 #let raw(d) = if d == none or d == "" { "Current" } else { d }
@@ -47,11 +47,11 @@
   v(3pt)
 }
 #let m-head(t) = {
-  v(9pt)
+  v(6pt)
   text(fill: c-heading, weight: "bold", size: 13pt)[#t]
   v(1pt)
   line(length: 100%, stroke: 1pt + c-heading)
-  v(6pt)
+  v(5pt)
 }
 #let chip(t) = box(fill: c-sel, inset: (x: 5pt, y: 1.5pt), outset: (y: 1.5pt), radius: 3pt,
   text(fill: c-heading, size: 7.8pt)[#t])
@@ -164,7 +164,7 @@
       if "url" in w { linebreak(); urlIcon(w.url) }
       if w.summary != "" { linebreak(); text(size: 8.8pt)[#w.summary] }
       if w.highlights.len() > 0 { linebreak(); v(1pt); sepline(w.highlights) }
-      v(9pt)
+      v(5pt)
     }
   }),
 )
