@@ -165,6 +165,7 @@ a { color: var(--link); text-decoration: none; }
 .tbtn { display: inline-flex; align-items: center; gap: 7px; color: var(--text); padding: 8px 14px; border-radius: 12px; text-decoration: none; font: inherit; font-size: 13px; cursor: pointer;
   background: color-mix(in srgb, var(--surface) 7%, transparent);
   -webkit-backdrop-filter: blur(16px) saturate(140%); backdrop-filter: blur(16px) saturate(140%);
+  will-change: backdrop-filter; transform: translateZ(0);
   border: 1px solid rgba(255,255,255,.15);
   box-shadow: 0 8px 22px rgba(0,0,0,.15), inset 0 1px 0.5px rgba(255,255,255,.4), inset 0 -1.5px 2px rgba(255,255,255,.12); }
 .tbtn:hover { filter: brightness(1.06); }
@@ -174,6 +175,7 @@ a { color: var(--link); text-decoration: none; }
 .poweredby { position: fixed; bottom: 18px; left: 18px; display: inline-flex; align-items: center; gap: 6px; font-size: 11px; color: var(--text); border-radius: 12px; padding: 6px 11px; text-decoration: none; z-index: 10;
   background: color-mix(in srgb, var(--surface) 7%, transparent);
   -webkit-backdrop-filter: blur(16px) saturate(140%); backdrop-filter: blur(16px) saturate(140%);
+  will-change: backdrop-filter; transform: translateZ(0);
   border: 1px solid rgba(255,255,255,.15);
   box-shadow: 0 8px 22px rgba(0,0,0,.15), inset 0 1px 0.5px rgba(255,255,255,.4), inset 0 -1.5px 2px rgba(255,255,255,.12); }
 .poweredby:hover { filter: brightness(1.06); }
