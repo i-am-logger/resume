@@ -222,7 +222,7 @@ a { color: var(--link); text-decoration: none; }
 <div class="toolbar">
   <label class="tbtn" title="Theme">${icPalette}<select id="themeSel">${themeOpts}</select></label>
   <button class="tbtn" id="variantBtn" title="System / light / dark">${icMonitor}<span>System</span></button>
-  <a class="tbtn" href="#" onclick="window.print();return false;">${icPrint} Print</a>
+  <a class="tbtn" href="resume.pdf" target="_blank" rel="noopener" title="Open the clean print-ready PDF (no browser headers/footers)">${icPrint} PDF</a>
 </div>
 <a class="poweredby" href="https://github.com/i-am-logger/vogix16-themes" target="_blank" rel="noopener">${icPalette} Powered by <b>Vogix16</b></a>
 <div class="page">
