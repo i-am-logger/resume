@@ -178,8 +178,19 @@ a { color: var(--link); text-decoration: none; }
 .poweredby .ic { width: 12px; height: 12px; color: var(--text); opacity: .7; }
 .poweredby b { color: var(--text); font-weight: 700; }
 @page { margin: 0; }
-@media print { .toolbar, .poweredby { display: none !important; } * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; } }
-@media (max-width: 720px) { .page { flex-direction: column; } .sidebar, .main { width: 100%; } }
+@media print {
+  .toolbar, .poweredby { display: none !important; }
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  /* Persistent two-tone background so the sidebar surface fills every page edge-to-edge
+     (instead of the .sidebar box ending in a hard rectangle on the last page). */
+  html { background: linear-gradient(to right, var(--surface) 0, var(--surface) 33%, var(--bg) 33%, var(--bg) 100%); }
+  .page { min-height: 0; }
+  /* Don't slice an entry/card across a page break. */
+  .entry, .item, .erow, .card { break-inside: avoid; }
+  .main h3, .sections h2 { break-after: avoid; }
+}
+/* Column-stack only on small SCREENS — never in print (A4's narrower width was triggering it). */
+@media screen and (max-width: 720px) { .page { flex-direction: column; } .sidebar, .main { width: 100%; } }
 </style>
 </head>
 <body>
